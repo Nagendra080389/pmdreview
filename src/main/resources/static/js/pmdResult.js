@@ -18,10 +18,6 @@ function drawChart() {
 
     var parsed = JSON.parse(jsonData);
 
-    var arr = [];
-
-    var reviewMap = {};
-
     var dataArray = [['Class Name', 'Line Number', 'Code Review Result']];
 
     for (var i = 0, keys = Object.keys(parsed), ii = keys.length; i < ii; i++) {
@@ -29,26 +25,8 @@ function drawChart() {
         for (var j = 0; j < eachValueAsArray.length; j++) {
             dataArray.push([keys[i], eachValueAsArray[j].lineNumber , eachValueAsArray[j].reviewFeedback]);
         }
-        //console.log('key : ' + keys[i] + ' val : ' + parsed[keys[i]]);
     }
 
-
-
-    //dataArray.push(['test','test','test']);
-    /*for (var Key in parsed) {
-        //reviewMap[x] = parsed[x];
-        dataArray.push(['test'],['test'],['test']);
-    }*/
-
-
-    /*for (var x in parsed) {
-        arr.push(parsed[x]);
-    }
-*/
-    /*var dataArray = [['Class Name', 'Line Number', 'Code Review Result']];
-    for (var i = 0; i < arr.length; i++) {
-        dataArray.push([arr[i]],[arr[i]],[arr[i]]);
-    }*/
 
     var data = new google.visualization.arrayToDataTable(dataArray);
     var chart = new google.visualization.Table(document.getElementById('pmd_reviewResult_div'));
