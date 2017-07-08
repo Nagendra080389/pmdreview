@@ -68,12 +68,14 @@ public class PMDController {
         if(codeReviewByClass.containsKey(classNameAndLineNumber[0])){
             List<PMDStructure> pmdStructure = codeReviewByClass.get(classNameAndLineNumber[0]);
             PMDStructure pmdStructure1 = new PMDStructure();
+            pmdStructure1.setClassname(classNameAndLineNumber[0]);
             pmdStructure1.setLineNumber(Integer.valueOf(classNameAndLineNumber[1]));
             pmdStructure1.setReviewFeedback(classNameAndLineNumber[2]);
             pmdStructure.add(pmdStructure1);
         }else {
             List<PMDStructure> pmdStructureList = new ArrayList<>();
             PMDStructure pmdStructure = new PMDStructure();
+            pmdStructure.setClassname(classNameAndLineNumber[0]);
             pmdStructure.setLineNumber(Integer.valueOf(classNameAndLineNumber[1]));
             pmdStructure.setReviewFeedback(classNameAndLineNumber[2]);
             pmdStructureList.add(pmdStructure);

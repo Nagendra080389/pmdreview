@@ -7,8 +7,17 @@ import java.io.Serializable;
  */
 public class PMDStructure implements Serializable{
 
+    private String classname;
     private Integer lineNumber;
     private String reviewFeedback;
+
+    public String getClassname() {
+        return classname;
+    }
+
+    public void setClassname(String classname) {
+        this.classname = classname;
+    }
 
     public Integer getLineNumber() {
         return lineNumber;
@@ -33,14 +42,16 @@ public class PMDStructure implements Serializable{
 
         PMDStructure that = (PMDStructure) o;
 
-        if (!lineNumber.equals(that.lineNumber)) return false;
-        return reviewFeedback.equals(that.reviewFeedback);
+        if (classname != null ? !classname.equals(that.classname) : that.classname != null) return false;
+        if (lineNumber != null ? !lineNumber.equals(that.lineNumber) : that.lineNumber != null) return false;
+        return reviewFeedback != null ? reviewFeedback.equals(that.reviewFeedback) : that.reviewFeedback == null;
     }
 
     @Override
     public int hashCode() {
-        int result = lineNumber.hashCode();
-        result = 31 * result + reviewFeedback.hashCode();
+        int result = classname != null ? classname.hashCode() : 0;
+        result = 31 * result + (lineNumber != null ? lineNumber.hashCode() : 0);
+        result = 31 * result + (reviewFeedback != null ? reviewFeedback.hashCode() : 0);
         return result;
     }
 }
