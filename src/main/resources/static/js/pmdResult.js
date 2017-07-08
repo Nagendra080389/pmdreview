@@ -24,17 +24,17 @@ function drawChart() {
 
     var dataArray = [['Class Name', 'Line Number', 'Code Review Result']];
 
-    function PMDStructure(lineNumber, reviewFeedback){
-        this.lineNumber = lineNumber;
-        this.reviewFeedback = reviewFeedback;
+    for (var i = 0, keys = Object.keys(parsed), ii = keys.length; i < ii; i++) {
+        var eachValueAsArray = parsed[keys[i]];
+        for (var j = 0; j < eachValueAsArray.length; j++) {
+            dataArray.push([keys[i], eachValueAsArray[j].lineNumber , eachValueAsArray[j].reviewFeedback]);
+        }
+        //console.log('key : ' + keys[i] + ' val : ' + parsed[keys[i]]);
     }
 
-    for (var Key in parsed) {
-        reviewMap.push(Key, new PMDStructure(parsed[Key]))
 
-    }
 
-    dataArray.push(['test'],['test'],['test']);
+    //dataArray.push(['test','test','test']);
     /*for (var Key in parsed) {
         //reviewMap[x] = parsed[x];
         dataArray.push(['test'],['test'],['test']);
@@ -52,5 +52,5 @@ function drawChart() {
 
     var data = new google.visualization.arrayToDataTable(dataArray);
     var chart = new google.visualization.Table(document.getElementById('pmd_reviewResult_div'));
-    chart.draw(data, {width: 400, height: 240});
+    chart.draw(data, {width: 1920, height: 1080});
 }
