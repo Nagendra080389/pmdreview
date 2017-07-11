@@ -3,15 +3,13 @@ package com.pmdcodereview.controller;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.pmdcodereview.model.PMDStructure;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,10 +21,12 @@ import java.util.Map;
 @RestController
 public class PMDController {
 
-    public static final String FILE_NAME = "G:\\Codes\\pmdreview\\src\\main\\resources\\PMDResultsSample.txt";
+    public String FILE_NAME = null;
 
     @RequestMapping(value = "/getPMDResults", method = RequestMethod.GET)
-    public String getPMDResult() throws FileNotFoundException {
+    public String getPMDResult() throws IOException {
+
+        FILE_NAME = new ClassPathResource("pmdTextTest.log").getFile().getAbsolutePath();
         Map<String, List<PMDStructure>> codeReviewByClass = new HashMap<>();
         List<String> stringList = new ArrayList<>();
         FileInputStream fstream = new FileInputStream(FILE_NAME);

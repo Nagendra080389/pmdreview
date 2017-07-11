@@ -1,0 +1,1087 @@
+Started by an SCM change
+Building in workspace C:\Program Files (x86)\Jenkins\workspace\SyngentaCodeReview
+ > C:\Users\nagesingh\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\cmd\git.exe rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > C:\Users\nagesingh\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\cmd\git.exe config remote.Git_Repo.url https://nagesingh@bitbucket.org/syngenta/syngenta-development.git # timeout=10
+Fetching upstream changes from https://nagesingh@bitbucket.org/syngenta/syngenta-development.git
+ > C:\Users\nagesingh\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\cmd\git.exe --version # timeout=10
+using GIT_ASKPASS to set credentials GIT Password
+ > C:\Users\nagesingh\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\cmd\git.exe fetch --tags --progress https://nagesingh@bitbucket.org/syngenta/syngenta-development.git +refs/heads/*:refs/remotes/Git_Repo/*
+ > C:\Users\nagesingh\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\cmd\git.exe rev-parse "refs/remotes/Git_Repo/release/MOCK^{commit}" # timeout=10
+ > C:\Users\nagesingh\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\cmd\git.exe rev-parse "refs/remotes/Git_Repo/Git_Repo/release/MOCK^{commit}" # timeout=10
+Checking out Revision 90c099fcd791a423f0ec9fae57a6ec00f70ac942 (refs/remotes/Git_Repo/release/MOCK)
+Commit message: "Merged in hotfix/TKT-019709 (pull request #7954)"
+ > C:\Users\nagesingh\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\cmd\git.exe config core.sparsecheckout # timeout=10
+ > C:\Users\nagesingh\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\cmd\git.exe checkout -f 90c099fcd791a423f0ec9fae57a6ec00f70ac942
+ > C:\Users\nagesingh\AppData\Local\GitHub\PortableGit_f02737a78695063deace08e96d5042710d3e32db\cmd\git.exe rev-list 21ca20b688b2c12117943e47225af82348608642 # timeout=10
+[sample] $ cmd.exe /C "C:\Jenkins\apache-ant-1.10.1-bin\apache-ant-1.10.1\bin\ant.bat -file build.xml -DC=Jenkinssalesforce_ant_38.0samplebuild.properties runRuleTest && exit %%ERRORLEVEL%%"
+Buildfile: C:\Jenkins\salesforce_ant_38.0\sample\build.xml
+
+salesForceFileExtractor:
+     [echo] Extract Files
+     [exec] 
+     [exec] C:\Jenkins>cd C:\Jenkins 
+     [exec] 
+     [exec] C:\Jenkins>C:
+     [exec] 
+     [exec] C:\Jenkins>java -jar C:\Jenkins\salesForceClassExtractor-jar-with-dependencies.jar 
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+     [exec] NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN
+
+packageFileModifier:
+     [echo] Package Modifier
+     [exec] 
+     [exec] C:\Jenkins>cd C:\Jenkins 
+     [exec] 
+     [exec] C:\Jenkins>C:
+     [exec] 
+     [exec] C:\Jenkins>java -jar C:\Jenkins\packageFileModifier-jar-with-dependencies.jar 
+     [exec] Class Name is AccountTriggerHandler
+     [exec] Class Name is SmartyStreetsAddressEntity
+     [exec] Class Name is AccountTriggerHandler
+     [exec] Class Name is IAddressParserProviderCls
+     [exec] Class Name is SYT_jsonToApexInternationAddress
+     [exec] Class Name is SYT_formattedAddressJsontoApex
+     [exec] Class Name is SmartyStreetsAddressEntity
+     [exec] Class Name is IAddressParserProvider
+     [exec] Class Name is AddressEntity
+     [exec] Class Name is SmartyStreetsRetryProvider
+     [exec] Class Name is IAddressProvider
+     [exec] Class Name is AddressProvider_US
+     [exec] Class Name is AddressProviderFactory
+     [exec] Class Name is AddressProvider_Canada
+     [exec] Class Name is AccountTriggerHandler
+     [exec] Class Name is IAddressParserProviderCls
+     [exec] Class Name is SYT_VisitReportTriggerHandler
+     [exec] Class Name is ConstantsUtils
+     [exec] Class Name is SmartyStreetsMockHttpResponseGenerator
+     [exec] Class Name is SmartyStreetsRetryProvider
+     [exec] Class Name is TestSmartyStreetsRetryProvider
+     [exec] Class Name is AccountTriggerHandler
+     [exec] Class Name is IRetryProvider
+     [exec] Class Name is ScheduleRetryProvider
+     [exec] Class Name is IAddressParserProviderCls
+     [exec] Class Name is SYT_VisitReportTriggerHandler
+     [exec] Class Name is TST_VisitReportTriggerHandler
+     [exec] Class Name is ConstantsUtils
+     [exec] Class Name is TST_SYT_PricePublishingCode
+     [exec] Class Name is TestBusinessHelper
+     [exec] Class Name is TestObjectHelper
+     [exec] Class Name is CampaignMemberFollowUpController
+     [exec] Class Name is GloviaAcceleratorUtility
+     [exec] Class Name is OrderTriggerHandler
+     [exec] Class Name is TestSmartyStreetsRetryProvider
+     [exec] Class Name is SmartyStreetsRetryProvider
+     [exec] Class Name is giic_PricingLineHelper
+     [exec] Class Name is GloviaAcceleratorUtility
+     [exec] Class Name is CTR_EndingInventoryEdit
+     [exec] Class Name is TST_EndingInventoryEdit
+     [exec] Class Name is CTR_EndingInventoryEdit
+     [exec] Class Name is AddressProviderFactory
+     [exec] Class Name is AccountTriggerHandler
+     [exec] Class Name is AccountTriggerHandler
+     [exec] Class Name is BioPotentialUpdate_Test
+     [exec] Class Name is SYT_PriceListPublishing
+     [exec] Class Name is SYT_PriceListPublishingAcc
+     [exec] Class Name is CBRuleHelper
+
+deleteFiles:
+     [echo] Delete files.
+     [exec] 
+     [exec] C:\Jenkins>del /s /q "C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\*.*" 
+
+retrieveFilesFromOrg:
+     [echo] Retrieve files from Org
+[sf:retrieve] Request for a retrieve submitted successfully.
+[sf:retrieve] Request ID for the current retrieve task: 09S0E0000001AmPUAU
+[sf:retrieve] Waiting for server to finish processing the request...
+[sf:retrieve] Request Status: Succeeded
+[sf:retrieve] Finished request 09S0E0000001AmPUAU successfully.
+
+runRuleTest:
+
+BUILD SUCCESSFUL
+Total time: 9 seconds
+Performing Post build task...
+Match found for :NEW CLASSES COMMITTED, PMD CODE REVIEW WILL RUN : True
+Logical operation result is TRUE
+Running script  : C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\runPmd.bat
+[SyngentaCodeReview] $ cmd /c call C:\WINDOWS\TEMP\jenkins6708204742971235510.bat
+
+C:\Program Files (x86)\Jenkins\workspace\SyngentaCodeReview>C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\runPmd.bat
+
+C:\Program Files (x86)\Jenkins\workspace\SyngentaCodeReview>cd C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\bin 
+
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\bin>C:
+
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\bin>pmd.bat -rulesets C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\rules\ApexRules.xml -d C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes 
+Jul 05, 2017 9:52:29 AM apex.jorje.parser.impl.BaseApexLexer dedupe
+INFO: Deduped array ApexLexer.DFA23_transition. Found 7927114 shorts which is 15MB not including array overhead. Removed 7204963 shorts which is 13MB not counting array overhead. Took 2ms.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:44:	Avoid really long classes (lines of code)
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:44:	The class 'AccountTriggerHandler' has a Standard Cyclomatic Complexity of 7 (Highest = 29).
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:44:	The type has an NCSS line count of 1048
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:44:	This class has too many public methods and attributes
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:50:	Variables should start with a lowercase character, 'RunningUsr' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:51:	Variables should start with a lowercase character, 'AccountRecordtypes' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:52:	Variables should start with a lowercase character, 'MasterAccIdsAfterMerge' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:53:	Variables should start with a lowercase character, 'AccConMap' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:69:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:94:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:94:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:114:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:123:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:145:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:145:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:215:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:220:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:489:	The method 'assignTerritory' has a Standard Cyclomatic Complexity of 19.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:489:	The method assignTerritory() has an NCSS line count of 80
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:574:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:587:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:619:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:619:	The method 'deleteOldAssignedTerritories' has a Standard Cyclomatic Complexity of 12.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:665:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:790:	The method 'calculateInventorySelfCare' has a Standard Cyclomatic Complexity of 20.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:790:	The method calculateInventorySelfCare() has an NCSS line count of 79
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:893:	The method 'updateAccountRegion' has a Standard Cyclomatic Complexity of 29.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:893:	The method updateAccountRegion() has an NCSS line count of 139
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:897:	Variables should start with a lowercase character, 'Zipcode' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:898:	Variables should start with a lowercase character, 'StateName' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:899:	Variables should start with a lowercase character, 'CountryCode' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:975:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:983:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1038:	The method 'updateFieldsBasedOnLocation' has a Standard Cyclomatic Complexity of 10.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1109:	The method 'calculateFormulaFields' has a Standard Cyclomatic Complexity of 11.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1111:	Variables should start with a lowercase character, 'ACCDevFullNAme' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1112:	Variables should start with a lowercase character, 'DMFullNAme' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1114:	Variables should start with a lowercase character, 'UpdateAccount' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1166:	The method 'updateTankRecords' has a Standard Cyclomatic Complexity of 10.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1205:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1205:	Variables should start with a lowercase character, 'AccOld' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1205:	Variables should start with a lowercase character, 'AccOldMap' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1232:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1232:	The method 'CreateObqOnAccMergeDelete' has a Standard Cyclomatic Complexity of 11.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1232:	Variables should start with a lowercase character, 'AccOld' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1232:	Variables should start with a lowercase character, 'AccOldMap' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1235:	Variables should start with a lowercase character, 'MergedChildAccMap' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1236:	Variables should start with a lowercase character, 'ReparentedContactsLst' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1237:	Variables should start with a lowercase character, 'MasterAccIdSet' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1239:	Variables should start with a lowercase character, 'AccountRecTypeGrower' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1253:	Variables should start with a lowercase character, 'AccId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1267:	Variables should start with a lowercase character, 'AccId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1298:	Variables should start with a lowercase character, 'OldAccountMap' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1339:	The method 'createOutboundqueueRecordsForAccountInsert' has a Standard Cyclomatic Complexity of 11.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1394:	The method 'createOutboundqueueRecordsForAccountUpdate' has a Standard Cyclomatic Complexity of 25.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1394:	The method createOutboundqueueRecordsForAccountUpdate() has an NCSS line count of 157
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1400:	Variables should start with a lowercase character, 'FeedItemList' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1414:	Variables should start with a lowercase character, 'FeedMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1422:	Variables should start with a lowercase character, 'FeedMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1429:	Variables should start with a lowercase character, 'FeedMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1436:	Variables should start with a lowercase character, 'FeedMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1444:	Variables should start with a lowercase character, 'FeedMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1451:	Variables should start with a lowercase character, 'FeedMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1458:	Variables should start with a lowercase character, 'FeedMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1465:	Variables should start with a lowercase character, 'FeedMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1472:	Variables should start with a lowercase character, 'FeedMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1479:	Variables should start with a lowercase character, 'FeedMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1486:	Variables should start with a lowercase character, 'FeedMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1493:	Variables should start with a lowercase character, 'FeedMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1501:	Variables should start with a lowercase character, 'FeedMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1508:	Variables should start with a lowercase character, 'FeedMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1516:	Variables should start with a lowercase character, 'FeedMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1646:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1646:	Variables should start with a lowercase character, 'Msg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1646:	Variables should start with a lowercase character, 'ParentId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AccountTriggerHandler.cls:1791:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AddressProvider_Canada.cls:9:	The class 'AddressProvider_Canada' has a Standard Cyclomatic Complexity of 11 (Highest = 10).
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AddressProvider_Canada.cls:14:	The method 'getAddress' has a Standard Cyclomatic Complexity of 10.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AddressProvider_US.cls:9:	The class 'AddressProvider_US' has a Standard Cyclomatic Complexity of 12 (Highest = 11).
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\AddressProvider_US.cls:14:	The method 'getAddress' has a Standard Cyclomatic Complexity of 11.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\BioPotentialUpdate_Test.cls:29:	Apex unit test classes should have at least one System.assert() or assertEquals() or AssertNotEquals() call
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CBRuleHelper.cls:13:	Apex classes should declare a sharing model if DML or SOQL is used
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CBRuleHelper.cls:16:	Variables should start with a lowercase character, 'TerritoryIds' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CBRuleHelper.cls:55:	Variables should start with a lowercase character, 'AccountIdMap' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CTR_EndingInventoryEdit.cls:7:	Apex classes should declare a sharing model if DML or SOQL is used
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CTR_EndingInventoryEdit.cls:7:	The class 'CTR_EndingInventoryEdit' has a Standard Cyclomatic Complexity of 2 (Highest = 13).
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CTR_EndingInventoryEdit.cls:9:	Variables should start with a lowercase character, 'EndingInventory' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CTR_EndingInventoryEdit.cls:12:	Variables should start with a lowercase character, 'PurchaseQty' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CTR_EndingInventoryEdit.cls:13:	Variables should start with a lowercase character, 'DateBulkInventoryWasTaken' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CTR_EndingInventoryEdit.cls:14:	Variables should start with a lowercase character, 'EndingInventoryStatus' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CTR_EndingInventoryEdit.cls:44:	Variables should start with a lowercase character, 'LockedRecordTypeId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CTR_EndingInventoryEdit.cls:66:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CTR_EndingInventoryEdit.cls:66:	The method 'CalculatePurchaseQty' has a Standard Cyclomatic Complexity of 13.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CTR_EndingInventoryEdit.cls:69:	Variables should start with a lowercase character, 'OctoberFirst' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CTR_EndingInventoryEdit.cls:69:	Variables should start with a lowercase character, 'SeptemberThirty' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CTR_EndingInventoryEdit.cls:74:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'BEI_date' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CTR_EndingInventoryEdit.cls:74:	Variables should start with a lowercase character, 'BEI_date' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CTR_EndingInventoryEdit.cls:102:	Variables should start with a lowercase character, 'ProductIdString' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CTR_EndingInventoryEdit.cls:122:	Apex classes should escape variables merged in DML query
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CTR_EndingInventoryEdit.cls:129:	Apex classes should escape variables merged in DML query
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:28:	Apex classes should declare a sharing model if DML or SOQL is used
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:28:	The class 'CampaignMemberFollowUpController' has a Standard Cyclomatic Complexity of 2 (Highest = 25).
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:28:	This class has too many public methods and attributes
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:28:	Too many fields
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:30:	Variables should start with a lowercase character, 'F' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:31:	Variables should start with a lowercase character, 'P' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:34:	Variables should start with a lowercase character, 'SelectedStatus' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:38:	Variables should start with a lowercase character, 'UserKeyPrefix' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:40:	Variables should start with a lowercase character, 'StatusTask' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:41:	Variables should start with a lowercase character, 'SelectedCampaign' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:51:	Variables should start with a lowercase character, 'CMOwner' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:57:	Variables should start with a lowercase character, 'CMemberList' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:59:	Variables should start with a lowercase character, 'BadCMemberList' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:61:	Variables should start with a lowercase character, 'CMemberListNext' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:63:	Variables should start with a lowercase character, 'SurveyList' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:67:	Variables should start with a lowercase character, 'OwnerTodoList' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:69:	Variables should start with a lowercase character, 'OwnerTodo' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:70:	Variables should start with a lowercase character, 'CampaignOwner' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:71:	Variables should start with a lowercase character, 'SelectedCM' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:115:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:152:	Variables should start with a lowercase character, 'CMemberListNext' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:157:	The constructor has an NCSS line count of 23
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:200:	This class has too many public methods and attributes
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:201:	Variables should start with a lowercase character, 'Id' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:202:	Variables should start with a lowercase character, 'FirstName' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:203:	Variables should start with a lowercase character, 'LastName' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:204:	Variables should start with a lowercase character, 'CMType' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:205:	Variables should start with a lowercase character, 'Email' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:206:	Variables should start with a lowercase character, 'Employer' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:207:	Variables should start with a lowercase character, 'City' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:208:	Variables should start with a lowercase character, 'Status' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:209:	Variables should start with a lowercase character, 'OwnerId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:211:	Variables should start with a lowercase character, 'WhoId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:212:	Variables should start with a lowercase character, 'NumberOfEmployees' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:213:	Variables should start with a lowercase character, 'Title' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:214:	Variables should start with a lowercase character, 'ZipCode' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:215:	Variables should start with a lowercase character, 'OwnerIsActive' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:273:	Variables should start with a lowercase character, 'OwnerTodo' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:277:	The method 'generateTodos' has a Standard Cyclomatic Complexity of 17.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:277:	The method generateTodos() has an NCSS line count of 82
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:288:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:314:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:357:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:394:	Variables should start with a lowercase character, 'SelectedStatus' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:417:	Variables should start with a lowercase character, 'CM' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:418:	Variables should start with a lowercase character, 'MyCM' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:526:	Variables should start with a lowercase character, 'SelectedCampaign' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:531:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:556:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:597:	Method names should not contain underscores
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:600:	Variables should start with a lowercase character, 'PageNext' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:601:	Variables should start with a lowercase character, 'PageUntil' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:607:	Variables should start with a lowercase character, 'FS' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:608:	Variables should start with a lowercase character, 'FSP' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:633:	Variables should start with a lowercase character, 'Title' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:634:	Variables should start with a lowercase character, 'EmployeesFrom' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:635:	Variables should start with a lowercase character, 'EmployeesTo' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:636:	Variables should start with a lowercase character, 'Zip' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:645:	The method 'gofilter' has a Standard Cyclomatic Complexity of 25.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:645:	The method gofilter() has an NCSS line count of 77
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:735:	Variables should start with a lowercase character, 'CMList' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\CampaignMemberFollowUpController.cls:749:	Apex classes should escape variables merged in DML query
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:46:	Too many fields
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:116:	Variables that are final and static should be all capitals, 'RT_OPP_GL_ASP_CP_Appr' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:118:	Variables that are final and static should be all capitals, 'RT_OPP_GL_ASP_SE_Appr' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:120:	Variables that are final and static should be all capitals, 'RT_OPP_GL_TSP_CP_Appr' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:122:	Variables that are final and static should be all capitals, 'RT_OPP_GL_TSP_SE_Appr' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:133:	Variables that are final and static should be all capitals, 'RT_OPP_GL_NTASP_CP_Appr' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:134:	Variables that are final and static should be all capitals, 'RT_OPP_GL_NTASP_SE_Appr' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:149:	Variables that are final and static should be all capitals, 'RT_OPPTY_US_DSP_Nplus1' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:150:	Variables that are final and static should be all capitals, 'RT_BP_US_Seeds_DSP_Nplus1' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:151:	Variables that are final and static should be all capitals, 'RT_OPPTY_US_TSP_Nplus1' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:160:	Variables that are final and static should be all capitals, 'RT_Buying_Terms' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:161:	Variables that are final and static should be all capitals, 'RT_Offer_Terms' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:256:	Variables that are final and static should be all capitals, 'Flex_Fund_SEC_CU_Only' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:257:	Variables that are final and static should be all capitals, 'Bulk_Package_Stocking' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:258:	Variables that are final and static should be all capitals, 'Equal_Acre' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:259:	Variables that are final and static should be all capitals, 'Grower_Investment' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:283:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'RecrdTpe_Area_Level_Offer_DeveloperName' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:283:	Variables should start with a lowercase character, 'RecrdTpe_Area_Level_Offer_DeveloperName' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:284:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'RecrdTpe_Campaign_Tactic_DeveloperName' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:284:	Variables should start with a lowercase character, 'RecrdTpe_Campaign_Tactic_DeveloperName' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:285:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'RecrdTpe_Targeted_Offer_DeveloperName' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:285:	Variables should start with a lowercase character, 'RecrdTpe_Targeted_Offer_DeveloperName' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:290:	Variables that are final and static should be all capitals, 'BP_Transactional_RT' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:293:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'TargetCaptureLOV_Piclist' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:293:	Variables should start with a lowercase character, 'TargetCaptureLOV_Piclist' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:295:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'TargetCaptureLOV_Default' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:295:	Variables should start with a lowercase character, 'TargetCaptureLOV_Default' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:296:	Variables should start with a lowercase character, 'TargetCaptureMinQty' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:297:	Variables should start with a lowercase character, 'TargetCaptureMinSales' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:300:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'TacticLOV_Piclist' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:300:	Variables should start with a lowercase character, 'TacticLOV_Piclist' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:303:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'TacticLOV_Seed_Piclist' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:303:	Variables should start with a lowercase character, 'TacticLOV_Seed_Piclist' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:306:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'TacticLOV_CP_Piclist' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:306:	Variables should start with a lowercase character, 'TacticLOV_CP_Piclist' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:309:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'TacticLOV_other_Piclist' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:309:	Variables should start with a lowercase character, 'TacticLOV_other_Piclist' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:311:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'CURR_YEAR' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:311:	Variables should start with a lowercase character, 'CURR_YEAR' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:312:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'PREV_YEAR' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:312:	Variables should start with a lowercase character, 'PREV_YEAR' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:314:	Variables should start with a lowercase character, 'QUALDPS' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:315:	Variables should start with a lowercase character, 'NETDPS' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:316:	Variables should start with a lowercase character, 'QFNS' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:318:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'Search_Domain_SA' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:318:	Variables should start with a lowercase character, 'Search_Domain_SA' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:321:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'QualifierTypeLOV_Piclist' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:321:	Variables should start with a lowercase character, 'QualifierTypeLOV_Piclist' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:324:	Variables should start with a lowercase character, 'MarketYear' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:327:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'QualifierTypeLOV_Default' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:327:	Variables should start with a lowercase character, 'QualifierTypeLOV_Default' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:329:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'Intent_Farmgate' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:329:	Variables should start with a lowercase character, 'Intent_Farmgate' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:330:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'Intent_Profit' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:330:	Variables should start with a lowercase character, 'Intent_Profit' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:331:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'Intent_Investment' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:331:	Variables should start with a lowercase character, 'Intent_Investment' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:333:	Variables should start with a lowercase character, 'SOY' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:335:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'Classification_Incentive' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:335:	Variables should start with a lowercase character, 'Classification_Incentive' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:336:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'Classification_Qualifiers' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:336:	Variables should start with a lowercase character, 'Classification_Qualifiers' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:337:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'Classification_CampaignTactic' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:337:	Variables should start with a lowercase character, 'Classification_CampaignTactic' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:339:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'Commercial_Unit' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:339:	Variables should start with a lowercase character, 'Commercial_Unit' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:341:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'ProductType_CP' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:341:	Variables should start with a lowercase character, 'ProductType_CP' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:343:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'ProductType_Seeds' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:343:	Variables should start with a lowercase character, 'ProductType_Seeds' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:344:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'ProductType_SE' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:344:	Variables should start with a lowercase character, 'ProductType_SE' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:346:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'CAMPAIGN_TACTIC' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:346:	Variables should start with a lowercase character, 'CAMPAIGN_TACTIC' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:347:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'CAMPAIGN_TACTIC_Dev' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:347:	Variables should start with a lowercase character, 'CAMPAIGN_TACTIC_Dev' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:349:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'Product_Level_BRAND' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:349:	Variables should start with a lowercase character, 'Product_Level_BRAND' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:351:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'Product_RT_CP' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:351:	Variables should start with a lowercase character, 'Product_RT_CP' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:352:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'Product_RT_SEED' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:352:	Variables should start with a lowercase character, 'Product_RT_SEED' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:353:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'Product_RT_Seed_Crop' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:353:	Variables should start with a lowercase character, 'Product_RT_Seed_Crop' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:354:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'Product_RT_SEED_Variety' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:354:	Variables should start with a lowercase character, 'Product_RT_SEED_Variety' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:355:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'Product_RT_SEED_Commercial' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:355:	Variables should start with a lowercase character, 'Product_RT_SEED_Commercial' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:356:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'Product_RT_Brand_CP_Commercial' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:356:	Variables should start with a lowercase character, 'Product_RT_Brand_CP_Commercial' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:359:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'LOCATION_ACCOUNT' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:359:	Variables should start with a lowercase character, 'LOCATION_ACCOUNT' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:360:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'QUAL_ACCOUNT' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:360:	Variables should start with a lowercase character, 'QUAL_ACCOUNT' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:361:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'REPORTING_ACCOUNT' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:361:	Variables should start with a lowercase character, 'REPORTING_ACCOUNT' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:364:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'PORTAL_ACCOUNT_ID' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:364:	Variables should start with a lowercase character, 'PORTAL_ACCOUNT_ID' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:368:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'LOCATION_ACCOUNT_LEVEL' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:368:	Variables should start with a lowercase character, 'LOCATION_ACCOUNT_LEVEL' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:369:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'QUAL_ACCOUNT_LEVEL' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:369:	Variables should start with a lowercase character, 'QUAL_ACCOUNT_LEVEL' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:370:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'REPORTING_ACCOUNT_LEVEL' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:370:	Variables should start with a lowercase character, 'REPORTING_ACCOUNT_LEVEL' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:381:	Variables that are final and static should be all capitals, 'BRCountryCode' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:382:	Variables that are final and static should be all capitals, 'BRCountryName' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:387:	Variables that are final and static should be all capitals, 'PrintInProgress' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:388:	Variables that are final and static should be all capitals, 'PrintTemplate' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:389:	Variables that are final and static should be all capitals, 'PrintEmailme' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:390:	Variables that are final and static should be all capitals, 'PrintLastUser' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:391:	Variables that are final and static should be all capitals, 'PrintFormula' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:392:	Variables that are final and static should be all capitals, 'RTDevName' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:395:	Variables that are final and static should be all capitals, 'ParameterError' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:396:	Variables that are final and static should be all capitals, 'PrintAlreadyInProgress' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:397:	Variables that are final and static should be all capitals, 'InvalidTemplate' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:398:	Variables that are final and static should be all capitals, 'contractAPI' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:399:	Variables that are final and static should be all capitals, 'ExhibitA' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:400:	Variables that are final and static should be all capitals, 'Bulk_Eqip_Comm_Prog' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:401:	Variables that are final and static should be all capitals, 'Bulk_Exhibit' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:402:	Variables that are final and static should be all capitals, 'Bulk_Repackaging' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:403:	Variables that are final and static should be all capitals, 'Required' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:404:	Variables that are final and static should be all capitals, 'Offers_GI' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:405:	Variables that are final and static should be all capitals, 'Draw_ADD' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:406:	Variables that are final and static should be all capitals, 'EwithEC' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:407:	Variables that are final and static should be all capitals, 'EwithoutEC' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:408:	Variables that are final and static should be all capitals, 'SendLPI' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:411:	Variables that are final and static should be all capitals, 'SYT_ESID_Param' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:412:	Variables that are final and static should be all capitals, 'SYT_ID_param' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:413:	Variables that are final and static should be all capitals, 'SYT_MFTSO_param' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:414:	Variables that are final and static should be all capitals, 'SYT_Query_param' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:415:	Variables that are final and static should be all capitals, 'SYT_Template_param' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:416:	Variables that are final and static should be all capitals, 'SYT_GeneratePDF_param' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:418:	Variables that are final and static should be all capitals, 'SYT_QMode_EmailMe_param' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:419:	Variables that are final and static should be all capitals, 'SYT_QMode_Attachment_param' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:420:	Variables that are final and static should be all capitals, 'SYT_QMode_EmailMe_To_param' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:421:	Variables that are final and static should be all capitals, 'SYT_QMode_EmailMe_Subject_param' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:422:	Variables that are final and static should be all capitals, 'SYT_QMode_param' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:423:	Variables that are final and static should be all capitals, 'SYT_QMode_SendEmail' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:438:	Variables that are final and static should be all capitals, 'campaignRectypesBR' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:439:	Variables that are final and static should be all capitals, 'campaignAPI' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:446:	Variables that are final and static should be all capitals, 'eventRectypesBR' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:447:	Variables that are final and static should be all capitals, 'eventAPI' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:450:	Variables that are final and static should be all capitals, 'SYT_Campaign_Tier1' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:451:	Variables that are final and static should be all capitals, 'SYT_Campaign_Tier3' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:484:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'VOP_Product' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:484:	Variables should start with a lowercase character, 'VOP_Product' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:485:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'VOP_ICS_Use_Program' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:485:	Variables should start with a lowercase character, 'VOP_ICS_Use_Program' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:487:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'Task_RT_Campaign_Milestone' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:487:	Variables should start with a lowercase character, 'Task_RT_Campaign_Milestone' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:488:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'Task_Campaign_Plan_Preparation' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:488:	Variables should start with a lowercase character, 'Task_Campaign_Plan_Preparation' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:489:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'Task_SUL_Plan_Preparation' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:489:	Variables should start with a lowercase character, 'Task_SUL_Plan_Preparation' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:492:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'Case_Technical_Inquiry' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:492:	Variables should start with a lowercase character, 'Case_Technical_Inquiry' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:505:	Variables should start with a lowercase character, 'SOYBEAN' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:506:	Variables should start with a lowercase character, 'CORN' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:507:	Variables should start with a lowercase character, 'RecordTypeString' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:508:	Variables should start with a lowercase character, 'OppSalesPlanId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:509:	Variables should start with a lowercase character, 'TerritorySalesPlanId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:510:	Variables should start with a lowercase character, 'ReturnURL' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:513:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'PARENT_ID' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:513:	Variables should start with a lowercase character, 'PARENT_ID' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:514:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'CHILD_TO_PARENT_REF_NAME' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:514:	Variables should start with a lowercase character, 'CHILD_TO_PARENT_REF_NAME' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:515:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'DATE_FORMAT' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:515:	Variables should start with a lowercase character, 'DATE_FORMAT' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:516:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'PRODUCT_ID' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:516:	Variables should start with a lowercase character, 'PRODUCT_ID' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:517:	Variables should start with a lowercase character, 'BLANK' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:520:	Variables should start with a lowercase character, 'UserCountry' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:521:	Variables should start with a lowercase character, 'DynamicLookUp' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:522:	Variables should start with a lowercase character, 'DynamicChidToParentRef' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:525:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'SYT_APPROVED' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:525:	Variables should start with a lowercase character, 'SYT_APPROVED' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:526:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'SYT_SUBMITTED_FOR_APPROVAL' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:526:	Variables should start with a lowercase character, 'SYT_SUBMITTED_FOR_APPROVAL' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:529:	Variables should start with a lowercase character, 'IMPORTS' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:530:	Variables should start with a lowercase character, 'GETCOLUMNTOOBJECTS' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:532:	Variables should start with a lowercase character, 'IMPORTOLIKEY' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:533:	Variables should start with a lowercase character, 'IMPORTTYPE' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:534:	Variables should start with a lowercase character, 'IMPORTSEEDSALLOC' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:535:	Variables should start with a lowercase character, 'IMPORTBATCHREJECTED' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:536:	Variables should start with a lowercase character, 'IMPORTERROR' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:537:	Variables should start with a lowercase character, 'IMPORTERRORMESSAGE' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:538:	Variables should start with a lowercase character, 'IMPORTROWNUMBER' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:539:	Variables should start with a lowercase character, 'STAGENAME' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:540:	Variables should start with a lowercase character, 'APPROVALSTATUS' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:541:	Variables should start with a lowercase character, 'SEEDSSALESPLAN' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:542:	Variables should start with a lowercase character, 'PRODUCT2IDFIELD' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:543:	Variables should start with a lowercase character, 'UNITPRICE' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:544:	Variables should start with a lowercase character, 'ONE' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:545:	Variables should start with a lowercase character, 'RTID' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:546:	Variables should start with a lowercase character, 'OWNERID' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:549:	Variables should start with a lowercase character, 'DUMMYACCOUNTID' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:557:	Variables should start with a lowercase character, 'FullVRRecordTypedevName' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:558:	Variables should start with a lowercase character, 'Error1stPart' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:559:	Variables should start with a lowercase character, 'Error2ndPart' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:564:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'BR_CHILD_BP_RecTypeName' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:564:	Variables should start with a lowercase character, 'BR_CHILD_BP_RecTypeName' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:565:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'BR_PARENT_BP_RecTypeName' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:565:	Variables should start with a lowercase character, 'BR_PARENT_BP_RecTypeName' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:571:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'RECURSIVE_CHECK' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:571:	Variables should start with a lowercase character, 'RECURSIVE_CHECK' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:574:	Variables should start with a lowercase character, 'ChannelConsultantPSName' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:575:	Variables should start with a lowercase character, 'TechniclAssitantPSName' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:576:	Variables should start with a lowercase character, 'CCTemplateNameVR' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:577:	Variables should start with a lowercase character, 'TATemplateNameVR' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:578:	Variables should start with a lowercase character, 'CCERROR' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:579:	Variables should start with a lowercase character, 'TAERROR' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:580:	Variables should start with a lowercase character, 'SimpleVRRecordTypedevName' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:588:	Variables should start with a lowercase character, 'AccMerge' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:591:	Variables should start with a lowercase character, 'ConsumptionStatus01' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:592:	Variables should start with a lowercase character, 'ConsumptionStatus02' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:593:	Variables should start with a lowercase character, 'ConsumptionStatus03' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:594:	Variables should start with a lowercase character, 'ConsumptionStatus04' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:597:	Variables should start with a lowercase character, 'BPRTBR02' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:598:	Variables should start with a lowercase character, 'BPRTBR01' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:599:	Variables should start with a lowercase character, 'SPRTSP02' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:600:	Variables should start with a lowercase character, 'SPRTSP01' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:603:	Variables should start with a lowercase character, 'CArecType' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:604:	Variables should start with a lowercase character, 'CCArecType' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:613:	Variables should start with a lowercase character, 'PrepsATRecordType' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:614:	Variables should start with a lowercase character, 'PrepsATPrizeRecordType' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:616:	Variables should start with a lowercase character, 'CommissionsAPI' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:617:	Variables should start with a lowercase character, 'CommissionRuleVRType' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:631:	Variables that are final and static should be all capitals, 'NK_Brand' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:632:	Variables that are final and static should be all capitals, 'GH_Brand' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:633:	Variables that are final and static should be all capitals, 'EG_Brand' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:650:	Variables that are final and static should be all capitals, 'CASE_SERVICE_COMPLAINT_RTname' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:654:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'RT_OPP_GL_NTSP_SE' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:654:	Variables should start with a lowercase character, 'RT_OPP_GL_NTSP_SE' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:655:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'RT_OPP_GL_NTSP_CP' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:655:	Variables should start with a lowercase character, 'RT_OPP_GL_NTSP_CP' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:657:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'BR_Currency' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:657:	Variables should start with a lowercase character, 'BR_Currency' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:659:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'BR_REGION_SALES_PERMISSION_SET' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:659:	Variables should start with a lowercase character, 'BR_REGION_SALES_PERMISSION_SET' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:671:	Variables that are final and static should be all capitals, 'OpptyRecordTypeNameField' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:672:	Variables that are final and static should be all capitals, 'CorporateAccountParentField' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:673:	Variables that are final and static should be all capitals, 'OpptyPlanYear' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:674:	Variables that are final and static should be all capitals, 'PBEProductId' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:675:	Variables that are final and static should be all capitals, 'BeginningInventoryVolumeField' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:676:	Variables that are final and static should be all capitals, 'TRId' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:678:	Variables that are final and static should be all capitals, 'OpportunityIdField' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:679:	Variables that are final and static should be all capitals, 'PriceBookEntryIdField' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:680:	Variables that are final and static should be all capitals, 'UnitPriceField' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:695:	Variables that are final and static should be all capitals, 'Baseline_PL_Baltics_Country' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:698:	Variables that are final and static should be all capitals, 'Object_Price_List' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:711:	Variables that are final and static should be all capitals, 'RT_US_Seeds_ASP_Nplus1' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:712:	Variables that are final and static should be all capitals, 'RT_US_Seeds_DSP_Nplus1' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ConstantsUtils.cls:716:	Variables that are final and static should be all capitals, 'RT_US_DSP_Nplus1' is not all capitals.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:11:	Avoid really long classes (lines of code)
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:11:	The class 'GloviaAcceleratorUtility' has a Standard Cyclomatic Complexity of 18 (Highest = 129).
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:11:	This class has too many public methods and attributes
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:12:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:12:	The method 'fetchDynamicMapping' has a Standard Cyclomatic Complexity of 13.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:36:	Apex classes should escape variables merged in DML query
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:56:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:77:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:92:	Avoid really long classes (lines of code)
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:95:	Variables should start with a lowercase character, 'RequiredFieldsDetails' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:103:	Avoid really long classes (lines of code)
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:106:	Variables should start with a lowercase character, 'ChildWrapperFieldMapping' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:113:	Avoid really long classes (lines of code)
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:130:	Avoid really long classes (lines of code)
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:131:	Variables should start with a lowercase character, 'RequiredFieldsInfo' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:147:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:147:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:147:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:194:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:194:	The method 'createSalesOrderResponse' has a Standard Cyclomatic Complexity of 21.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:194:	The method createSalesOrderResponse() has an NCSS line count of 99
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:194:	Variables should start with a lowercase character, 'DynamicMappingName' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:194:	Variables should start with a lowercase character, 'RequestType' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:218:	Apex classes should escape variables merged in DML query
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:229:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:330:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:330:	The method 'GetDescribeResults' has a Standard Cyclomatic Complexity of 11.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:352:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:390:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:395:	Apex classes should escape variables merged in DML query
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:409:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:443:	Avoid really long classes (lines of code)
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:453:	Avoid really long classes (lines of code)
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:467:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:467:	The method 'assignSobjectValue' has a Standard Cyclomatic Complexity of 31.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:467:	The method assignSobjectValue() has an NCSS line count of 102
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:472:	Variables should start with a lowercase character, 'FldType' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:473:	Variables should start with a lowercase character, 'FieldName' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:474:	Variables should start with a lowercase character, 'ErrorStringTemp' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:644:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:644:	The method 'getDescriptionforCodes' has a Standard Cyclomatic Complexity of 39.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:644:	The method getDescriptionforCodes() has an NCSS line count of 156
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:644:	Variables should start with a lowercase character, 'LstmapErrors' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:770:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:781:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:829:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:829:	The method 'processObjPostPatch' has a Standard Cyclomatic Complexity of 129.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:829:	The method processObjPostPatch() has an NCSS line count of 614
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:829:	Variables should start with a lowercase character, 'LstmapErrors' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:868:	Variables should start with a lowercase character, 'ListObjectFieldMappingFromDMP' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:950:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:971:	Variables should start with a lowercase character, 'ErrMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:978:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:979:	Variables should start with a lowercase character, 'ErrMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:984:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:994:	Variables should start with a lowercase character, 'ErrMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1007:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1008:	Variables should start with a lowercase character, 'ErrMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1015:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1020:	Variables should start with a lowercase character, 'ErrMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1033:	Variables should start with a lowercase character, 'ErrMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1046:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1067:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1089:	Variables should start with a lowercase character, 'ErrMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1106:	Variables should start with a lowercase character, 'ErrMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1116:	Variables should start with a lowercase character, 'ErrMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1165:	Variables should start with a lowercase character, 'ErrMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1177:	Variables should start with a lowercase character, 'ErrMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1187:	Variables should start with a lowercase character, 'ErrMsg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1212:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1290:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1300:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1325:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1333:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1404:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'sSO_SalesTerritory' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1423:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'sSO_OwnerId' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1461:	The method 'returnSobject' has a Standard Cyclomatic Complexity of 29.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1461:	The method returnSobject() has an NCSS line count of 101
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1480:	Variables should start with a lowercase character, 'FldType' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1481:	Variables should start with a lowercase character, 'FieldName' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1484:	Variables should start with a lowercase character, 'ErrorStringTemp' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1487:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1495:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1512:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1518:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1524:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1530:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1541:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\GloviaAcceleratorUtility.cls:1646:	The method 'skipLineUpdate' has a Standard Cyclomatic Complexity of 14.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\IAddressParserProvider.cls:11:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\IAddressParserProvider.cls:12:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\IAddressParserProvider.cls:12:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\IAddressParserProviderCls.cls:9:	Apex classes should declare a sharing model if DML or SOQL is used
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\IAddressParserProviderCls.cls:11:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\IAddressParserProviderCls.cls:72:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\IAddressParserProviderCls.cls:72:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:32:	Avoid really long classes (lines of code)
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:32:	The class 'OrderTriggerHandler' has a Standard Cyclomatic Complexity of 14 (Highest = 57).
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:43:	Avoid really long classes (lines of code)
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:53:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:53:	The method 'IsBeforeInsert' has a Standard Cyclomatic Complexity of 14.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:57:	Variables should start with a lowercase character, 'CostCenterIds' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:58:	Variables should start with a lowercase character, 'SalesPlanIds' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:60:	Variables should start with a lowercase character, 'OrderList' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:61:	Variables should start with a lowercase character, 'AccountIds' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:62:	Variables should start with a lowercase character, 'OwnerIds' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:132:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:132:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:132:	The method 'IsBeforeUpdate' has a Standard Cyclomatic Complexity of 17.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:132:	The method IsBeforeUpdate() has an NCSS line count of 69
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:136:	Variables should start with a lowercase character, 'CostCenterIds' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:137:	Variables should start with a lowercase character, 'SalesPlanIds' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:139:	Variables should start with a lowercase character, 'OrderList' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:144:	Variables should start with a lowercase character, 'AccountIds' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:145:	Variables should start with a lowercase character, 'OwnerIds' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:214:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:241:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:255:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:264:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:264:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:273:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:311:	Variables should start with a lowercase character, 'CostCenterIds' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:315:	Variables should start with a lowercase character, 'CostCenterMap' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:331:	Variables should start with a lowercase character, 'SalesPlanIds' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:335:	Variables should start with a lowercase character, 'BusinessPlanMap' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:352:	The method 'orderInsertAndUpdate' has a Standard Cyclomatic Complexity of 19.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:352:	The method orderInsertAndUpdate() has an NCSS line count of 62
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:455:	Method names should not contain underscores
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:455:	The method 'updateOrderApproverFields_US' has a Standard Cyclomatic Complexity of 20.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:455:	The method updateOrderApproverFields_US() has an NCSS line count of 77
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:455:	Variables should start with a lowercase character, 'IsUpdate' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:500:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:518:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:523:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:551:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:551:	The method 'UpdateCaseSettlementFields' has a Standard Cyclomatic Complexity of 57.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:551:	The method UpdateCaseSettlementFields() has an NCSS line count of 192
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:555:	Variables should start with a lowercase character, 'AccountIdSet' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:556:	Variables should start with a lowercase character, 'ContactIdSet' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:557:	Variables should start with a lowercase character, 'CaseIdSet' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:558:	Variables should start with a lowercase character, 'UserIdSet' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:559:	Variables should start with a lowercase character, 'MapOfAccount' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:560:	Variables should start with a lowercase character, 'MapOfContact' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:561:	Variables should start with a lowercase character, 'MapOfCase' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:562:	Variables should start with a lowercase character, 'MapOfUser' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:589:	Variables should start with a lowercase character, 'AccountList' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:602:	Variables should start with a lowercase character, 'ContactList' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:614:	Variables should start with a lowercase character, 'CaseList' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:627:	Variables should start with a lowercase character, 'UserList' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:727:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:730:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:733:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:736:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:793:	The method 'updateAgreementFieldsOnOrder' has a Standard Cyclomatic Complexity of 20.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:793:	The method updateAgreementFieldsOnOrder() has an NCSS line count of 80
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:808:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:826:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:842:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:845:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:848:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:863:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:863:	Variables should start with a lowercase character, 'MOld' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:875:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'Case_Number' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:875:	Variables should start with a lowercase character, 'Case_Number' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:916:	The method 'updateOrderCountOnCase' has a Standard Cyclomatic Complexity of 20.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:918:	Variables should start with a lowercase character, 'CaseIds' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\OrderTriggerHandler.cls:928:	Variables should start with a lowercase character, 'RTNames' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_PriceListPublishing.cls:12:	The class 'SYT_PriceListPublishing' has a Standard Cyclomatic Complexity of 5 (Highest = 26).
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_PriceListPublishing.cls:15:	Variables should start with a lowercase character, 'BREIdString' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_PriceListPublishing.cls:19:	The method 'createPricePublishingRecords' has a Standard Cyclomatic Complexity of 26.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_PriceListPublishing.cls:19:	The method createPricePublishingRecords() has an NCSS line count of 109
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_PriceListPublishing.cls:28:	Variables should start with a lowercase character, 'PrintName' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_PriceListPublishing.cls:51:	Variables should start with a lowercase character, 'CU' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_PriceListPublishing.cls:87:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_PriceListPublishing.cls:88:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_PriceListPublishing.cls:89:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_PriceListPublishing.cls:90:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_PriceListPublishing.cls:91:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_PriceListPublishing.cls:92:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_PriceListPublishingAcc.cls:12:	The class 'SYT_PriceListPublishingAcc' has a Standard Cyclomatic Complexity of 3 (Highest = 10).
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_PriceListPublishingAcc.cls:15:	Variables should start with a lowercase character, 'AccIdString' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_PriceListPublishingAcc.cls:20:	The method 'createPricePublishingRecordManual' has a Standard Cyclomatic Complexity of 10.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_PriceListPublishingAcc.cls:27:	Variables should start with a lowercase character, 'PrintName' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_PriceListPublishingAcc.cls:59:	Variables should start with a lowercase character, 'CU' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:21:	Apex classes should declare a sharing model if DML or SOQL is used
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:21:	The class 'SYT_VisitReportTriggerHandler' has a Standard Cyclomatic Complexity of 9 (Highest = 29).
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:24:	Variables should start with a lowercase character, 'Pic' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:34:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:39:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:46:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:46:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:56:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:56:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:73:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:77:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:119:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:119:	The method 'InsertImageURL' has a Standard Cyclomatic Complexity of 16.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:119:	The method InsertImageURL() has an NCSS line count of 69
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:251:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:251:	The method 'UpdateImageURL' has a Standard Cyclomatic Complexity of 21.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:251:	The method UpdateImageURL() has an NCSS line count of 97
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:256:	Variables should start with a lowercase character, 'VisitReportlist' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:293:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:311:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:329:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:348:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:367:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:475:	The method 'checkVRTACreatePrepsAT' has a Standard Cyclomatic Complexity of 29.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:475:	The method checkVRTACreatePrepsAT() has an NCSS line count of 105
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:481:	Variables should start with a lowercase character, 'VisitReportlist' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:527:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:532:	Avoid Soql queries inside loops
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:534:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:534:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:552:	Avoid Soql queries inside loops
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:556:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:556:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:601:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_VisitReportTriggerHandler.cls:655:	Deeply nested if..else statements are hard to read
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:9:	This class has too many public methods and attributes
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:10:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'input_index' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:11:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'candidate_index' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:12:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'delivery_line_1' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:13:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'last_line' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:14:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'delivery_point_barcode' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:19:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'primary_number' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:20:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'street_name' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:21:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'street_suffix' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:22:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'city_name' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:23:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'state_abbreviation' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:25:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'plus4_code' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:26:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'delivery_point' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:27:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'delivery_point_check_digit' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:28:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'street_predirection' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:29:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'street_postdirection' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:30:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'secondary_designator' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:31:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'secondary_number' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:34:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'record_type' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:35:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'zip_type' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:36:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'county_fips' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:37:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'county_name' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:38:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'carrier_route' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:39:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'congressional_district' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:41:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'elot_sequence' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:42:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'elot_sort' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:46:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'time_zone' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:47:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'utc_offset' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:51:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'dpv_match_code' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:52:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'dpv_footnotes' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:53:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'dpv_cmra' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_formattedAddressJsontoApex.cls:54:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'dpv_vacant' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:9:	This class has too many public methods and attributes
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:25:	Too many fields
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:26:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'super_administrative_area' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:27:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'administrative_area' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:28:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'sub_administrative_area' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:29:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'sub_building_number' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:30:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'dependent_locality' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:31:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'dependent_locality_name' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:32:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'double_dependent_locality' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:34:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'country_iso_3' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:36:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'postal_code' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:37:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'postal_code_short' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:39:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'premise_extra' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:40:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'premise_number' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:41:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'premise_type' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:43:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'thoroughfare_predirection' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:44:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'thoroughfare_name' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:45:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'thoroughfare_trailing_type' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:46:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'thoroughfare_postdirection' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:47:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'post_box' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:48:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'post_box_type' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:49:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'post_box_number' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:54:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'verification_status' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:55:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'address_precision' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SYT_jsonToApexInternationAddress.cls:56:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'max_address_precision' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ScheduleRetryProvider.cls:10:	The class 'ScheduleRetryProvider' has a Standard Cyclomatic Complexity of 4 (Highest = 12).
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\ScheduleRetryProvider.cls:21:	The method 'execute' has a Standard Cyclomatic Complexity of 12.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SmartyStreetsAddressEntity.cls:11:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'House_number' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SmartyStreetsAddressEntity.cls:11:	Variables should start with a lowercase character, 'House_number' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SmartyStreetsAddressEntity.cls:16:	Variables should start with a lowercase character, 'Street' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SmartyStreetsAddressEntity.cls:21:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'State_abbreviation' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SmartyStreetsAddressEntity.cls:21:	Variables should start with a lowercase character, 'State_abbreviation' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SmartyStreetsAddressEntity.cls:26:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'Deliverable_Standard_Address' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SmartyStreetsAddressEntity.cls:26:	Variables should start with a lowercase character, 'Deliverable_Standard_Address' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SmartyStreetsAddressEntity.cls:30:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'Deliverable_PO_Address' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SmartyStreetsAddressEntity.cls:30:	Variables should start with a lowercase character, 'Deliverable_PO_Address' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SmartyStreetsAddressEntity.cls:34:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'Time_Zone' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SmartyStreetsAddressEntity.cls:34:	Variables should start with a lowercase character, 'Time_Zone' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SmartyStreetsAddressEntity.cls:38:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'PO_Box_Number' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SmartyStreetsAddressEntity.cls:38:	Variables should start with a lowercase character, 'PO_Box_Number' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SmartyStreetsAddressEntity.cls:42:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'PO_Box_City' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SmartyStreetsAddressEntity.cls:42:	Variables should start with a lowercase character, 'PO_Box_City' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SmartyStreetsAddressEntity.cls:46:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'PO_box_Region' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SmartyStreetsAddressEntity.cls:46:	Variables should start with a lowercase character, 'PO_box_Region' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SmartyStreetsAddressEntity.cls:50:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'PO_Box_Postal_code' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SmartyStreetsAddressEntity.cls:50:	Variables should start with a lowercase character, 'PO_Box_Postal_code' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SmartyStreetsAddressEntity.cls:55:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'House_number_Supplement' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SmartyStreetsAddressEntity.cls:55:	Variables should start with a lowercase character, 'House_number_Supplement' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\SmartyStreetsMockHttpResponseGenerator.cls:7:	Avoid using global modifier
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_EndingInventoryEdit.cls:4:	Method names should not contain underscores
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_EndingInventoryEdit.cls:4:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_SYT_PricePublishingCode.cls:12:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_SYT_PricePublishingCode.cls:16:	Variables should start with a lowercase character, 'BRpublishlistprice' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_SYT_PricePublishingCode.cls:23:	Variables should start with a lowercase character, 'BRE' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_SYT_PricePublishingCode.cls:37:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_SYT_PricePublishingCode.cls:41:	Variables should start with a lowercase character, 'BRpublishlistprice' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_SYT_PricePublishingCode.cls:48:	Variables should start with a lowercase character, 'BRE' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:22:	The class 'TST_VisitReportTriggerHandler' has a Standard Cyclomatic Complexity of 20 (Highest = 30).
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:24:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:24:	The method 'VisitReportInsertUpdate' has a Standard Cyclomatic Complexity of 28.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:24:	The method VisitReportInsertUpdate() has an NCSS line count of 134
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:26:	Variables should start with a lowercase character, 'NewUser' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:37:	Variables should start with a lowercase character, 'GrowerId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:51:	Variables should start with a lowercase character, 'BuyingTermsId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:54:	Variables should start with a lowercase character, 'OfferTermsId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:70:	Variables should start with a lowercase character, 'URL' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:120:	Variables should start with a lowercase character, 'Pic' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:368:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:373:	Variables should start with a lowercase character, 'NewUser' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:389:	Variables should start with a lowercase character, 'GrowerId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:403:	Variables should start with a lowercase character, 'BuyingTermsId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:406:	Variables should start with a lowercase character, 'OfferTermsId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:487:	The method 'checkBRExternalTemplatepPrintTest' has a Standard Cyclomatic Complexity of 30.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:487:	The method checkBRExternalTemplatepPrintTest() has an NCSS line count of 141
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:492:	Variables should start with a lowercase character, 'NewUser' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:498:	Variables should start with a lowercase character, 'Distrg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:504:	Variables should start with a lowercase character, 'ChannelId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:513:	Variables should start with a lowercase character, 'GrowerId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:527:	Variables should start with a lowercase character, 'BuyingTermsId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:530:	Variables should start with a lowercase character, 'OfferTermsId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:558:	Variables should start with a lowercase character, 'URL' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:616:	Variables should start with a lowercase character, 'Pic' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:872:	The method 'checkBRExternalTemplatepPrintTestNegative' has a Standard Cyclomatic Complexity of 30.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:872:	The method checkBRExternalTemplatepPrintTestNegative() has an NCSS line count of 145
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:877:	Variables should start with a lowercase character, 'NewUser' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:883:	Variables should start with a lowercase character, 'Distrg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:889:	Variables should start with a lowercase character, 'ChannelId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:898:	Variables should start with a lowercase character, 'GrowerId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:912:	Variables should start with a lowercase character, 'BuyingTermsId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:915:	Variables should start with a lowercase character, 'OfferTermsId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:945:	Variables should start with a lowercase character, 'URL' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:1006:	Variables should start with a lowercase character, 'Pic' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:1259:	The method 'nullImageTest' has a Standard Cyclomatic Complexity of 29.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:1259:	The method nullImageTest() has an NCSS line count of 138
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:1263:	Variables should start with a lowercase character, 'NewUser' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:1274:	Variables should start with a lowercase character, 'GrowerId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:1288:	Variables should start with a lowercase character, 'BuyingTermsId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:1291:	Variables should start with a lowercase character, 'OfferTermsId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:1307:	Variables should start with a lowercase character, 'URL' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TST_VisitReportTriggerHandler.cls:1357:	Variables should start with a lowercase character, 'Pic' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:8:	This class has too many public methods and attributes
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:11:	Variables should start with a lowercase character, 'ContactRecordtypes' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:12:	Variables should start with a lowercase character, 'AccountRecordtypes' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:14:	Variables should start with a lowercase character, 'BPRecordTypes' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:57:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:135:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:135:	Variables should start with a lowercase character, 'Phone' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:182:	Variables should start with a lowercase character, 'Growerid' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:191:	Variables should start with a lowercase character, 'Accountid' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:211:	Variables should start with a lowercase character, 'TM' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:220:	Variables should start with a lowercase character, 'T2' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:237:	Variables should start with a lowercase character, 'SAD' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:237:	Variables should start with a lowercase character, 'SAG' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:243:	Variables should start with a lowercase character, 'TerrObj' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:252:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:256:	Variables should start with a lowercase character, 'SObjectRecordTypeInfo' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:268:	Variables should start with a lowercase character, 'PBName' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:269:	Variables should start with a lowercase character, 'PB' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:276:	Variables should start with a lowercase character, 'DPS' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:281:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:307:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:307:	Variables should start with a lowercase character, 'Year' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:320:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:320:	Variables should start with a lowercase character, 'Year' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:332:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:347:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:366:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:380:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:380:	Variables should start with a lowercase character, 'ProductLst' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:394:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:402:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:409:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:428:	Variables should start with a lowercase character, 'SObjectRecordTypeInfo' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:451:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:458:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:485:	Variables should start with a lowercase character, 'Acc' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:494:	Variables should start with a lowercase character, 'Acc' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:494:	Variables should start with a lowercase character, 'Year' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:495:	Variables should start with a lowercase character, 'BP' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:499:	Variables should start with a lowercase character, 'SObjectRecordTypeInfo' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:507:	Variables should start with a lowercase character, 'BP' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:511:	Variables should start with a lowercase character, 'Opp' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:520:	Variables should start with a lowercase character, 'BP' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:520:	Variables should start with a lowercase character, 'RecordTypeName' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:523:	Variables should start with a lowercase character, 'Opp' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:535:	Variables should start with a lowercase character, 'BP' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:535:	Variables should start with a lowercase character, 'RecordTypeName' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:538:	Variables should start with a lowercase character, 'Opp' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:549:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:549:	Variables should start with a lowercase character, 'AgriYr' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:549:	Variables should start with a lowercase character, 'Level' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:565:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:566:	Variables should start with a lowercase character, 'USACs' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:575:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:575:	Variables should start with a lowercase character, 'FIPS' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:575:	Variables should start with a lowercase character, 'TerritoryNum' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:576:	Variables should start with a lowercase character, 'TerGeo1' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:585:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:585:	Variables should start with a lowercase character, 'SalesDiv' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:585:	Variables should start with a lowercase character, 'SalesOrg' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:585:	Variables should start with a lowercase character, 'SapSystem' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:585:	Variables should start with a lowercase character, 'Terr2Id' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:586:	Variables should start with a lowercase character, 'Tsap' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:597:	Variables should start with a lowercase character, 'AccId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:597:	Variables should start with a lowercase character, 'DefTerr' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:606:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:606:	Variables should start with a lowercase character, 'Phone' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:625:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:625:	Variables should start with a lowercase character, 'Granularity' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:625:	Variables should start with a lowercase character, 'Matchingkey' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:652:	Variables should start with a lowercase character, 'AccId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:652:	Variables should start with a lowercase character, 'Priority' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:652:	Variables should start with a lowercase character, 'RecordTypeName' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:662:	Variables should start with a lowercase character, 'Cse' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:689:	Variables should start with a lowercase character, 'Name' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:689:	Variables should start with a lowercase character, 'Uniquekey' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:702:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:703:	Variables should start with a lowercase character, 'Acc' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:726:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:736:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:739:	Variables should start with a lowercase character, 'AccRec' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:772:	Variables should start with a lowercase character, 'Country' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:839:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:873:	Variables should start with a lowercase character, 'CS' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:890:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:890:	Variables should start with a lowercase character, 'ProductLst' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:893:	Variables should start with a lowercase character, 'ProdBookEntryList' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:909:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:924:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:942:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:955:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:967:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:978:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:978:	Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'thisSuperClone_DE' is not final.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:991:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:991:	Variables should start with a lowercase character, 'Phone' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:1004:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:1019:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:1033:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:1088:	Method names should not contain underscores
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:1088:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:1089:	Variables should start with a lowercase character, 'AccH' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:1096:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:1096:	Variables should start with a lowercase character, 'ObjectName' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:1096:	Variables should start with a lowercase character, 'PAccess' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:1096:	Variables should start with a lowercase character, 'RLP' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:1096:	Variables should start with a lowercase character, 'TP' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:1112:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:1152:	Variables should start with a lowercase character, 'ProductLst' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:1154:	Variables should start with a lowercase character, 'ProdBookEntryList' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:1169:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:1169:	Variables should start with a lowercase character, 'Year' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:1182:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:1182:	Variables should start with a lowercase character, 'TerrId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:1196:	Variables should start with a lowercase character, 'CBRule' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:1206:	Variables should start with a lowercase character, 'TerrID' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:1207:	Variables should start with a lowercase character, 'CBRule' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:1228:	Variables should start with a lowercase character, 'Obj' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestBusinessHelper.cls:1233:	Variables should start with a lowercase character, 'ProfId' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:3:	This class has too many public methods and attributes
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:5:	Variables should start with a lowercase character, 'OpportunityRecordtypes' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:159:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:159:	Variables should start with a lowercase character, 'ProductLst' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:160:	Variables should start with a lowercase character, 'ProdBookEntryList' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:205:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:215:	Variables should start with a lowercase character, 'TM' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:221:	Variables should start with a lowercase character, 'T2' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:228:	Variables should start with a lowercase character, 'TerrObj' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:234:	Variables should start with a lowercase character, 'TerrObj' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:268:	Variables should start with a lowercase character, 'PBName' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:269:	Variables should start with a lowercase character, 'PB' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:344:	Variables should start with a lowercase character, 'DPS' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:381:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:399:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:409:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:433:	Variables should start with a lowercase character, 'BP' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:439:	Variables should start with a lowercase character, 'Opp' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:452:	Variables should start with a lowercase character, 'Name' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:452:	Variables should start with a lowercase character, 'Uniquekey' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:528:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:558:	Variables should start with a lowercase character, 'PBE' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:584:	Method names should not contain underscores
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:584:	Method names should not start with capital letters
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:585:	Variables should start with a lowercase character, 'AccH' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:594:	Avoid long parameter lists
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestObjectHelper.cls:635:	Variables should start with a lowercase character, 'CBRule' starts with uppercase character.
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestSmartyStreetsRetryProvider.cls:68:	Apex unit test classes should have at least one System.assert() or assertEquals() or AssertNotEquals() call
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestSmartyStreetsRetryProvider.cls:77:	Apex unit test classes should have at least one System.assert() or assertEquals() or AssertNotEquals() call
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\TestSmartyStreetsRetryProvider.cls:87:	Apex unit test classes should have at least one System.assert() or assertEquals() or AssertNotEquals() call
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\giic_PricingLineHelper.cls:1:	Apex classes should declare a sharing model if DML or SOQL is used
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\giic_PricingLineHelper.cls:1:	Class names should begin with an uppercase character
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\giic_PricingLineHelper.cls:1:	The class 'giic_PricingLineHelper' has a Standard Cyclomatic Complexity of 7 (Highest = 13).
+C:\Jenkins\pmd-bin-5.8.0-SNAPSHOT\pmd-bin-5.8.0-SNAPSHOT\Sample\classes\giic_PricingLineHelper.cls:33:	The method 'createPricingLines' has a Standard Cyclomatic Complexity of 13.
+POST BUILD TASK : FAILURE
+END OF POST BUILD TASK : 0
+Finished: SUCCESS
