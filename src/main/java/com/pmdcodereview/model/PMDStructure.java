@@ -1,15 +1,31 @@
 package com.pmdcodereview.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by Nagendra on 18-06-2017.
  */
+@Document(collection = "SalesForceClass")
 public class PMDStructure implements Serializable{
 
+    @Id
+    private String id;
     private String classname;
     private Integer lineNumber;
     private String reviewFeedback;
+    private String date;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getClassname() {
         return classname;
@@ -35,6 +51,14 @@ public class PMDStructure implements Serializable{
         this.reviewFeedback = reviewFeedback;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -42,16 +66,21 @@ public class PMDStructure implements Serializable{
 
         PMDStructure that = (PMDStructure) o;
 
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (classname != null ? !classname.equals(that.classname) : that.classname != null) return false;
         if (lineNumber != null ? !lineNumber.equals(that.lineNumber) : that.lineNumber != null) return false;
-        return reviewFeedback != null ? reviewFeedback.equals(that.reviewFeedback) : that.reviewFeedback == null;
+        if (reviewFeedback != null ? !reviewFeedback.equals(that.reviewFeedback) : that.reviewFeedback != null)
+            return false;
+        return date != null ? date.equals(that.date) : that.date == null;
     }
 
     @Override
     public int hashCode() {
-        int result = classname != null ? classname.hashCode() : 0;
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (classname != null ? classname.hashCode() : 0);
         result = 31 * result + (lineNumber != null ? lineNumber.hashCode() : 0);
         result = 31 * result + (reviewFeedback != null ? reviewFeedback.hashCode() : 0);
+        result = 31 * result + (date != null ? date.hashCode() : 0);
         return result;
     }
 }
