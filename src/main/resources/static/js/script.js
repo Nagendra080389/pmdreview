@@ -17,11 +17,6 @@ function OrderFormController($scope,$http){
         angular.element('#myModal').modal('show');
     };
     
-    /*$scope.listOfClasses = ['a','b','c'];
-    $scope.tryJSONTest = {'a':[{'c1':'pras1','lineNo':12},{'c2':'pras2','lineNo':2}]},
-                         {'b':[{'cb1':'pras1','lineNo':12},{'cb2':'pras2','lineNo':2}]},
-                         {'c':[{'cc1':'pras1','lineNo':12},{'cc2':'pras2','lineNo':2}]};*/
-    
     $scope.sampleJSON = parsed;
     
 };
