@@ -62,13 +62,14 @@
     height: 90%;
     border-radius: 50%;
     background: #44484b;
-    font-size: 24px;
+    font-size: 14px;
     color: #fff;
     line-height: 135px;
     text-align: center;
     position: absolute;
     top: 5%;
     left: 5%;
+    word-wrap: break-word;
 }
 .progress.blue .progress-bar{
     border-color: #049dff;
@@ -94,6 +95,14 @@
 .progress.green .progress-left .progress-bar{
     animation: loading-5 1.2s linear forwards 1.8s;
 }
+
+.progress.red .progress-bar{
+    border-color: #d51818;
+}
+.progress.green .progress-left .progress-bar{
+    animation: loading-5 1.2s linear forwards 1.8s;
+}
+
 @keyframes loading-1{
     0%{
         -webkit-transform: rotate(0deg);
