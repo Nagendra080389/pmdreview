@@ -1,45 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Salesforce Code Review</title>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/progress.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/progress.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular.min.js"></script>
     <script src="js/progressCircleScript.js"></script>
+    <script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="js/bootstrap.js"></script>
 
 </head>
 
 <body ng-app ng-controller="progressCircleController">
 <h1 class="errorHeader">List of Classes</h1>
 <!-- Modal -->
-<div id="progressModal" class="container" role="dialog">
+<nav>
+    <div class="container"><input type="date"></div>
+</nav>
+<div id="progressModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">{{selectedClassName}}</h4>
+                </div>
+                <div class="modal-body errorDetailPannel">
+                    <table class="table table-sm table-inverse table-responsive table-striped">
+                        <thead>
+                        <tr>
+                            <th>Line</th>
+                            <th>Review Feedback</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="eachClass in selectedClassErrDetails">
+                            <td>{{eachClass.lineNumber}}</td>
+                            <td>{{eachClass.reviewFeedback}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <form>
         <ul class="col-md-12 col-lg-12">
-            <li ng-click="showErrorDetails(key)" class="col-sm-12 col-md-4 col-lg-4 eachClassCell"
-                ng-repeat='(key,value) in sampleJSON'>
-                <div ng-if="{{value.length}} < 50">
+            <li ng-click="showErrorDetails(key)" class="col-sm-12 col-md-4 col-lg-4 eachClassCell" ng-repeat='(key,value) in sampleJSON'>
+                <div ng-if="value.length <= 50">
                     <div title="{{key}}" class="progress green">{{key}}
                         <span class="progress-left">
-                        <span class="progress-bar"></span>
+                            <span class="progress-bar"></span>
                         </span>
                         <span class="progress-right">
-                        <span class="progress-bar"></span>
+                            <span class="progress-bar"></span>
                         </span>
-                        <div class="progress-value">{{key}}</div>
+                        <div class="progress-value">{{value.length}}</div>
                     </div>
                 </div>
-                <div ng-if="{{value.length}} >= 50">
+                <div ng-if="value.length >= 50">
                     <div title="{{key}}" class="progress red">{{key}}
                         <span class="progress-left">
-                    <span class="progress-bar"></span>
-                </span>
+                            <span class="progress-bar"></span>
+                        </span>
                         <span class="progress-right">
-                    <span class="progress-bar"></span>
-                </span>
-                        <div class="progress-value">{{key}}</div>
+                            <span class="progress-bar"></span>
+                        </span>
+                        <div class="progress-value">{{value.length}}</div>
                     </div>
                 </div>
             </li>

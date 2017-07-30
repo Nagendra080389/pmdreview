@@ -14,6 +14,8 @@ public class PMDStructure implements Serializable{
 
     @Id
     private String id;
+    private String fileName;
+    private String salesforceID;
     private String classname;
     private Integer lineNumber;
     private String reviewFeedback;
@@ -25,6 +27,22 @@ public class PMDStructure implements Serializable{
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getSalesforceID() {
+        return salesforceID;
+    }
+
+    public void setSalesforceID(String salesforceID) {
+        this.salesforceID = salesforceID;
     }
 
     public String getClassname() {
@@ -67,6 +85,8 @@ public class PMDStructure implements Serializable{
         PMDStructure that = (PMDStructure) o;
 
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (fileName != null ? !fileName.equals(that.fileName) : that.fileName != null) return false;
+        if (salesforceID != null ? !salesforceID.equals(that.salesforceID) : that.salesforceID != null) return false;
         if (classname != null ? !classname.equals(that.classname) : that.classname != null) return false;
         if (lineNumber != null ? !lineNumber.equals(that.lineNumber) : that.lineNumber != null) return false;
         if (reviewFeedback != null ? !reviewFeedback.equals(that.reviewFeedback) : that.reviewFeedback != null)
@@ -77,6 +97,8 @@ public class PMDStructure implements Serializable{
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (fileName != null ? fileName.hashCode() : 0);
+        result = 31 * result + (salesforceID != null ? salesforceID.hashCode() : 0);
         result = 31 * result + (classname != null ? classname.hashCode() : 0);
         result = 31 * result + (lineNumber != null ? lineNumber.hashCode() : 0);
         result = 31 * result + (reviewFeedback != null ? reviewFeedback.hashCode() : 0);
