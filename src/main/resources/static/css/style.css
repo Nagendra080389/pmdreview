@@ -175,3 +175,8 @@ div.total span{
 tr th{
     text-align: center;
 }
+
+.nav {
+	padding-bottom: 1%;
+	padding-top: 1%;
+}

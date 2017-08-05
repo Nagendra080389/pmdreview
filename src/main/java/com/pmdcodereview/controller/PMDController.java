@@ -63,7 +63,7 @@ public class PMDController {
     }
 
     @RequestMapping(value = "/getPMDResultsByDate", method = RequestMethod.GET)
-    public String getPMDResultByDate(@RequestParam Long date) throws IOException {
+    public String getPMDResultByDate(@RequestParam Date date) throws IOException {
         Map<String, List<PMDStructure>> codeReviewByClass = new HashMap<>();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String format = simpleDateFormat.format(date);
