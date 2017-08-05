@@ -6,7 +6,6 @@ import com.pmdcodereview.daoLayer.PMDStructureDao;
 import com.pmdcodereview.model.PMDStructure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,43 +24,34 @@ public class PMDController {
     @Autowired
     PMDStructureDao pmdStructureDao;
 
-    public String FILE_NAME = null;
-
     @RequestMapping(value = "/getPMDResults", method = RequestMethod.GET)
     public String getPMDResult() throws IOException {
 
-        FILE_NAME = new ClassPathResource("pmdTextTest.log").getFile().getAbsolutePath();
         Map<String, List<PMDStructure>> codeReviewByClass = new HashMap<>();
-        List<String> stringList = new ArrayList<>();
-        FileInputStream fstream = new FileInputStream(FILE_NAME);
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(fstream))) {
 
-            String codeReview;
-            while ((codeReview = br.readLine()) != null) {
-                if (!codeReview.equals("")) {
-                    if(codeReview.contains(".cls")){
-                        stringList.add(codeReview);
+        List<PMDStructure> allData = pmdStructureDao.findAll();
+        List<PMDStructure> pmdStructureList = null;
+
+        for (PMDStructure eachData : allData) {
+            if(codeReviewByClass.containsKey(eachData.getClassname())){
+                List<PMDStructure> pmdStructureList1 = codeReviewByClass.get(eachData.getClassname());
+                Iterator<PMDStructure> iterator = pmdStructureList1.iterator();
+                while (iterator.hasNext()){
+                    PMDStructure next = iterator.next();
+                    if(next.getReviewFeedback().equals(eachData.getReviewFeedback())){
+                        iterator.remove();
                     }
                 }
+                pmdStructureList1.add(eachData);
+
+            }else {
+                pmdStructureList = new ArrayList<>();
+                pmdStructureList.add(eachData);
+                codeReviewByClass.put(eachData.getClassname(), pmdStructureList);
             }
 
-            for (String line : stringList) {
-                String[] split = line.split("\\\\");
-                codeReviewByClass = createMapOfClassAndReview(split[6], codeReviewByClass);
-
-            }
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
         }
 
-        if(!codeReviewByClass.isEmpty()){
-            Collection<List<PMDStructure>> values = codeReviewByClass.values();
-            for (List<PMDStructure> value : values) {
-                pmdStructureDao.save(value);
-            }
-        }
 
         if(!codeReviewByClass.isEmpty()){
             Gson gson = new GsonBuilder().create();
@@ -98,35 +88,4 @@ public class PMDController {
         return null;
 
     }
-
-    private Map<String, List<PMDStructure>> createMapOfClassAndReview(String line, Map<String, List<PMDStructure>> codeReviewByClass) {
-
-        String[] classNameAndLineNumber = line.split(":");
-        Date date = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        String format = simpleDateFormat.format(date);
-
-
-        if(codeReviewByClass.containsKey(classNameAndLineNumber[0])){
-            List<PMDStructure> pmdStructure = codeReviewByClass.get(classNameAndLineNumber[0]);
-            PMDStructure pmdStructure1 = new PMDStructure();
-            pmdStructure1.setClassname(classNameAndLineNumber[0]);
-            pmdStructure1.setLineNumber(Integer.valueOf(classNameAndLineNumber[1]));
-            pmdStructure1.setReviewFeedback(classNameAndLineNumber[2]);
-            pmdStructure1.setDate(format);
-            pmdStructure.add(pmdStructure1);
-        }else {
-            List<PMDStructure> pmdStructureList = new ArrayList<>();
-            PMDStructure pmdStructure = new PMDStructure();
-            pmdStructure.setClassname(classNameAndLineNumber[0]);
-            pmdStructure.setLineNumber(Integer.valueOf(classNameAndLineNumber[1]));
-            pmdStructure.setReviewFeedback(classNameAndLineNumber[2]);
-            pmdStructure.setDate(format);
-            pmdStructureList.add(pmdStructure);
-            codeReviewByClass.put(classNameAndLineNumber[0], pmdStructureList);
-        }
-
-        return codeReviewByClass;
-    }
-
 }
