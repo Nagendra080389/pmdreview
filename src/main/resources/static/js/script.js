@@ -62,3 +62,8 @@ function searchFunction() {
         }
     }
 }
+
+function resetSearchContent() {
+    var content = document.getElementById("searchBar");
+    content.value = null;
+}
