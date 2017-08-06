@@ -1,6 +1,5 @@
 function OrderFormController($scope,$http){
 
-    $('#img').show();
     var urlString = window.location.href;
     var urlParams = parseURLParams(urlString);
 
@@ -13,7 +12,6 @@ function OrderFormController($scope,$http){
         async: false
     }).responseText;
 
-    $('#img').hide();
     var parsed = JSON.parse(jsonData);
     $scope.selectedClassErrDetails = [];
     $scope.selectedClassName = "";
@@ -45,4 +43,22 @@ function parseURLParams(url) {
         parms[n].push(nv.length === 2 ? v : null);
     }
     return parms;
+}
+
+function searchFunction() {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("searchBar");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("errorTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        if (td) {
+            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
 }

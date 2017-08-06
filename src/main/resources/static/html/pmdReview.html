@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-    <img src="img/spinner.gif" id="img" style="display:none"/>
+    <img src="../img/spinner.gif" id="img" style="display:none"/>
 
     <link href="https://fonts.googleapis.com/css?family=Cookie|Open+Sans:400,700" rel="stylesheet" />
     <!-- The main CSS file -->
@@ -53,8 +53,9 @@
                                 <th>Line</th>
                                 <th>Review Feedback</th>
                             </tr>
+                            <input type="text" id="searchBar" class="form-control search-box" placeholder="Search" onkeyup="searchFunction()">
                         </thead>
-                        <tbody>
+                        <tbody id="errorTable">
                             <tr ng-repeat="eachClass in selectedClassErrDetails">
                                 <td>{{eachClass.lineNumber}}</td>
                                 <td>{{eachClass.reviewFeedback}}</td>
