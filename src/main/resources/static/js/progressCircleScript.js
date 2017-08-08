@@ -1,5 +1,10 @@
 function progressCircleController($scope,$http){
 
+    var urlString = window.location.href;
+    var urlParams = parseURLParams(urlString);
+
+    var date = urlParams['date'];
+
     var jsonData = $.ajax({
         url: "http://localhost:8989/getPMDResults",
         dataType: "json",

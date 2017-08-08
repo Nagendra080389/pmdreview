@@ -57,3 +57,13 @@ footer{
     padding: 1rem;
     text-align: center;
 }
+
+.imageSection{
+    image-resolution: from-image;
+    border-image: fill;
+    image-rendering: optimize-contrast;
+}
+
+.submitButton{
+    float: right;
+}

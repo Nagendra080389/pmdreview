@@ -12,6 +12,9 @@ function OrderFormController($scope,$http){
         async: false
     }).responseText;
 
+    if(jsonData === ""){
+        window.location.pathname = "../html/noDataFetched.html";
+    }
     var parsed = JSON.parse(jsonData);
     $scope.selectedClassErrDetails = [];
     $scope.selectedClassName = "";
@@ -66,4 +69,9 @@ function searchFunction() {
 function resetSearchContent() {
     var content = document.getElementById("searchBar");
     content.value = null;
+}
+
+
+function returnHomepage() {
+    window.location.pathname = "../index.html";
 }
