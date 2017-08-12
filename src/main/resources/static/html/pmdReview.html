@@ -6,7 +6,7 @@
     <title>POC-SalesForce</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular.min.js"></script>
     <img src="../img/spinner.gif" id="img" style="display:none"/>
 
     <link href="https://fonts.googleapis.com/css?family=Cookie|Open+Sans:400,700" rel="stylesheet" />
@@ -74,11 +74,17 @@
     <form>
         <ul class="col-md-12 col-lg-12">
             <li ng-click="showErrorDetails(key)" class="col-sm-12 col-md-4 col-lg-4 eachClassCell" ng-repeat='(key,value) in sampleJSON'>
-                <div title="{{key}}" class="classNameLabel">{{key}}</div>
-                <div title="Error count" class="errorContainer">
-                    <span class="errorCount">{{value.length}}</span>
-                    <span class="errorMeter" ng-repeat="eachClass in value | limitTo: 10"></span>
+                <div ng-if="value.soqlInForLoop == true">
+                    <div title="{{key}}" class="blink_me">{{key}}</div>
                 </div>
+                <div ng-if="value.soqlInForLoop == false">
+                    <div title="{{key}}" class="classNameLabel">{{key}}</div>
+                </div>
+                    <div title="Error count" class="errorContainer">
+                        <span class="errorCount">{{value.pmdStructures.length}}</span>
+                        <span class="errorMeter" ng-repeat="eachClass in value.pmdStructures | limitTo: 10"></span>
+                    </div>
+
             </li>
         </ul>
 
