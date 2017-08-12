@@ -158,6 +158,15 @@ div.total span{
 /*    content:"\e114";*/
 }
 
+.modal.fade{
+	opacity:1;
+}
+.modal.fade .modal-dialog {
+	-webkit-transform: translate(0);
+	-moz-transform: translate(0);
+	transform: translate(0);
+}
+
 .modal-header {
     background-color: #656161;
     color: #fff;
