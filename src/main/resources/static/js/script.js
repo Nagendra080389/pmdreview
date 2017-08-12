@@ -21,7 +21,8 @@ function OrderFormController($scope,$http){
     $scope.showErrorDetails = function(classNameKey){
         $scope.selectedClassName = classNameKey;
         $scope.selectedClassErrDetails = $scope.sampleJSON[classNameKey].pmdStructures;
-        angular.element('#myModal').modal('show');
+        angular.element('#myModal').modal('show',testAnim('zoomIn'));
+
     };
     
     $scope.sampleJSON = parsed;
@@ -31,14 +32,7 @@ function OrderFormController($scope,$http){
 function testAnim(x) {
     $('.modal .modal-dialog').attr('class', 'modal-dialog  ' + x + '  animated');
 };
-$('#myModal').on('show.bs.modal', function (e) {
-    var anim = $('#entrance').val();
-    testAnim(anim);
-});
-$('#myModal').on('hide.bs.modal', function (e) {
-    var anim = $('#exit').val();
-    testAnim(anim);
-});
+
 
 function parseURLParams(url) {
     var queryStart = url.indexOf("?") + 1,
