@@ -35,7 +35,7 @@ public class PMDController {
         PMDStructureWrapper pmdStructureWrapper = null;
         List<PMDStructure> pmdStructureList = null;
 
-        /*for (PMDStructure eachData : allData) {
+        for (PMDStructure eachData : allData) {
             if(codeReviewByClass.containsKey(eachData.getClassname())){
                 PMDStructureWrapper pmdStructureWrapper1 = codeReviewByClass.get(eachData.getClassname());
                 List<PMDStructure> pmdStructures = pmdStructureWrapper1.getPmdStructures();
@@ -50,14 +50,10 @@ public class PMDController {
                 pmdStructureWrapper1.setPmdStructures(pmdStructures);
 
             }else {
-                pmdStructureList = new ArrayList<>();
-                pmdStructureList.add(eachData);
-                pmdStructureWrapper = new PMDStructureWrapper();
-                pmdStructureWrapper.setPmdStructures(pmdStructureList);
-                codeReviewByClass.put(eachData.getClassname(), pmdStructureWrapper);
+                createNewWrapper(codeReviewByClass, eachData);
             }
 
-        }*/
+        }
 
         AlgoForPMDResult.checkForSOQLInsideForLoop(codeReviewByClass);
 
@@ -70,11 +66,20 @@ public class PMDController {
 
     }
 
+    private void createNewWrapper(Map<String, PMDStructureWrapper> codeReviewByClass, PMDStructure eachData) {
+        List<PMDStructure> pmdStructureList;
+        PMDStructureWrapper pmdStructureWrapper;
+        pmdStructureList = new ArrayList<>();
+        pmdStructureList.add(eachData);
+        pmdStructureWrapper = new PMDStructureWrapper();
+        pmdStructureWrapper.setPmdStructures(pmdStructureList);
+        codeReviewByClass.put(eachData.getClassname(), pmdStructureWrapper);
+    }
+
     @RequestMapping(value = "/getPMDResultsByDate", method = RequestMethod.GET)
     public String getPMDResultByDate(@RequestParam Date date) throws IOException {
         Map<String, PMDStructureWrapper> codeReviewByClass = new HashMap<>();
 
-        List<PMDStructure> allData = pmdStructureDao.findAll();
         PMDStructureWrapper pmdStructureWrapper = null;
         List<PMDStructure> pmdStructureList = null;
 
@@ -85,13 +90,7 @@ public class PMDController {
             if(codeReviewByClass.containsKey(pmdStructure.getClassname())){
                 PMDStructureWrapper pmdStructureWrapper1 = codeReviewByClass.get(pmdStructure.getClassname());
                 List<PMDStructure> pmdStructures = pmdStructureWrapper1.getPmdStructures();
-                Iterator<PMDStructure> iterator = pmdStructureWrapper1.getPmdStructures().iterator();
-                while (iterator.hasNext()){
-                    PMDStructure next = iterator.next();
-                    if(next.getReviewFeedback().equals(pmdStructure.getReviewFeedback())){
-                        iterator.remove();
-                    }
-                }
+                pmdStructureWrapper1.getPmdStructures().removeIf(next -> next.getReviewFeedback().equals(pmdStructure.getReviewFeedback()));
                 pmdStructures.add(pmdStructure);
                 pmdStructureWrapper1.setPmdStructures(pmdStructures);
 

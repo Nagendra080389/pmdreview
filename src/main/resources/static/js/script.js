@@ -21,7 +21,7 @@ function OrderFormController($scope,$http){
     $scope.showErrorDetails = function(classNameKey){
         $scope.selectedClassName = classNameKey;
         $scope.selectedClassErrDetails = $scope.sampleJSON[classNameKey].pmdStructures;
-        angular.element('#myModal').modal('show',testAnim('zoomIn'));
+        $('#myModal').modal('show', testAnim('zoomIn'));
 
     };
     
