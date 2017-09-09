@@ -2,7 +2,7 @@ function progressCircleController($scope,$http){
 
 
     var jsonData = $.ajax({
-        url: "http://localhost:8989/getPMDResults",
+        url: "https://usblrnagesing1:8989/getPMDResultsByDate"+"?date="+date,
         dataType: "json",
         crossDomain: true,
         async: false

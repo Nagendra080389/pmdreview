@@ -21,6 +21,13 @@ public class PMDStructure implements Serializable{
     private Integer lineNumber;
     private String reviewFeedback;
     private String date;
+    private String branchName;
+    private Integer severity;
+    private String ruleName;
+    private String helpURL;
+    private String ruleSet;
+    private Integer beginLine;
+    private Integer endLine;
 
     public String getId() {
         return id;
@@ -78,6 +85,62 @@ public class PMDStructure implements Serializable{
         this.date = date;
     }
 
+    public String getBranchName() {
+        return branchName;
+    }
+
+    public void setBranchName(String branchName) {
+        this.branchName = branchName;
+    }
+
+    public Integer getSeverity() {
+        return severity;
+    }
+
+    public void setSeverity(Integer severity) {
+        this.severity = severity;
+    }
+
+    public String getRuleName() {
+        return ruleName;
+    }
+
+    public void setRuleName(String ruleName) {
+        this.ruleName = ruleName;
+    }
+
+    public String getHelpURL() {
+        return helpURL;
+    }
+
+    public void setHelpURL(String helpURL) {
+        this.helpURL = helpURL;
+    }
+
+    public String getRuleSet() {
+        return ruleSet;
+    }
+
+    public void setRuleSet(String ruleSet) {
+        this.ruleSet = ruleSet;
+    }
+
+    public Integer getBeginLine() {
+        return beginLine;
+    }
+
+    public void setBeginLine(Integer beginLine) {
+        this.beginLine = beginLine;
+    }
+
+    public Integer getEndLine() {
+        return endLine;
+    }
+
+    public void setEndLine(Integer endLine) {
+        this.endLine = endLine;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -92,7 +155,14 @@ public class PMDStructure implements Serializable{
         if (lineNumber != null ? !lineNumber.equals(that.lineNumber) : that.lineNumber != null) return false;
         if (reviewFeedback != null ? !reviewFeedback.equals(that.reviewFeedback) : that.reviewFeedback != null)
             return false;
-        return date != null ? date.equals(that.date) : that.date == null;
+        if (date != null ? !date.equals(that.date) : that.date != null) return false;
+        if (branchName != null ? !branchName.equals(that.branchName) : that.branchName != null) return false;
+        if (severity != null ? !severity.equals(that.severity) : that.severity != null) return false;
+        if (ruleName != null ? !ruleName.equals(that.ruleName) : that.ruleName != null) return false;
+        if (helpURL != null ? !helpURL.equals(that.helpURL) : that.helpURL != null) return false;
+        if (ruleSet != null ? !ruleSet.equals(that.ruleSet) : that.ruleSet != null) return false;
+        if (beginLine != null ? !beginLine.equals(that.beginLine) : that.beginLine != null) return false;
+        return endLine != null ? endLine.equals(that.endLine) : that.endLine == null;
     }
 
     @Override
@@ -104,6 +174,13 @@ public class PMDStructure implements Serializable{
         result = 31 * result + (lineNumber != null ? lineNumber.hashCode() : 0);
         result = 31 * result + (reviewFeedback != null ? reviewFeedback.hashCode() : 0);
         result = 31 * result + (date != null ? date.hashCode() : 0);
+        result = 31 * result + (branchName != null ? branchName.hashCode() : 0);
+        result = 31 * result + (severity != null ? severity.hashCode() : 0);
+        result = 31 * result + (ruleName != null ? ruleName.hashCode() : 0);
+        result = 31 * result + (helpURL != null ? helpURL.hashCode() : 0);
+        result = 31 * result + (ruleSet != null ? ruleSet.hashCode() : 0);
+        result = 31 * result + (beginLine != null ? beginLine.hashCode() : 0);
+        result = 31 * result + (endLine != null ? endLine.hashCode() : 0);
         return result;
     }
 }

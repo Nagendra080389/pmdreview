@@ -6,7 +6,7 @@ function OrderFormController($scope,$http){
     var date = urlParams['date'];
 
     var jsonData = $.ajax({
-        url: "http://localhost:8989/getPMDResultsByDate"+"?date="+date,
+        url: "http://usblrnagesing1:8989/getPMDResultsByDate"+"?date="+date,
         dataType: "json",
         crossDomain: true,
         async: false
@@ -61,7 +61,7 @@ function searchFunction() {
     table = document.getElementById("errorTable");
     tr = table.getElementsByTagName("tr");
     for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[1];
+        td = tr[i].getElementsByTagName("td")[2];
         if (td) {
             if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
                 tr[i].style.display = "";

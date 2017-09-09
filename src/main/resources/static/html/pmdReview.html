@@ -51,15 +51,21 @@
                     <table class="table table-sm table-inverse table-responsive table-striped">
                         <thead>
                             <tr>
-                                <th>Line</th>
+                                <th>Begin Line</th>
+                                <th>End Line</th>
                                 <th>Review Feedback</th>
+                                <th>Severity Level</th>
+                                <th>Ruleset</th>
                             </tr>
                             <input type="text" id="searchBar" class="form-control search-box" placeholder="Search" onkeyup="searchFunction()">
                         </thead>
                         <tbody id="errorTable">
                             <tr ng-repeat="eachClass in selectedClassErrDetails">
-                                <td>{{eachClass.lineNumber}}</td>
-                                <td>{{eachClass.reviewFeedback}}</td>
+                                <td>{{eachClass.beginLine}}</td>
+                                <td>{{eachClass.endLine}}</td>
+                                <td><a href="{{eachClass.helpURL}}">{{eachClass.reviewFeedback}}</a></td>
+                                <td>{{eachClass.severity}}</td>
+                                <td>{{eachClass.ruleSet}}</td>
                             </tr>
                         </tbody>
                     </table>
