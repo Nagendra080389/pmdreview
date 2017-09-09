@@ -63,7 +63,7 @@
                             <tr ng-repeat="eachClass in selectedClassErrDetails">
                                 <td>{{eachClass.beginLine}}</td>
                                 <td>{{eachClass.endLine}}</td>
-                                <td><a href="{{eachClass.helpURL}}">{{eachClass.reviewFeedback}}</a></td>
+                                <td><a target="_blank" href="{{eachClass.helpURL}}">{{eachClass.reviewFeedback}}</a></td>
                                 <td>{{eachClass.severity}}</td>
                                 <td>{{eachClass.ruleSet}}</td>
                             </tr>
@@ -77,27 +77,96 @@
 
         </div>
     </div>
-    <form>
-        <ul class="col-md-12 col-lg-12">
-            <li ng-click="showErrorDetails(key)" class="col-sm-12 col-md-4 col-lg-4 eachClassCell" ng-repeat='(key,value) in sampleJSON'>
-                <div ng-if="value.soqlInForLoop == true">
-                    <div title="{{key}}" class="blink_me">{{key}}</div>
-                </div>
-                <div ng-if="value.soqlInForLoop == false">
-                    <div title="{{key}}" class="classNameLabel">{{key}}</div>
-                </div>
-                    <div title="Error count" class="errorContainer">
-                        <span class="errorCount">{{value.pmdStructures.length}}</span>
-                        <span class="errorMeter" ng-repeat="eachClass in value.pmdStructures | limitTo: 10"></span>
-                    </div>
 
-            </li>
-        </ul>
+    <div class="col-md-12 col-lg-12">
+        <div class="panel with-nav-tabs panel-default">
+            <div class="panel-heading">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab1default" data-toggle="tab">Classes</a></li>
+                    <li><a href="#tab2default" data-toggle="tab">Triggers</a></li>
+                    <li><a href="#tab3default" data-toggle="tab">Visualforce pages</a></li>
+                </ul>
+            </div>
+            <div class="panel-body">
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="tab1default">
+                        <ul class="col-md-12 col-lg-12">
+                            <li ng-click="showErrorDetails(key)" class="col-sm-12 col-md-4 col-lg-4 eachClassCell" ng-repeat='(key,value) in sampleJSON'>
+                                <div ng-if="key.indexOf('.cls') > -1">
+                                    <div ng-if="value.soqlInForLoop == true">
+                                        <div title="{{key}}" class="blink_me">{{key}}</div>
+                                    </div>
+                                    <div ng-if="value.soqlInForLoop == false">
+                                        <div title="{{key}}" class="classNameLabel">{{key}}</div>
+                                    </div>
+                                    <div title="Error count" class="errorContainer">
+                                        <span class="errorCount">{{value.pmdStructures.length}}</span>
+                                        <span class="errorMeter" ng-repeat="eachClass in value.pmdStructures | limitTo: 10"></span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="tab2default">
+                        <ul class="col-md-12 col-lg-12">
+                            <li ng-click="showErrorDetails(key)" class="col-sm-12 col-md-4 col-lg-4 eachClassCell" ng-repeat='(key,value) in sampleJSON'>
+                                <div ng-if="key.indexOf('.trigger') > -1">
+                                    <div ng-if="value.soqlInForLoop == true">
+                                        <div title="{{key}}" class="blink_me">{{key}}</div>
+                                    </div>
+                                    <div ng-if="value.soqlInForLoop == false">
+                                        <div title="{{key}}" class="classNameLabel">{{key}}</div>
+                                    </div>
+                                    <div title="Error count" class="errorContainer">
+                                        <span class="errorCount">{{value.pmdStructures.length}}</span>
+                                        <span class="errorMeter" ng-repeat="eachClass in value.pmdStructures | limitTo: 10"></span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="tab3default">
+                        <ul class="col-md-12 col-lg-12">
+                            <li ng-click="showErrorDetails(key)" class="col-sm-12 col-md-4 col-lg-4 eachClassCell" ng-repeat='(key,value) in sampleJSON'>
+                                <div ng-if="key.indexOf('.page') > -1">
+                                    <div ng-if="value.soqlInForLoop == true">
+                                        <div title="{{key}}" class="blink_me">{{key}}</div>
+                                    </div>
+                                    <div ng-if="value.soqlInForLoop == false">
+                                        <div title="{{key}}" class="classNameLabel">{{key}}</div>
+                                    </div>
+                                    <div title="Error count" class="errorContainer">
+                                        <span class="errorCount">{{value.pmdStructures.length}}</span>
+                                        <span class="errorMeter" ng-repeat="eachClass in value.pmdStructures | limitTo: 10"></span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form>
+
 
     </form>
     <footer>
         <p>Salesforce Free Code Review For Syngenta, Copyright &copy; 2017</p>
+        <p>Developed By - Nagendra Kumar Singh</p>
     </footer>
+<script type="application/javascript">
+
+    $(function() {
+        $('.panel-body li').each(function() {
+            if($.trim($(this).text()) === "") {
+                $(this).hide();
+            }
+        });
+    });
+
+</script>
 </body>
 
 </html>
