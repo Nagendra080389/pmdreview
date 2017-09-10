@@ -3,6 +3,7 @@ package com.pmdcodereview.controller;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.pmdcodereview.algo.AlgoForPMDResult;
+import com.pmdcodereview.algo.MetadataLoginUtil;
 import com.pmdcodereview.daoLayer.PMDStructureDao;
 import com.pmdcodereview.model.PMDStructure;
 import com.pmdcodereview.model.PMDStructureWrapper;
@@ -113,4 +114,46 @@ public class PMDController {
         return null;
 
     }
+
+    @RequestMapping(value = "/getPMDResultsForFullOrgByDate", method = RequestMethod.GET)
+    public String getPMDResultForFullOrgByDate(@RequestParam Date date) throws Exception {
+        Map<String, PMDStructureWrapper> codeReviewByClass = new HashMap<>();
+
+        MetadataLoginUtil.main();
+
+        PMDStructureWrapper pmdStructureWrapper = null;
+        List<PMDStructure> pmdStructureList = null;
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String format = simpleDateFormat.format(date);
+        List<PMDStructure> bydate = pmdStructureDao.findBydate(format);
+        for (PMDStructure pmdStructure : bydate) {
+            if(codeReviewByClass.containsKey(pmdStructure.getClassname())){
+                PMDStructureWrapper pmdStructureWrapper1 = codeReviewByClass.get(pmdStructure.getClassname());
+                List<PMDStructure> pmdStructures = pmdStructureWrapper1.getPmdStructures();
+                pmdStructureWrapper1.getPmdStructures().removeIf(next -> next.getReviewFeedback().equals(pmdStructure.getReviewFeedback()));
+                pmdStructures.add(pmdStructure);
+                pmdStructureWrapper1.setPmdStructures(pmdStructures);
+
+            }else {
+                pmdStructureList = new ArrayList<>();
+                pmdStructureList.add(pmdStructure);
+                pmdStructureWrapper = new PMDStructureWrapper();
+                pmdStructureWrapper.setPmdStructures(pmdStructureList);
+                codeReviewByClass.put(pmdStructure.getClassname(), pmdStructureWrapper);
+            }
+        }
+
+        AlgoForPMDResult.checkForSOQLInsideForLoop(codeReviewByClass);
+
+        if(!codeReviewByClass.isEmpty()){
+            Gson gson = new GsonBuilder().create();
+            return gson.toJson(codeReviewByClass);
+        }
+
+        return null;
+
+    }
+
+
 }

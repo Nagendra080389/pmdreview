@@ -4,18 +4,33 @@ function OrderFormController($scope,$http){
     var urlParams = parseURLParams(urlString);
 
     var date = urlParams['date'];
-
-    var jsonData = $.ajax({
-        url: "http://usblrnagesing1:8989/getPMDResultsByDate"+"?date="+date,
-        dataType: "json",
-        crossDomain: true,
-        async: false
-    }).responseText;
+    var reviewFullOrg = urlParams['reviewFullOrg'];
+    if(reviewFullOrg && reviewFullOrg[0] === "on"){
+        var jsonData = $.ajax({
+            url: "http://usblrnagesing1:8989/getPMDResultsForFullOrgByDate"+"?date="+date,
+            dataType: "json",
+            crossDomain: true,
+            async: false
+        }).responseText;
+    }else {
+        var jsonData = $.ajax({
+            url: "http://usblrnagesing1:8989/getPMDResultsByDate"+"?date="+date,
+            dataType: "json",
+            crossDomain: true,
+            async: false
+        }).responseText;
+    }
 
     if(jsonData === ""){
         window.location.pathname = "../html/noDataFetched.html";
     }
+
     var parsed = JSON.parse(jsonData);
+
+    if(parsed.error){
+        window.location.pathname = "../html/error.html";
+    }
+
     $scope.selectedClassErrDetails = [];
     $scope.selectedClassName = "";
     $scope.showErrorDetails = function(classNameKey){
@@ -24,7 +39,7 @@ function OrderFormController($scope,$http){
         $('#myModal').modal('show', testAnim('zoomIn'));
 
     };
-    
+
     $scope.sampleJSON = parsed;
     
 };

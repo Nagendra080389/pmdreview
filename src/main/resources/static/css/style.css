@@ -470,3 +470,5 @@ tr th{
 	color: #fff; /* active text color */
 	background-color: #a94442; /* active bg color */
 }
+
+.loadie { z-index: 9999; }
