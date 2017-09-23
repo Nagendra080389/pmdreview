@@ -1,39 +1,50 @@
-function OrderFormController($scope,$http){
+function OrderFormController($scope, $http) {
 
     var urlString = window.location.href;
     var urlParams = parseURLParams(urlString);
 
     var date = urlParams['date'];
     var reviewFullOrg = urlParams['reviewFullOrg'];
-    if(reviewFullOrg && reviewFullOrg[0] === "on"){
+    var severityLevel = urlParams['severityLevel'];
+
+    if (reviewFullOrg && reviewFullOrg[0] === "on") {
         var jsonData = $.ajax({
             url: "http://usblrnagesing1:8989/getPMDResultsForFullOrgByDate"+"?date="+date,
             dataType: "json",
             crossDomain: true,
             async: false
         }).responseText;
-    }else {
+    } else if (severityLevel) {
         var jsonData = $.ajax({
-            url: "http://usblrnagesing1:8989/getPMDResultsByDate"+"?date="+date,
+            url: "http://usblrnagesing1:8989/getPMDResultsByDateAndSeverity" + "?date=" + date + '&' + 'severityLevel='+severityLevel,
             dataType: "json",
             crossDomain: true,
             async: false
         }).responseText;
+    } else {
+
+        var jsonData = $.ajax({
+            url: "http://usblrnagesing1:8989/getPMDResultsByDate" + "?date=" + date,
+            dataType: "json",
+            crossDomain: true,
+            async: false
+        }).responseText;
+
     }
 
-    if(jsonData === ""){
+    if (jsonData === "") {
         window.location.pathname = "../html/noDataFetched.html";
     }
 
     var parsed = JSON.parse(jsonData);
 
-    if(parsed.error){
+    if (parsed.error) {
         window.location.pathname = "../html/error.html";
     }
 
     $scope.selectedClassErrDetails = [];
     $scope.selectedClassName = "";
-    $scope.showErrorDetails = function(classNameKey){
+    $scope.showErrorDetails = function (classNameKey) {
         $scope.selectedClassName = classNameKey;
         $scope.selectedClassErrDetails = $scope.sampleJSON[classNameKey].pmdStructures;
         $('#myModal').modal('show', testAnim('zoomIn'));
@@ -41,7 +52,7 @@ function OrderFormController($scope,$http){
     };
 
     $scope.sampleJSON = parsed;
-    
+
 };
 
 function testAnim(x) {
@@ -51,7 +62,7 @@ function testAnim(x) {
 
 function parseURLParams(url) {
     var queryStart = url.indexOf("?") + 1,
-        queryEnd   = url.indexOf("#") + 1 || url.length + 1,
+        queryEnd = url.indexOf("#") + 1 || url.length + 1,
         query = url.slice(queryStart, queryEnd - 1),
         pairs = query.replace(/\+/g, " ").split("&"),
         parms = {}, i, n, v, nv;

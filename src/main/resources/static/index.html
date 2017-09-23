@@ -6,9 +6,9 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 
-    <link href="http://fonts.googleapis.com/css?family=Cookie|Open+Sans:400,700" rel="stylesheet" />
+    <link href="http://fonts.googleapis.com/css?family=Cookie|Open+Sans:400,700" rel="stylesheet"/>
     <!-- The main CSS file -->
-    <link href="css/codeReview.css" rel="stylesheet" />
+    <link href="css/codeReview.css" rel="stylesheet"/>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -31,9 +31,34 @@
 
 <section class="col-md-12 col-lg-12 dateSection">
     <form action="html/pmdReview.html" method="get">
-        <input title="Choose the Date" class="datepicker-here" data-position="left top" name="date" id="date" required/>
-        <input title="Review Full Org" type="checkbox" name="reviewFullOrg" id="reviewFullOrg"/>
-        <input type="submit" value="Fetch Data">
+        <div class="severityLevel">
+            <input title="Choose the Date" class="datepicker-here" data-position="left top" name="date" id="date" required/>
+        </div>
+
+        <div class="severityLevel">
+            <input title="Review Full Org" type="checkbox" name="reviewFullOrg" id="reviewFullOrg"/>
+        </div>
+
+        <div class='componentWrapper'>
+
+            <div>
+                <div class='componentTitle'>Select Severity Level</div>
+                <div class='componentContent'>
+                    <div class="severityLevel">
+                    <select multiple size="5" title="Select Severity Level" name="severityLevel" id="severityLevel">
+                        <option value="1">Severity Level 1</option>
+                        <option value="2">Severity Level 2</option>
+                        <option value="3">Severity Level 3</option>
+                        <option value="4">Severity Level 4</option>
+                        <option value="5">Severity Level 5</option>
+                    </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="severityLevel">
+            <input type="submit" value="Fetch Data">
+        </div>
     </form>
 </section>
 

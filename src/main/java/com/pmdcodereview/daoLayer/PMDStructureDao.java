@@ -16,4 +16,6 @@ public interface PMDStructureDao extends MongoRepository<PMDStructure, String> {
     <S extends PMDStructure> List<S> save(Iterable<S> iterable);
 
     List<PMDStructure> findBydate(String date);
+
+    List<PMDStructure> findByDateAndSeverityIn(String date, List<Integer> severity);
 }

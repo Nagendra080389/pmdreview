@@ -8,7 +8,6 @@ import com.pmdcodereview.daoLayer.PMDStructureDao;
 import com.pmdcodereview.model.PMDStructure;
 import com.pmdcodereview.model.PMDStructureWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -127,6 +126,45 @@ public class PMDController {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String format = simpleDateFormat.format(date);
         List<PMDStructure> bydate = pmdStructureDao.findBydate(format);
+        for (PMDStructure pmdStructure : bydate) {
+            if(codeReviewByClass.containsKey(pmdStructure.getClassname())){
+                PMDStructureWrapper pmdStructureWrapper1 = codeReviewByClass.get(pmdStructure.getClassname());
+                List<PMDStructure> pmdStructures = pmdStructureWrapper1.getPmdStructures();
+                pmdStructureWrapper1.getPmdStructures().removeIf(next -> next.getReviewFeedback().equals(pmdStructure.getReviewFeedback()));
+                pmdStructures.add(pmdStructure);
+                pmdStructureWrapper1.setPmdStructures(pmdStructures);
+
+            }else {
+                pmdStructureList = new ArrayList<>();
+                pmdStructureList.add(pmdStructure);
+                pmdStructureWrapper = new PMDStructureWrapper();
+                pmdStructureWrapper.setPmdStructures(pmdStructureList);
+                codeReviewByClass.put(pmdStructure.getClassname(), pmdStructureWrapper);
+            }
+        }
+
+        AlgoForPMDResult.checkForSOQLInsideForLoop(codeReviewByClass);
+
+        if(!codeReviewByClass.isEmpty()){
+            Gson gson = new GsonBuilder().create();
+            return gson.toJson(codeReviewByClass);
+        }
+
+        return null;
+
+    }
+
+    @RequestMapping(value = "/getPMDResultsByDateAndSeverity", method = RequestMethod.GET)
+    public String getPMDResultByDate(@RequestParam Date date, @RequestParam List<Integer> severityLevel) throws IOException {
+        Map<String, PMDStructureWrapper> codeReviewByClass = new HashMap<>();
+
+        PMDStructureWrapper pmdStructureWrapper = null;
+        List<PMDStructure> pmdStructureList = null;
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String format = simpleDateFormat.format(date);
+
+        List<PMDStructure> bydate = pmdStructureDao.findByDateAndSeverityIn(format, severityLevel);
         for (PMDStructure pmdStructure : bydate) {
             if(codeReviewByClass.containsKey(pmdStructure.getClassname())){
                 PMDStructureWrapper pmdStructureWrapper1 = codeReviewByClass.get(pmdStructure.getClassname());

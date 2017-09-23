@@ -67,3 +67,32 @@ footer{
 .submitButton{
     float: right;
 }
+
+.severityLevel{
+    padding-top: 1%;
+    margin: auto;
+    top:50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+}
+
+.componentTitle {
+    font-size: 18px;
+    background-color: white;
+    display: inline-block;
+    padding: .5em .3em;
+
+}
+
+.componentWrapper {
+    border: solid #e8491d;
+    border-radius: 40px;
+    padding: 10px;
+    margin-top: 2em;
+}
+
+.componentWrapper div {
+    margin-top: -1.2em;
+}
