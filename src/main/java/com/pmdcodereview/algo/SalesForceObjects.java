@@ -7,6 +7,7 @@ import java.util.List;
  * Test
  */
 public class SalesForceObjects {
+
     private List<String> classList = new ArrayList<>();
     private List<String> triggerList = new ArrayList<>();
     private List<String> pageList = new ArrayList<>();
