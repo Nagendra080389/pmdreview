@@ -9,14 +9,14 @@ function OrderFormController($scope, $http) {
 
     if (reviewFullOrg && reviewFullOrg[0] === "on") {
         var jsonData = $.ajax({
-            url: "http://usblrnagesing1:8989/getPMDResultsForFullOrgByDate"+"?date="+date,
+            url: "http://USBLRPRASTIWAR1:8989/getPMDResultsForFullOrgByDate"+"?date="+date,
             dataType: "json",
             crossDomain: true,
             async: false
         }).responseText;
     } else if (severityLevel) {
         var jsonData = $.ajax({
-            url: "http://usblrnagesing1:8989/getPMDResultsByDateAndSeverity" + "?date=" + date + '&' + 'severityLevel='+severityLevel,
+            url: "http://USBLRPRASTIWAR1:8989/getPMDResultsByDateAndSeverity" + "?date=" + date + '&' + 'severityLevel='+severityLevel,
             dataType: "json",
             crossDomain: true,
             async: false
@@ -24,7 +24,7 @@ function OrderFormController($scope, $http) {
     } else {
 
         var jsonData = $.ajax({
-            url: "http://usblrnagesing1:8989/getPMDResultsByDate" + "?date=" + date,
+            url: "http://USBLRPRASTIWAR1:8989/getPMDResultsByDate" + "?date=" + date,
             dataType: "json",
             crossDomain: true,
             async: false
@@ -52,6 +52,14 @@ function OrderFormController($scope, $http) {
     };
 
     $scope.sampleJSON = parsed;
+
+    $scope.logThisDefect = function() {
+        var selClassName = $scope.selectedClassName;
+        var selClassErrorDetails = $scope.selectedClassErrDetails;
+        console.log("selClassName.........");
+        console.log(selClassName);
+        console.log(selClassErrorDetails);
+    };
 
 };
 
@@ -107,3 +115,4 @@ function resetSearchContent() {
 function returnHomepage() {
     window.location.pathname = "../index.html";
 }
+$('#dpMonths').fdatepicker();

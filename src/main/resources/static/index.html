@@ -9,6 +9,7 @@
     <link href="http://fonts.googleapis.com/css?family=Cookie|Open+Sans:400,700" rel="stylesheet"/>
     <!-- The main CSS file -->
     <link href="css/codeReview.css" rel="stylesheet"/>
+    <link href="../css/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -32,7 +33,8 @@
 <section class="col-md-12 col-lg-12 dateSection">
     <form action="html/pmdReview.html" method="get">
         <div class="severityLevel">
-            <input title="Choose the Date" class="datepicker-here" data-position="left top" name="date" id="date" required/>
+            <label>Select Date</label>
+            <input title="Choose the Date" class="selectDate datepicker-here" data-position="right top" name="date" id="date" required/>
         </div>
 
         <div class="severityLevel">
