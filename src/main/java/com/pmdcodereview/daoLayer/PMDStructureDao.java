@@ -18,4 +18,6 @@ public interface PMDStructureDao extends MongoRepository<PMDStructure, String> {
     List<PMDStructure> findBydate(String date);
 
     List<PMDStructure> findByDateAndSeverityIn(String date, List<Integer> severity);
+
+    List<PMDStructure> findByfileName(String fileName);
 }

@@ -4,6 +4,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.pmdcodereview.model.LineAndPath;
 import com.pmdcodereview.model.PMDStructure;
 import org.apache.commons.io.FileUtils;
 import org.bson.Document;
@@ -42,108 +43,195 @@ public class SaveLogs {
                 Path filePath = Paths.get(fileEntry.toURI());
                 if (Files.isRegularFile(filePath)) {
                     String[] split1 = filePath.toString().split("\\\\");
-                    String fileName = split1[3].substring(0, split1[3].length() - 4);
+                    String fileName = split1[4].substring(0, split1[4].length() - 4);
                     BasicDBObject fields = new BasicDBObject("fileName", fileName);
                     Document recordPresent = salesForceClass.find(fields).first();
                     if (recordPresent == null) {
                         try {
-                            //String FILE_NAME = new ClassPathResource("pmdTextTest.log").getFile().getAbsolutePath();
-                            Map<String, List<PMDStructure>> codeReviewByClass = new HashMap<>();
-                            List<String> stringList = new ArrayList<>();
-                            String branchName = null;
-                            FileInputStream fstream = new FileInputStream(filePath.toString());
-                            try (BufferedReader br = new BufferedReader(new InputStreamReader(fstream))) {
+                            if (fileName.contains("DC")) {
+                                try {
+                                    List<PMDStructure> duplicateError = new ArrayList<>();
+                                    FileInputStream fstream = new FileInputStream(filePath.toString());
+                                    try (BufferedReader br = new BufferedReader(new InputStreamReader(fstream))) {
 
-                                String codeReview;
-                                while ((codeReview = br.readLine()) != null) {
-                                    if (!codeReview.equals("")) {
+                                        String codeReview;
+                                        while ((codeReview = br.readLine()) != null) {
+                                            if (!codeReview.equals("")) {
+                                                if (!xmlList.isEmpty()) {
+                                                    if (!(codeReview.contains("POST BUILD TASK : FAILURE") ||
+                                                            codeReview.contains("END OF POST BUILD TASK") ||
+                                                            codeReview.contains("Finished:"))) {
+                                                        xmlList.add(codeReview);
+                                                    }
+                                                }
 
-                                        if (codeReview.contains("Checking out Revision")) {
-                                            String result[] = codeReview.split("/");
-                                            String s = result[result.length - 1];
-                                            branchName = s.substring(0, s.length() - 1);
-                                        }else {
-
+                                                if (codeReview.contains("<?xml version=\"1.0\" encoding=\"Cp1252\"?>")) {
+                                                    xmlList.add(codeReview);
+                                                }
+                                            }
                                         }
 
                                         if (!xmlList.isEmpty()) {
-                                            if(!(codeReview.contains("POST BUILD TASK : FAILURE") || codeReview.contains("END OF POST BUILD TASK") ||
-                                            codeReview.contains("NoSuchFieldException") || codeReview.contains("at net.sourceforge.pmd") ||
-                                            codeReview.contains("at java.util.concurrent") || codeReview.contains("at java.lang.Thread") ||
-                                            codeReview.contains("at java.lang.Class"))) {
-                                                xmlList.add(codeReview);
+                                            File tempFile = File.createTempFile(fileName, ".xml");
+                                            for (String eachXmlLine : xmlList) {
+                                                FileUtils.write(tempFile, eachXmlLine + "\n", true);
                                             }
-                                        }
-                                        if (codeReview.contains("<?xml version=\"1.0\" encoding=\"UTF-8\"?>")) {
-                                            xmlList.add(codeReview);
-                                        }
-                                    }
-                                }
+                                            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+                                            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+                                            org.w3c.dom.Document parse = dBuilder.parse(tempFile);
 
-                                if(!xmlList.isEmpty()) {
-                                    File tempFile = File.createTempFile(fileName, ".xml");
-                                    for (String eachXmlLine : xmlList) {
-                                        FileUtils.write(tempFile, eachXmlLine + "\n", true);
-                                    }
+                                            //optional, but recommended
+                                            //read this - http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work
+                                            parse.getDocumentElement().normalize();
+                                            System.out.println("Root element :" + parse.getDocumentElement().getNodeName());
 
-                                    DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-                                    DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-                                    if(tempFile.isFile() && tempFile.canRead()) {
-                                        org.w3c.dom.Document parse = dBuilder.parse(tempFile);
+                                            NodeList fileNode = parse.getElementsByTagName("duplication");
 
+                                            for (int temp = 0; temp < fileNode.getLength(); temp++) {
+                                                Node fNode = fileNode.item(temp);
+                                                if (fNode.getNodeType() == Node.ELEMENT_NODE) {
+                                                    Element eElement = (Element) fNode;
+                                                    Integer numberOfDuplicateLines = Integer.valueOf(eElement.getAttribute("lines"));
 
-                                    //optional, but recommended
-                                    //read this - http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work
-                                    parse.getDocumentElement().normalize();
-                                    System.out.println("Root element :" + parse.getDocumentElement().getNodeName());
-
-                                    NodeList fileNode = parse.getElementsByTagName("file");
-
-                                    for (int temp = 0; temp < fileNode.getLength(); temp++) {
-                                        Node fNode = fileNode.item(temp);
-                                        if (fNode.getNodeType() == Node.ELEMENT_NODE) {
-                                            Element eElement = (Element) fNode;
-                                            String[] nameArray = eElement.getAttribute("name").split("\\\\");
-                                            String className = nameArray[nameArray.length - 1];
-                                            NodeList violation = eElement.getElementsByTagName("violation");
-                                            for (int violationtemp = 0; violationtemp < violation.getLength(); violationtemp++) {
-                                                Node vNode = violation.item(violationtemp);
-                                                if (vNode.getNodeType() == Node.ELEMENT_NODE) {
-                                                    eElement = (Element) vNode;
-                                                    String severity = eElement.getAttribute("priority");
-                                                    String ahref = eElement.getAttribute("externalInfoUrl");
-                                                    if(className.endsWith(".page") && ahref.contains("${pmd.website.baseurl}")){
-                                                        ahref = ahref.replace("${pmd.website.baseurl}","https://pmd.github.io/pmd-5.8.1/pmd-visualforce");
+                                                    NodeList files = eElement.getElementsByTagName("file");
+                                                    List<LineAndPath> lineAndPaths = new ArrayList<>();
+                                                    for (int filestemp = 0; filestemp < files.getLength(); filestemp++) {
+                                                        LineAndPath lineAndPath = new LineAndPath();
+                                                        Node vNode = files.item(filestemp);
+                                                        if (vNode.getNodeType() == Node.ELEMENT_NODE) {
+                                                            Element eElement1 = (Element) vNode;
+                                                            lineAndPath.setLine(Integer.valueOf(eElement1.getAttribute("line")));
+                                                            lineAndPath.setPath(eElement1.getAttribute("path"));
+                                                            lineAndPaths.add(lineAndPath);
+                                                        }
                                                     }
-                                                    String ruleSet = eElement.getAttribute("ruleset");
-                                                    String rule = eElement.getAttribute("rule");
-                                                    String endline = eElement.getAttribute("endline");
-                                                    String beginline = eElement.getAttribute("beginline");
-                                                    String feedback = eElement.getFirstChild().getTextContent();
-                                                    codeReviewByClass = createMapOfClassAndReview(className, severity, ahref, ruleSet, rule,
-                                                            endline, beginline, feedback, codeReviewByClass, fileName, branchName);
+                                                    String apexCode = null;
+                                                    NodeList codefragmentNode = eElement.getElementsByTagName("codefragment");
+                                                    if (codefragmentNode.getLength() > 0) {
+                                                        Node item = codefragmentNode.item(0);
+                                                        if (item.getNodeType() == Node.ELEMENT_NODE) {
+                                                            eElement = (Element) item;
+                                                            apexCode = eElement.getTextContent();
+                                                        }
+                                                    }
+                                                    duplicateError = createDuplicatesList(numberOfDuplicateLines, lineAndPaths, apexCode, duplicateError,fileName);
                                                 }
                                             }
 
 
+                                            tempFile.deleteOnExit();
+                                        }
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+
+                                    if (!duplicateError.isEmpty()) {
+                                        List<Document> documentList = changeToValues(duplicateError, true);
+                                        if (!documentList.isEmpty()) {
+                                            salesForceClass.insertMany(documentList);
                                         }
                                     }
 
-
-                                    tempFile.deleteOnExit();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                 }
+                            } else {
+                                Map<String, List<PMDStructure>> codeReviewByClass = new HashMap<>();
+                                String branchName = null;
+                                FileInputStream fstream = new FileInputStream(filePath.toString());
+                                try (BufferedReader br = new BufferedReader(new InputStreamReader(fstream))) {
+
+                                    String codeReview;
+                                    while ((codeReview = br.readLine()) != null) {
+                                        if (!codeReview.equals("")) {
+
+                                            if (codeReview.contains("Checking out Revision")) {
+                                                String result[] = codeReview.split("/");
+                                                String s = result[result.length - 1];
+                                                branchName = s.substring(0, s.length() - 1);
+                                            } else {
+
+                                            }
+
+                                            if (!xmlList.isEmpty()) {
+                                                if (!(codeReview.contains("POST BUILD TASK : FAILURE") || codeReview.contains("END OF POST BUILD TASK") ||
+                                                        codeReview.contains("NoSuchFieldException") || codeReview.contains("at net.sourceforge.pmd") ||
+                                                        codeReview.contains("at java.util.concurrent") || codeReview.contains("at java.lang.Thread") ||
+                                                        codeReview.contains("at java.lang.Class"))) {
+                                                    xmlList.add(codeReview);
+                                                }
+                                            }
+                                            if (codeReview.contains("<?xml version=\"1.0\" encoding=\"UTF-8\"?>")) {
+                                                xmlList.add(codeReview);
+                                            }
+                                        }
+                                    }
+
+                                    if (!xmlList.isEmpty()) {
+                                        File tempFile = File.createTempFile(fileName, ".xml");
+                                        for (String eachXmlLine : xmlList) {
+                                            FileUtils.write(tempFile, eachXmlLine + "\n", true);
+                                        }
+
+                                        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+                                        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+                                        if (tempFile.isFile() && tempFile.canRead()) {
+                                            org.w3c.dom.Document parse = dBuilder.parse(tempFile);
+
+
+                                            //optional, but recommended
+                                            //read this - http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work
+                                            parse.getDocumentElement().normalize();
+                                            System.out.println("Root element :" + parse.getDocumentElement().getNodeName());
+
+                                            NodeList fileNode = parse.getElementsByTagName("file");
+
+                                            for (int temp = 0; temp < fileNode.getLength(); temp++) {
+                                                Node fNode = fileNode.item(temp);
+                                                if (fNode.getNodeType() == Node.ELEMENT_NODE) {
+                                                    Element eElement = (Element) fNode;
+                                                    String[] nameArray = eElement.getAttribute("name").split("\\\\");
+                                                    String className = nameArray[nameArray.length - 1];
+                                                    NodeList violation = eElement.getElementsByTagName("violation");
+                                                    for (int violationtemp = 0; violationtemp < violation.getLength(); violationtemp++) {
+                                                        Node vNode = violation.item(violationtemp);
+                                                        if (vNode.getNodeType() == Node.ELEMENT_NODE) {
+                                                            eElement = (Element) vNode;
+                                                            String severity = eElement.getAttribute("priority");
+                                                            String ahref = eElement.getAttribute("externalInfoUrl");
+                                                            if (className.endsWith(".page") && ahref.contains("${pmd.website.baseurl}")) {
+                                                                ahref = ahref.replace("${pmd.website.baseurl}", "https://pmd.github.io/pmd-5.8.1/pmd-visualforce");
+                                                            }
+                                                            String ruleSet = eElement.getAttribute("ruleset");
+                                                            String rule = eElement.getAttribute("rule");
+                                                            String endline = eElement.getAttribute("endline");
+                                                            String beginline = eElement.getAttribute("beginline");
+                                                            String feedback = eElement.getFirstChild().getTextContent();
+                                                            codeReviewByClass = createMapOfClassAndReview(className, severity, ahref, ruleSet, rule,
+                                                                    endline, beginline, feedback, codeReviewByClass, fileName, branchName);
+                                                        }
+                                                    }
+
+
+                                                }
+                                            }
+
+
+                                            tempFile.deleteOnExit();
+                                        }
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                 }
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
 
-                            if (!codeReviewByClass.isEmpty()) {
-                                Collection<List<PMDStructure>> values = codeReviewByClass.values();
-                                for (List<PMDStructure> value : values) {
-                                    List<Document> documentList = changeToValues(value);
+                                if (!codeReviewByClass.isEmpty()) {
+                                    Collection<List<PMDStructure>> values = codeReviewByClass.values();
+                                    for (List<PMDStructure> value : values) {
+                                        List<Document> documentList = changeToValues(value, false);
 
-                                    if(!documentList.isEmpty()){
-                                        salesForceClass.insertMany(documentList);
+                                        if (!documentList.isEmpty()) {
+                                            salesForceClass.insertMany(documentList);
+                                        }
                                     }
                                 }
                             }
@@ -159,30 +247,67 @@ public class SaveLogs {
 
     private static MongoClient getMongoConnection(String hostname, String port) {
         Integer mongoPort = Integer.valueOf(port);
-        return new MongoClient( hostname , mongoPort );
+        return new MongoClient(hostname, mongoPort);
     }
 
-    private static List<Document> changeToValues(List<PMDStructure> value) {
+    private static List<Document> changeToValues(List<PMDStructure> value, boolean fromDuplicateError) {
         List<Document> documentList = new ArrayList<>();
         Document document = null;
-        for (PMDStructure pmdStructure : value) {
-            document = new Document();
-            document.put("classname", pmdStructure.getClassname());
-            document.put("date", pmdStructure.getDate());
-            document.put("fileName", pmdStructure.getFileName());
-            document.put("lineNumber", pmdStructure.getLineNumber());
-            document.put("reviewFeedback", pmdStructure.getReviewFeedback());
-            document.put("dsalesforceID", pmdStructure.getSalesforceID());
-            document.put("severity", pmdStructure.getSeverity());
-            document.put("beginLine", pmdStructure.getBeginLine());
-            document.put("endLine", pmdStructure.getEndLine());
-            document.put("ruleName", pmdStructure.getRuleName());
-            document.put("ruleSet", pmdStructure.getRuleSet());
-            document.put("helpURL", pmdStructure.getHelpURL());
-            documentList.add(document);
+        if (!fromDuplicateError) {
+            for (PMDStructure pmdStructure : value) {
+                document = new Document();
+                document.put("classname", pmdStructure.getClassname());
+                document.put("date", pmdStructure.getDate());
+                document.put("fileName", pmdStructure.getFileName());
+                document.put("lineNumber", pmdStructure.getLineNumber());
+                document.put("reviewFeedback", pmdStructure.getReviewFeedback());
+                document.put("dsalesforceID", pmdStructure.getSalesforceID());
+                document.put("severity", pmdStructure.getSeverity());
+                document.put("beginLine", pmdStructure.getBeginLine());
+                document.put("endLine", pmdStructure.getEndLine());
+                document.put("ruleName", pmdStructure.getRuleName());
+                document.put("ruleSet", pmdStructure.getRuleSet());
+                document.put("helpURL", pmdStructure.getHelpURL());
+                documentList.add(document);
+            }
+        } else {
+            for (PMDStructure pmdStructure : value) {
+                document = new Document();
+                document.put("fileName", pmdStructure.getFileName());
+                document.put("date", pmdStructure.getDate());
+                document.put("numberOfDuplicates", pmdStructure.getNumberOfDuplicates());
+                document.put("codeFragment", pmdStructure.getCodeFragment());
+                List<BasicDBObject> fileLinePath = new ArrayList<>();
+                for (LineAndPath lineAndPath : pmdStructure.getFileLineAndPath()) {
+                    fileLinePath.add(new BasicDBObject("line", lineAndPath.getLine()));
+                    fileLinePath.add(new BasicDBObject("path", lineAndPath.getPath()));
+                }
+                document.put("fileLineAndPath", fileLinePath);
+                documentList.add(document);
+            }
         }
-
         return documentList;
+    }
+
+    private static List<PMDStructure> createDuplicatesList(Integer numberOfDuplicateLines, List<LineAndPath> lineAndPaths,
+                                                           String apexCode, List<PMDStructure> duplicateError, String fileName) {
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String format = simpleDateFormat.format(date);
+        PMDStructure pmdStructure = new PMDStructure();
+        pmdStructure.setNumberOfDuplicates(numberOfDuplicateLines);
+        if (apexCode != null) {
+            pmdStructure.setCodeFragment(apexCode);
+        } else {
+            pmdStructure.setCodeFragment("");
+        }
+        pmdStructure.setFileLineAndPath(lineAndPaths);
+        pmdStructure.setDate(format);
+        pmdStructure.setFileName(fileName);
+        duplicateError.add(pmdStructure);
+
+
+        return duplicateError;
     }
 
     private static Map<String, List<PMDStructure>> createMapOfClassAndReview(String className, String severity, String ahref,
@@ -238,7 +363,7 @@ public class SaveLogs {
         bufferedReader = new BufferedReader(fileReader);
 
         while ((sCurrentLine = bufferedReader.readLine()) != null) {
-            sCurrentLine= sCurrentLine.replaceAll("\\s+","");
+            sCurrentLine = sCurrentLine.replaceAll("\\s+", "");
             String[] split = sCurrentLine.split("=");
             propertiesMap.put(split[0], split[1]);
 

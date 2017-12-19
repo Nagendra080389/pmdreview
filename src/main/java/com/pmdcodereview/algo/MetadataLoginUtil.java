@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class MetadataLoginUtil {
-    public static final String FILE_NAME = "C:\\Jenkins\\ConfigurationFile.txt";
+    public static final String FILE_NAME = "C:\\JenkinsPOC\\Jenkins\\ConfigurationFile.txt";
 
 
     static PartnerConnection partnerConnection;
@@ -113,20 +113,21 @@ public class MetadataLoginUtil {
                 processBuilder.redirectOutput(ProcessBuilder.Redirect.appendTo(log));
                 Process process = processBuilder.start();
                 process.waitFor();
-                System.out.println("Done");
+                System.out.println("PMD ruleset Done");
 
 
+                // Duplicate checker
 
-                /*Process p = Runtime.getRuntime().exec(propertiesMap.get("PmdBatFile"));
-                p.waitFor();
+                SimpleDateFormat dateFormat1 = new SimpleDateFormat("dd-MM-yy_HH-mm-ss");
+                Date date1 = new Date();
+                ProcessBuilder processBuilder1 = new ProcessBuilder(propertiesMap.get("DuplicateBatFile"));
+                File log1 = new File(propertiesMap.get("JenkinsLogs")+"\\"+"SyngentaJenkinsLogDC"+"_"+dateFormat1.format(date1)+".txt");
+                processBuilder1.redirectErrorStream(true);
+                processBuilder1.redirectOutput(ProcessBuilder.Redirect.appendTo(log1));
+                Process process1 = processBuilder1.start();
+                process1.waitFor();
+                System.out.println("PMD Duplicate checker Done");
 
-                BufferedReader stdInput = new BufferedReader(
-                        new InputStreamReader( p.getInputStream() ));
-
-                String s ;
-                while ((s = stdInput.readLine()) != null) {
-                    System.out.println(s);
-                }*/
 
             }catch( IOException ex ){
                 ex.printStackTrace();

@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Nagendra on 18-06-2017.
@@ -28,6 +29,10 @@ public class PMDStructure implements Serializable{
     private String ruleSet;
     private Integer beginLine;
     private Integer endLine;
+    private Integer numberOfDuplicates;
+    private String codeFragment;
+    private List<LineAndPath> fileLineAndPath;
+
 
     public String getId() {
         return id;
@@ -139,6 +144,30 @@ public class PMDStructure implements Serializable{
 
     public void setEndLine(Integer endLine) {
         this.endLine = endLine;
+    }
+
+    public Integer getNumberOfDuplicates() {
+        return numberOfDuplicates;
+    }
+
+    public void setNumberOfDuplicates(Integer numberOfDuplicates) {
+        this.numberOfDuplicates = numberOfDuplicates;
+    }
+
+    public String getCodeFragment() {
+        return codeFragment;
+    }
+
+    public void setCodeFragment(String codeFragment) {
+        this.codeFragment = codeFragment;
+    }
+
+    public List<LineAndPath> getFileLineAndPath() {
+        return fileLineAndPath;
+    }
+
+    public void setFileLineAndPath(List<LineAndPath> fileLineAndPath) {
+        this.fileLineAndPath = fileLineAndPath;
     }
 
     @Override

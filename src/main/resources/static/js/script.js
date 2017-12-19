@@ -9,14 +9,14 @@ function OrderFormController($scope, $http) {
 
     if (reviewFullOrg && reviewFullOrg[0] === "on") {
         var jsonData = $.ajax({
-            url: "http://USBLRPRASTIWAR1:8989/getPMDResultsForFullOrgByDate"+"?date="+date,
+            url: "http://USBLRNAGESINGH1:8989/getPMDResultsForFullOrgByDate"+"?date="+date,
             dataType: "json",
             crossDomain: true,
             async: false
         }).responseText;
     } else if (severityLevel) {
         var jsonData = $.ajax({
-            url: "http://USBLRPRASTIWAR1:8989/getPMDResultsByDateAndSeverity" + "?date=" + date + '&' + 'severityLevel='+severityLevel,
+            url: "http://USBLRNAGESINGH1:8989/getPMDResultsByDateAndSeverity" + "?date=" + date + '&' + 'severityLevel='+severityLevel,
             dataType: "json",
             crossDomain: true,
             async: false
@@ -24,7 +24,7 @@ function OrderFormController($scope, $http) {
     } else {
 
         var jsonData = $.ajax({
-            url: "http://USBLRPRASTIWAR1:8989/getPMDResultsByDate" + "?date=" + date,
+            url: "http://USBLRNAGESINGH1:8989/getPMDResultsByDate" + "?date=" + date,
             dataType: "json",
             crossDomain: true,
             async: false
@@ -32,7 +32,7 @@ function OrderFormController($scope, $http) {
 
     }
 
-    if (jsonData === "") {
+    if (!jsonData || jsonData === "") {
         window.location.pathname = "../html/noDataFetched.html";
     }
 
@@ -51,7 +51,8 @@ function OrderFormController($scope, $http) {
 
     };
 
-    $scope.sampleJSON = parsed;
+    $scope.sampleJSON = parsed.pmdStructureWrapper;
+    $scope.sampleJSONDuplicates = parsed.pmdDuplicates;
 
     $scope.logThisDefect = function() {
         var selClassName = $scope.selectedClassName;

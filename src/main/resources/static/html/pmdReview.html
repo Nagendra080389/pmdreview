@@ -21,6 +21,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/preloader.css">
+    <script src="../js/jquery.preloader.min.js"></script>
 
     <script src="../js/script.js"></script>
 
@@ -88,6 +90,7 @@
                     <li class="active"><a href="#tab1default" data-toggle="tab">Classes</a></li>
                     <li><a href="#tab2default" data-toggle="tab">Triggers</a></li>
                     <li><a href="#tab3default" data-toggle="tab">Visualforce pages</a></li>
+                    <li><a href="#tab4default" data-toggle="tab">Duplicate Codes</a></li>
                 </ul>
             </div>
             <div class="panel-body">
@@ -143,6 +146,13 @@
                                         <span class="errorMeter" ng-repeat="eachClass in value.pmdStructures | limitTo: 10"></span>
                                     </div>
                                 </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="tab4default">
+                        <ul class="col-md-12 col-lg-12">
+                            <li ng-click="showErrorDetails(key)" class="col-sm-12 col-md-4 col-lg-4 eachClassCell" ng-repeat='eachValue in sampleJSONDuplicates'>
+                                <div title="{{eachValue.fileName}}" class="classNameLabel">{{eachValue.fileName}}</div>
                             </li>
                         </ul>
                     </div>
