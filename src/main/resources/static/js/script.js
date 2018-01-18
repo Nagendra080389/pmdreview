@@ -51,6 +51,13 @@ function OrderFormController($scope, $http) {
 
     };
 
+    $scope.selectedClassDupErrDetails = [];
+    $scope.showDuplicateDetails = function (eachDuplicateData) {
+            $scope.selectedClassDupErrDetails = eachDuplicateData;
+            $('#myModalDuplicates').modal('show', testAnim('zoomIn'));
+
+        };
+
     $scope.sampleJSON = parsed.pmdStructureWrapper;
     $scope.sampleJSONDuplicates = parsed.pmdDuplicates;
 
@@ -116,4 +123,4 @@ function resetSearchContent() {
 function returnHomepage() {
     window.location.pathname = "../index.html";
 }
-$('#dpMonths').fdatepicker();
+//$('#dpMonths').fdatepicker();

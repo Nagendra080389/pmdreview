@@ -1,884 +1,251 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ruleset xmlns="http://pmd.sourceforge.net/ruleset/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         name="Default ruleset used by the CodeClimate Engine for Salesforce.com Apex"
-         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
-    <description>Default ruleset used by the Code Climate Engine for Salesforce.com Apex</description>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ruleset xmlns="http://pmd.sourceforge.net/ruleset/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Default ruleset used by the CodeClimate Engine for Salesforce.com Apex" xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+   <description>Default ruleset used by the Code Climate Engine for Salesforce.com Apex</description>
 
-    <!-- COMPLEXITY -->
-    <rule ref="rulesets/apex/complexity.xml/ExcessiveClassLength" message="Avoid really long classes (lines of code)">
-        <priority>3</priority>
-        <properties>
-            <property name="minimum" value="1000"/>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/complexity.xml/ExcessiveParameterList" message="Avoid long parameter lists">
-        <priority>3</priority>
-        <properties>
-            <property name="minimum" value="4"/>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/complexity.xml/ExcessivePublicCount"
-          message="This class has too many public methods and attributes">
-        <priority>3</priority>
-        <properties>
-            <property name="minimum" value="25"/>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/complexity.xml/NcssConstructorCount"
-          message="The constructor has an NCSS line count of {0}">
-        <priority>3</priority>
-        <properties>
-            <property name="minimum" value="20"/>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/complexity.xml/NcssMethodCount" message="The method {0}() has an NCSS line count of {1}">
-        <priority>3</priority>
-        <properties>
-            <property name="minimum" value="60"/>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/complexity.xml/NcssTypeCount" message="The type has an NCSS line count of {0}">
-        <priority>3</priority>
-        <properties>
-            <property name="minimum" value="700"/>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/complexity.xml/StdCyclomaticComplexity"
-          message="The {0} ''{1}'' has a Standard Cyclomatic Complexity of {2}.">
-        <priority>3</priority>
-        <properties>
-            <property name="reportLevel" value="10"/>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/complexity.xml/TooManyFields" message="Too many fields">
-        <priority>3</priority>
-        <properties>
-            <property name="maxfields" value="20"/>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/complexity.xml/AvoidDeeplyNestedIfStmts"
-          message="Deeply nested if..else statements are hard to read">
-        <priority>3</priority>
-        <properties>
-            <property name="problemDepth" value="4"/>
-        </properties>
-    </rule>
+   <!-- COMPLEXITY -->
+   <rule message="Avoid really long classes (lines of code)" ref="category/apex/design.xml/ExcessiveClassLength">
+      <priority>3</priority>
+      <properties>
+         <property name="minimum" value="1000"/>
+      </properties>
+   </rule>
+   <rule message="Avoid long parameter lists" ref="category/apex/design.xml/ExcessiveParameterList">
+      <priority>3</priority>
+      <properties>
+         <property name="minimum" value="4"/>
+         <!-- relevant for Code Climate output only -->
+         </properties>
+   </rule>
+   <rule message="This class has too many public methods and attributes" ref="category/apex/design.xml/ExcessivePublicCount">
+      <priority>3</priority>
+      <properties>
+         <property name="minimum" value="25"/>
+         <!-- relevant for Code Climate output only -->
+         </properties>
+   </rule>
+   <rule message="The constructor has an NCSS line count of {0}" ref="category/apex/design.xml/NcssConstructorCount">
+      <priority>3</priority>
+      <properties>
+         <property name="minimum" value="20"/>
+         <!-- relevant for Code Climate output only -->
+         </properties>
+   </rule>
+   <rule message="The method {0}() has an NCSS line count of {1}" ref="category/apex/design.xml/NcssMethodCount">
+      <priority>3</priority>
+      <properties>
+         <property name="minimum" value="60"/>
+         <!-- relevant for Code Climate output only -->
+         </properties>
+   </rule>
+   <rule message="The type has an NCSS line count of {0}" ref="category/apex/design.xml/NcssTypeCount">
+      <priority>3</priority>
+      <properties>
+         <property name="minimum" value="700"/>
+         </properties>
+   </rule>
+   <rule message="The {0} ''{1}'' has a Standard Cyclomatic Complexity of {2}." ref="category/apex/design.xml/StdCyclomaticComplexity">
+      <priority>3</priority>
+      <properties>
+         <property name="reportLevel" value="10"/>
+         </properties>
+   </rule>
+   <rule message="Too many fields" ref="category/apex/design.xml/TooManyFields">
+      <priority>3</priority>
+      <properties>
+         <property name="maxfields" value="20"/>
+         </properties>
+   </rule>
+   <rule message="Deeply nested if..else statements are hard to read" ref="category/apex/design.xml/AvoidDeeplyNestedIfStmts">
+      <priority>3</priority>
+      <properties>
+         <property name="problemDepth" value="4"/>
+         </properties>
+   </rule>
+   <rule ref="category/apex/design.xml/CyclomaticComplexity">
+      <priority>3</priority>
+      <properties>
+         </properties>
+   </rule>
 
-    <!-- PERFORMANCE -->
-    <rule ref="rulesets/apex/performance.xml/AvoidSoqlInLoops" message="Avoid Soql queries inside loops">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/performance.xml/AvoidDmlStatementsInLoops" message="Avoid DML Statements inside loops">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/style.xml/AvoidLogicInTrigger" message="Avoid logic in triggers">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/style.xml/AvoidGlobalModifier" message="Avoid using global modifier">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <!-- NAMING -->
-    <rule ref="rulesets/apex/style.xml/ClassNamingConventions"
-          message="Class names should begin with an uppercase character">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/style.xml/MethodNamingConventions"
-          message="Method name does not begin with a lower case character.">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/style.xml/MethodWithSameNameAsEnclosingClass"
-          message="Classes should not have non-constructor methods with the same name as the class">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/style.xml/VariableNamingConventions" message="{0} variable {1} should begin with {2}">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <!-- TESTS -->
-    <rule ref="rulesets/apex/apexunit.xml/ApexUnitTestClassShouldHaveAsserts"
-          message="Apex unit test classes should have at least one System.assert() or assertEquals() or AssertNotEquals() call">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/apexunit.xml/ApexUnitTestShouldNotUseSeeAllDataTrue"
-          message="@isTest(seeAllData=true) should not be used in Apex unit tests because it opens up the existing database data for unexpected modification by tests">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <!-- SECURITY -->
-    <rule ref="rulesets/apex/security.xml/ApexSharingViolations"
-          message="Apex classes should declare a sharing model if DML or SOQL is used">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/security.xml/ApexInsecureEndpoint"
-          message="Apex callouts should use encrypted communication channels">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/security.xml/ApexCSRF"
-          message="Avoid making DML operations in Apex class constructor/init method">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/security.xml/ApexOpenRedirect"
-          message="Apex classes should safely redirect to a known location">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/security.xml/ApexSOQLInjection"
-          message="Apex classes should escape variables merged in DML query">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/security.xml/ApexXSSFromURLParam"
-          message="Apex classes should escape Strings obtained from URL parameters">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/security.xml/ApexXSSFromEscapeFalse" message="Apex classes should escape addError strings">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/security.xml/ApexBadCrypto" message="Apex Crypto should use random IV/key">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/security.xml/ApexCRUDViolation"
-          message="Validate CRUD permission before SOQL/DML operation">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/security.xml/ApexDangerousMethods" message="Calling potentially dangerous method">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/security.xml/ApexSuggestUsingNamedCred"
-          message="Consider using named credentials for authenticated callouts">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <!-- BRACES -->
-    <rule ref="rulesets/apex/braces.xml/IfStmtsMustUseBraces" message="Avoid using if statements without curly braces">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/braces.xml/WhileLoopsMustUseBraces"
-          message="Avoid using 'while' statements without curly braces">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/braces.xml/IfElseStmtsMustUseBraces"
-          message="Avoid using 'if...else' statements without curly braces">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <rule ref="rulesets/apex/braces.xml/ForLoopsMustUseBraces"
-          message="Avoid using 'for' statements without curly braces">
-        <priority>3</priority>
-        <properties>
-        </properties>
-    </rule>
-    <rule name="VfUnescapeEl"
-          since="5.6.0"
-          message="Avoid unescaped user controlled content in EL"
-          class="net.sourceforge.pmd.lang.vf.rule.security.VfUnescapeElRule"
-          externalInfoUrl="${pmd.website.baseurl}/pmd_rules_vf_security.html#vfunescapeel">
-        <description>
-            Avoid unescaped user controlled content in EL as it results in XSS.
-        </description>
-        <priority>3</priority>
-        <example>
-            <![CDATA[
-            <apex:outputText value="Potential XSS is {! here }" escape="false" />
-            ]]>
-        </example>
-    </rule>
+   <!-- PERFORMANCE -->
+   <rule message="Avoid Soql queries inside loops" ref="category/apex/performance.xml/AvoidSoqlInLoops">
+      <priority>3</priority>
+      <properties>
+         <!-- relevant for Code Climate output only -->
+         </properties>
+   </rule>
+   <rule message="Avoid Sosl queries inside loops" ref="category/apex/performance.xml/AvoidSoslInLoops">
+      <priority>3</priority>
+      <properties>
+         <!-- relevant for Code Climate output only -->
+         </properties>
+   </rule>
+   <rule message="Avoid DML Statements inside loops" ref="category/apex/performance.xml/AvoidDmlStatementsInLoops">
+      <priority>3</priority>
+      <properties>
+         <!-- relevant for Code Climate output only -->
+         </properties>
+   </rule>
+   <rule message="Avoid directly accessing Trigger.old and Trigger.new" ref="category/apex/errorprone.xml/AvoidDirectAccessTriggerMap">
+      <priority>3</priority>
+      <properties>
+         <!-- relevant for Code Climate output only -->
+         </properties>
+   </rule>
+   <rule message="Avoid logic in triggers" ref="category/apex/bestpractices.xml/AvoidLogicInTrigger">
+      <priority>3</priority>
+      <properties>
+         <!-- relevant for Code Climate output only -->
+         </properties>
+   </rule>
+   <rule message="Avoid using global modifier" ref="category/apex/bestpractices.xml/AvoidGlobalModifier">
+      <priority>3</priority>
+      <properties>
+         </properties>
+   </rule>
+   <rule message="Avoid hardcoding ID's" ref="category/apex/errorprone.xml/AvoidHardcodingId">
+      <priority>3</priority>
+      <properties>
+         </properties>
+   </rule>
 
-    <rule name="VfCsrf"
-          since="5.6.0"
-          message="Avoid calling VF action upon page load"
-          class="net.sourceforge.pmd.lang.vf.rule.security.VfCsrfRule"
-          externalInfoUrl="${pmd.website.baseurl}/pmd_rules_vf_security.html#vfcsrf">
-        <description>
-            Avoid calling VF action upon page load as the action becomes vulnerable to CSRF.
-        </description>
-        <priority>3</priority>
-        <example>
-            <![CDATA[
-            <apex:page controller="AcRestActionsController" action="{!csrfInitMethod}" >
-            ]]>
-        </example>
-    </rule>
-    <rule name="UnnecessaryParentheses"
-          language="ecmascript"
-          since="5.0"
-          message="Unnecessary parentheses."
-          class="net.sourceforge.pmd.lang.rule.XPathRule"
-          externalInfoUrl="${pmd.website.baseurl}/pmd_rules_ecmascript_unnecessary.html#unnecessaryparentheses">
-        <description>Unnecessary parentheses should be removed.</description>
-        <priority>4</priority>
-        <properties>
-            <property name="xpath">
-                <value>
-                    <![CDATA[
-                    //ParenthesizedExpression/ParenthesizedExpression
-                    ]]>
-                </value>
-            </property>
-        </properties>
-        <example>
-            <![CDATA[
-                    var x = 1; // Ok
-                    var y = (1 + 1); // Ok
-                    var z = ((1 + 1)); // Bad
-                    ]]>
-        </example>
-    </rule>
+   <!-- NAMING -->
+   <rule message="Class names should begin with an uppercase character" ref="category/apex/codestyle.xml/ClassNamingConventions">
+      <priority>3</priority>
+      <properties>
+         </properties>
+   </rule>
+   <rule message="Method name does not begin with a lower case character." ref="category/apex/codestyle.xml/MethodNamingConventions">
+      <priority>3</priority>
+      <properties>
+         </properties>
+   </rule>
+   <rule message="Classes should not have non-constructor methods with the same name as the class" ref="category/apex/errorprone.xml/MethodWithSameNameAsEnclosingClass">
+      <priority>3</priority>
+      <properties>
+         </properties>
+   </rule>
+   <rule message="{0} variable {1} should begin with {2}" ref="category/apex/codestyle.xml/VariableNamingConventions">
+      <priority>3</priority>
+      <properties>
+         </properties>
+   </rule>
 
-    <rule name="UnnecessaryBlock"
-          language="ecmascript"
-          since="5.0"
-          message="Unnecessary block."
-          class="net.sourceforge.pmd.lang.rule.XPathRule"
-          externalInfoUrl="${pmd.website.baseurl}/pmd_rules_ecmascript_unnecessary.html#unnecessaryblock">
-        <description>
-            An unnecessary Block is present. Such Blocks are often used in other languages to
-            introduce a new variable scope. Blocks do not behave like this in ECMAScipt, and using them can
-            be misleading. Considering removing this unnecessary Block.
-        </description>
-        <priority>3</priority>
-        <properties>
-            <property name="xpath">
-                <value>
-                    <![CDATA[
-                    //Block[not(parent::FunctionNode or parent::IfStatement or parent::ForLoop or parent::ForInLoop
-                        or parent::WhileLoop or parent::DoLoop or parent::TryStatement or parent::CatchClause)]
-                    |
-                    //Scope[not(parent::FunctionNode or parent::IfStatement or parent::ForLoop or parent::ForInLoop
-                        or parent::WhileLoop or parent::DoLoop or parent::TryStatement or parent::CatchClause)]
-                    ]]>
-                </value>
-            </property>
-        </properties>
-        <example>
-            <![CDATA[
-                    if (foo) {
-                        // Ok
-                    }
-                    if (bar) {
-                        {
-                            // Bad
-                        }
-                    }
-                    ]]>
-        </example>
-    </rule>
+   <!-- TESTS -->
+   <rule message="Apex unit test classes should have at least one System.assert() or assertEquals() or AssertNotEquals() call" ref="category/apex/bestpractices.xml/ApexUnitTestClassShouldHaveAsserts">
+      <priority>3</priority>
+      <properties>
+         </properties>
+   </rule>
+   <rule message="@isTest(seeAllData=true) should not be used in Apex unit tests because it opens up the existing database data for unexpected modification by tests" ref="category/apex/bestpractices.xml/ApexUnitTestShouldNotUseSeeAllDataTrue">
+      <priority>3</priority>
+      <properties>
+         </properties>
+   </rule>
 
-    <rule name="NoElseReturn"
-          language="ecmascript"
-          since="5.5.0"
-          message="The else block is unnecessary"
-          class="net.sourceforge.pmd.lang.rule.XPathRule"
-          externalInfoUrl="${pmd.website.baseurl}/pmd_rules_ecmascript_unnecessary.html#noelsereturn">
-        <description>
-            The else block in a if-else-construct is unnecessary if the `if` block contains a return.
-            Then the content of the else block can be put outside.
+   <!-- SECURITY -->
+   <rule message="Apex classes should declare a sharing model if DML or SOQL is used" ref="category/apex/security.xml/ApexSharingViolations">
+      <priority>3</priority>
+      <properties>
+         </properties>
+   </rule>
+   <rule message="Apex callouts should use encrypted communication channels" ref="category/apex/security.xml/ApexInsecureEndpoint">
+      <priority>3</priority>
+      <properties>
+         </properties>
+   </rule>
+   <rule message="Avoid making DML operations in Apex class constructor/init method" ref="category/apex/security.xml/ApexCSRF">
+      <priority>3</priority>
+      <properties>
+         </properties>
+   </rule>
+   <rule message="Apex classes should safely redirect to a known location" ref="category/apex/security.xml/ApexOpenRedirect">
+      <priority>3</priority>
+      <properties>
+         </properties>
+   </rule>
+   <rule message="Apex classes should escape variables merged in DML query" ref="category/apex/security.xml/ApexSOQLInjection">
+      <priority>3</priority>
+      <properties>
+         </properties>
+   </rule>
+   <rule message="Apex classes should escape Strings obtained from URL parameters" ref="category/apex/security.xml/ApexXSSFromURLParam">
+      <priority>3</priority>
+      <properties>
+         </properties>
+   </rule>
+   <rule message="Apex classes should escape addError strings" ref="category/apex/security.xml/ApexXSSFromEscapeFalse">
+      <priority>3</priority>
+      <properties>
+         </properties>
+   </rule>
+   <rule message="Apex Crypto should use random IV/key" ref="category/apex/security.xml/ApexBadCrypto">
+      <priority>3</priority>
+      <properties>
+         </properties>
+   </rule>
+   <rule message="Validate CRUD permission before SOQL/DML operation" ref="category/apex/security.xml/ApexCRUDViolation">
+      <priority>3</priority>
+      <properties>
+         </properties>
+   </rule>
+   <rule message="Calling potentially dangerous method" ref="category/apex/security.xml/ApexDangerousMethods">
+      <priority>3</priority>
+      <properties>
+      </properties>
+   </rule>
+   <rule message="Consider using named credentials for authenticated callouts" ref="category/apex/security.xml/ApexSuggestUsingNamedCred">
+      <priority>3</priority>
+      <properties>
+      </properties>
+   </rule>
 
-            See also: &lt;http://eslint.org/docs/rules/no-else-return>
-        </description>
-        <priority>3</priority>
-        <properties>
-            <property name="xpath">
-                <value>
-                    <![CDATA[
-                    //IfStatement[@Else="true"][Scope[1]/ReturnStatement]
-                    ]]>
-                </value>
-            </property>
-        </properties>
-        <example>
-            <![CDATA[
-                    // Bad:
-                    if (x) {
-                        return y;
-                    } else {
-                        return z;
-                    }
-                    // Good:
-                    if (x) {
-                        return y;
-                    }
-                    return z;
-                    ]]>
-        </example>
-    </rule>
-    <rule name="AvoidWithStatement"
-          message="Avoid using with - it's bad news"
-          language="ecmascript"
-          since="5.0.1"
-          class="net.sourceforge.pmd.lang.rule.XPathRule"
-          externalInfoUrl="${pmd.website.baseurl}/pmd_rules_ecmascript_controversial.html#avoidwithstatement">
-        <description>Avoid using with - it's bad news</description>
-        <priority>1</priority>
-        <properties>
-            <property name="xpath">
-                <value>
-                    <![CDATA[
-                    //WithStatement
-                    ]]>
-                </value>
-            </property>
-        </properties>
-        <example>
-            <![CDATA[
-                    with (object) {
-                        property = 3; // Might be on object, might be on window: who knows.
-                    }
-                    ]]>
-        </example>
-    </rule>
-    <rule name="IfStmtsMustUseBraces"
-          language="ecmascript"
-          since="5.0"
-          message="Avoid using if statements without curly braces"
-          class="net.sourceforge.pmd.lang.rule.XPathRule"
-          externalInfoUrl="${pmd.website.baseurl}/pmd_rules_ecmascript_braces.html#ifstmtsmustusebraces">
-        <description>
-            Avoid using if statements without using curly braces.
-        </description>
-        <priority>3</priority>
-        <properties>
-            <property name="xpath">
-                <value>
-                    <![CDATA[
-                //IfStatement[@Else = "false" and not(child::Scope)]
-                ]]>
-                </value>
-            </property>
-        </properties>
-        <example>
-            <![CDATA[
-            // Ok
-            if (foo) {
-                x++;
-            }
-            // Bad
-            if (foo)
-                x++;
-            ]]>
-        </example>
-    </rule>
+   <!-- BRACES -->
+   <rule message="Avoid using if statements without curly braces" ref="category/apex/codestyle.xml/IfStmtsMustUseBraces">
+      <priority>3</priority>
+      <properties>
+      </properties>
+   </rule>
+   <rule message="Avoid using 'while' statements without curly braces" ref="category/apex/codestyle.xml/WhileLoopsMustUseBraces">
+      <priority>3</priority>
+      <properties>
+      </properties>
+   </rule>
+   <rule message="Avoid using 'if...else' statements without curly braces" ref="category/apex/codestyle.xml/IfElseStmtsMustUseBraces">
+      <priority>3</priority>
+      <properties>
+         </properties>
+   </rule>
+   <rule message="Avoid using 'for' statements without curly braces" ref="category/apex/codestyle.xml/ForLoopsMustUseBraces">
+      <priority>3</priority>
+      <properties>
+      </properties>
+   </rule>
 
-    <rule name="IfElseStmtsMustUseBraces"
-          language="ecmascript"
-          since="5.0"
-          message="Avoid using 'if...else' statements without curly braces"
-          class="net.sourceforge.pmd.lang.rule.XPathRule"
-          externalInfoUrl="${pmd.website.baseurl}/pmd_rules_ecmascript_braces.html#ifelsestmtsmustusebraces">
-        <description>
-            Avoid using if..else statements without using curly braces.
-        </description>
-        <priority>3</priority>
-        <properties>
-            <property name="xpath">
-                <value>
-                    <![CDATA[
-                //ExpressionStatement[parent::IfStatement[@Else = "true"]]
-                   [not(child::Scope)]
-                   [not(child::IfStatement)]
-                ]]>
-                </value>
-            </property>
-        </properties>
-        <example>
-            <![CDATA[
-            // Ok
-            if (foo) {
-                x++;
-            } else {
-                y++;
-            }
-            // Bad
-            if (foo)
-                x++;
-            else
-                y++;
-            ]]>
-        </example>
-    </rule>
-
-    <rule name="WhileLoopsMustUseBraces"
-          language="ecmascript"
-          since="5.0"
-          message="Avoid using 'while' statements without curly braces"
-          class="net.sourceforge.pmd.lang.rule.XPathRule"
-          externalInfoUrl="${pmd.website.baseurl}/pmd_rules_ecmascript_braces.html#whileloopsmustusebraces">
-        <description>
-            Avoid using 'while' statements without using curly braces.
-        </description>
-        <priority>3</priority>
-        <properties>
-            <property name="xpath">
-                <value>
-                    <![CDATA[
-                    //WhileLoop[not(child::Scope)]
-                    ]]>
-                </value>
-            </property>
-        </properties>
-        <example>
-            <![CDATA[
-                    // Ok
-                    while (true) {
-                        x++;
-                    }
-                    // Bad
-                    while (true)
-                        x++;
-                    ]]>
-        </example>
-    </rule>
-
-    <rule name="ForLoopsMustUseBraces"
-          language="ecmascript"
-          since="5.0"
-          message="Avoid using 'for' statements without curly braces"
-          class="net.sourceforge.pmd.lang.rule.XPathRule"
-          externalInfoUrl="${pmd.website.baseurl}/pmd_rules_ecmascript_braces.html#forloopsmustusebraces">
-        <description>
-            Avoid using 'for' statements without using curly braces.
-        </description>
-        <priority>3</priority>
-        <properties>
-            <property name="xpath">
-                <value>
-                    <![CDATA[
-                    //ForLoop[not(child::Scope)]
-                    |
-                    //ForInLoop[not(child::Scope)]
-                    ]]>
-                </value>
-            </property>
-        </properties>
-        <example>
-            <![CDATA[
-                    // Ok
-                    for (var i = 0; i < 42; i++) {
-                        foo();
-                    }
-                    // Bad
-                    for (var i = 0; i < 42; i++)
-                        foo();
-             ]]>
-        </example>
-    </rule>
-
-    <rule name="AssignmentInOperand"
-          language="ecmascript"
-          since="5.0"
-          message="Avoid assignments in operands"
-          class="net.sourceforge.pmd.lang.rule.XPathRule"
-          externalInfoUrl="${pmd.website.baseurl}/pmd_rules_ecmascript_basic.html#assignmentinoperand">
-        <description>
-            Avoid assignments in operands; this can make code more complicated and harder to read. This is sometime
-            indicative of the bug where the assignment operator '=' was used instead of the equality operator '=='.
-        </description>
-        <priority>2</priority>
-        <properties>
-            <property name="xpath">
-                <value>
-                    <![CDATA[
-            //IfStatement[$allowIf = "false"]/child::node()[1]/descendant-or-self::node()[self::Assignment or self::UnaryExpression[$allowIncrementDecrement = "false" and (@Image = "--" or @Image = "++")]]
-        |
-            //WhileLoop[$allowWhile = "false"]/child::node()[1]/descendant-or-self::node()[self::Assignment or self::UnaryExpression[$allowIncrementDecrement = "false" and (@Image = "--" or @Image = "++")]]
-        |
-            //DoLoop[$allowWhile = "false"]/child::node()[2]/descendant-or-self::node()[self::Assignment or self::UnaryExpression[$allowIncrementDecrement = "false" and (@Image = "--" or @Image = "++")]]
-        |
-            //ForLoop[$allowFor = "false"]/child::node()[2]/descendant-or-self::node()[self::Assignment or self::UnaryExpression[$allowIncrementDecrement = "false" and (@Image = "--" or @Image = "++")]]
-        |
-           //ConditionalExpression[$allowTernary = "false"]/child::node()[1]/descendant-or-self::node()[self::Assignment or self::UnaryExpression[$allowIncrementDecrement = "false" and (@Image = "--" or @Image = "++")]]
-        |
-           //ConditionalExpression[$allowTernaryResults = "false"]/child::node()[position() = 2 or position() = 3]/descendant-or-self::node()[self::Assignment or self::UnaryExpression[$allowIncrementDecrement = "false" and (@Image = "--" or @Image = "++")]]
-        ]]>
-                </value>
-            </property>
-            <property name="allowIf" type="Boolean" value="false"
-                      description="Allow assignment within the conditional expression of an if statement"/>
-            <property name="allowFor" type="Boolean" value="false"
-                      description="Allow assignment within the conditional expression of a for statement"/>
-            <property name="allowWhile" type="Boolean" value="false"
-                      description="Allow assignment within the conditional expression of a while statement"/>
-            <property name="allowTernary" type="Boolean" value="false"
-                      description="Allow assignment within the conditional expression of a ternary operator"/>
-            <property name="allowTernaryResults" type="Boolean" value="false"
-                      description="Allow assignment within the result expressions of a ternary operator"/>
-            <property name="allowIncrementDecrement" type="Boolean" value="false"
-                      description="Allow increment or decrement operators within the conditional expression of an if, for, or while statement"/>
-        </properties>
-        <example>
-            <![CDATA[
-        var x = 2;
-        // Bad
-        if ((x = getX()) == 3) {
-            alert('3!');
-        }
-        function getX() {
-            return 3;
-        }
-        ]]>
-        </example>
-    </rule>
-
-    <rule name="UnreachableCode"
-          language="ecmascript"
-          since="5.0"
-          message="A ''return'', ''break'', ''continue'', or ''throw'' statement should be the last in a block."
-          class="net.sourceforge.pmd.lang.rule.XPathRule"
-          externalInfoUrl="${pmd.website.baseurl}/pmd_rules_ecmascript_basic.html#unreachablecode">
-        <description>
-            A 'return', 'break', 'continue', or 'throw' statement should be the last in a block. Statements after these
-            will never execute. This is a bug, or extremely poor style.
-        </description>
-        <priority>1</priority>
-        <properties>
-            <property name="xpath">
-                <value>
-                    <![CDATA[
-            //ReturnStatement[following-sibling::node()]
-        |
-            //ContinueStatement[following-sibling::node()]
-        |
-            //BreakStatement[following-sibling::node()]
-        |
-            //ThrowStatement[following-sibling::node()]
-        ]]>
-                </value>
-            </property>
-        </properties>
-        <example>
-            <![CDATA[
-        // Ok
-        function foo() {
-           return 1;
-        }
-        // Bad
-        function bar() {
-           var x = 1;
-           return x;
-           x = 2;
-        }
-        ]]>
-        </example>
-    </rule>
-
-    <rule name="InnaccurateNumericLiteral"
-          language="ecmascript"
-          since="5.0"
-          message="The numeric literal ''{0}'' will have at different value at runtime."
-          class="net.sourceforge.pmd.lang.rule.XPathRule"
-          externalInfoUrl="${pmd.website.baseurl}/pmd_rules_ecmascript_basic.html#innaccuratenumericliteral">
-        <description>
-            The numeric literal will have at different value at runtime, which can happen if you provide too much
-            precision in a floating point number. This may result in numeric calculations being in error.
-        </description>
-        <priority>2</priority>
-        <properties>
-            <property name="xpath">
-                <value>
-                    <![CDATA[
-        //NumberLiteral[
-            @Image != @Number
-            and translate(@Image, "e", "E") != @Number
-            and concat(@Image, ".0") != @Number
-            and @Image != substring-before(translate(@Number, ".", ""), "E")]
-        ]]>
-                </value>
-            </property>
-        </properties>
-        <example>
-            <![CDATA[
-        var a = 9; // Ok
-        var b = 999999999999999; // Ok
-        var c = 999999999999999999999; // Not good
-        var w = 1.12e-4; // Ok
-        var x = 1.12; // Ok
-        var y = 1.1234567890123; // Ok
-        var z = 1.12345678901234567; // Not good
-        ]]>
-        </example>
-    </rule>
-
-    <rule name="ConsistentReturn"
-          since="5.0"
-          message="A function should not mix 'return' statements with and without a result."
-          class="net.sourceforge.pmd.lang.ecmascript.rule.basic.ConsistentReturnRule"
-          externalInfoUrl="${pmd.website.baseurl}/pmd_rules_ecmascript_basic.html#consistentreturn">
-        <description>
-            ECMAScript does provide for return types on functions, and therefore there is no solid rule as to their
-            usage.
-            However, when a function does use returns they should all have a value, or all with no value. Mixed return
-            usage is likely a bug, or at best poor style.
-        </description>
-        <priority>2</priority>
-        <example>
-            <![CDATA[
-        // Ok
-        function foo() {
-            if (condition1) {
-                return true;
-            }
-            return false;
-        }
-        // Bad
-        function bar() {
-            if (condition1) {
-                return;
-            }
-            return false;
-        }
-        ]]>
-        </example>
-    </rule>
-
-    <rule name="ScopeForInVariable"
-          language="ecmascript"
-          since="5.0"
-          message="The for-in loop variable ''{0}'' should be explicitly scoped with 'var' to avoid pollution."
-          class="net.sourceforge.pmd.lang.rule.XPathRule"
-          externalInfoUrl="${pmd.website.baseurl}/pmd_rules_ecmascript_basic.html#scopeforinvariable">
-        <description>
-            A for-in loop in which the variable name is not explicitly scoped to the enclosing scope with the 'var'
-            keyword can
-            refer to a variable in an enclosing scope outside the nearest enclosing scope. This will overwrite the
-            existing value of the variable in the outer scope when the body of the for-in is evaluated. When the for-in
-            loop
-            has finished, the variable will contain the last value used in the for-in, and the original value from
-            before
-            the for-in loop will be gone. Since the for-in variable name is most likely intended to be a temporary name,
-            it
-            is better to explicitly scope the variable name to the nearest enclosing scope with 'var'.
-        </description>
-        <priority>1</priority>
-        <properties>
-            <property name="xpath">
-                <value>
-                    <![CDATA[
-        //ForInLoop[not(child::VariableDeclaration)]/Name[1]
-        ]]>
-                </value>
-            </property>
-        </properties>
-        <example>
-            <![CDATA[
-        // Ok
-        function foo() {
-            var p = 'clean';
-            function() {
-                var obj = { dirty: 'dirty' };
-                for (var p in obj) { // Use 'var' here.
-                    obj[p] = obj[p];
-                }
-                return x;
-            }();
-            // 'p' still has value of 'clean'.
-        }
-        // Bad
-        function bar() {
-            var p = 'clean';
-            function() {
-                var obj = { dirty: 'dirty' };
-                for (p in obj) { // Oh no, missing 'var' here!
-                    obj[p] = obj[p];
-                }
-                return x;
-            }();
-            // 'p' is trashed and has value of 'dirty'!
-        }
-        ]]>
-        </example>
-    </rule>
-
-    <rule name="EqualComparison"
-          language="ecmascript"
-          since="5.0"
-          message="Use '==='/'!==' to compare with true/false or Numbers"
-          class="net.sourceforge.pmd.lang.rule.XPathRule"
-          externalInfoUrl="${pmd.website.baseurl}/pmd_rules_ecmascript_basic.html#equalcomparison">
-        <description>
-            Using == in condition may lead to unexpected results, as the variables are automatically casted to be of the
-            same type. The === operator avoids the casting.
-        </description>
-        <priority>3</priority>
-        <properties>
-            <property name="xpath">
-                <value>
-                    <![CDATA[
-        //InfixExpression[(@Image = "==" or @Image = "!=")
-          and
-         (child::KeywordLiteral[@Image = "true" or @Image = "false"]
-         or
-         child::NumberLiteral)
-        ]
-        ]]>
-                </value>
-            </property>
-        </properties>
-        <example>
-            <![CDATA[
-        // Ok
-        if (someVar === true) {
-          ...
-        }
-        // Ok
-        if (someVar !== 3) {
-          ...
-        }
-        // Bad
-        if (someVar == true) {
-          ...
-        }
-        // Bad
-        if (someVar != 3) {
-          ...
-        }
-        ]]>
-        </example>
-    </rule>
-
-    <rule name="GlobalVariable"
-          message="Avoid using global variables"
-          language="ecmascript"
-          since="5.0"
-          class="net.sourceforge.pmd.lang.rule.XPathRule"
-          externalInfoUrl="${pmd.website.baseurl}/pmd_rules_ecmascript_basic.html#globalvariable">
-        <description>
-            This rule helps to avoid using accidently global variables by simply missing the "var" declaration.
-            Global variables can lead to side-effects that are hard to debug.
-        </description>
-        <priority>1</priority>
-        <properties>
-            <property name="xpath">
-                <value>
-                    <![CDATA[
-        //Assignment[Name/@GlobalName = 'true']
-        ]]>
-                </value>
-            </property>
-        </properties>
-        <example>
-            <![CDATA[
-        function(arg) {
-            notDeclaredVariable = 1;    // this will create a global variable and trigger the rule
-            var someVar = 1;            // this is a local variable, that's ok
-            window.otherGlobal = 2;     // this will not trigger the rule, although it is a global variable.
-        }
-        ]]>
-        </example>
-    </rule>
-
-    <rule name="AvoidTrailingComma"
-          message="Avoid trailing commas in object or array literals"
-          language="ecmascript"
-          since="5.1"
-          class="net.sourceforge.pmd.lang.rule.XPathRule"
-          externalInfoUrl="${pmd.website.baseurl}/pmd_rules_ecmascript_basic.html#avoidtrailingcomma">
-        <description>
-            This rule helps improve code portability due to differences in browser treatment of trailing commas in
-            object or array literals.
-        </description>
-        <priority>1</priority>
-        <properties>
-            <property name="xpath">
-                <value>
-                    <![CDATA[
-        //ObjectLiteral[$allowObjectLiteral = "false" and @TrailingComma = 'true']
-        |
-        //ArrayLiteral[$allowArrayLiteral = "false" and @TrailingComma = 'true']
-        ]]>
-                </value>
-            </property>
-            <property name="allowObjectLiteral" type="Boolean" value="false"
-                      description="Allow a trailing comma within an object literal"/>
-            <property name="allowArrayLiteral" type="Boolean" value="false"
-                      description="Allow a trailing comma within an array literal"/>
-        </properties>
-        <example>
-            <![CDATA[
-        function(arg) {
-            var obj1 = { a : 1 };   // Ok
-            var arr1 = [ 1, 2 ];    // Ok
-            var obj2 = { a : 1, };  // Syntax error in some browsers!
-            var arr2 = [ 1, 2, ];   // Length 2 or 3 depending on the browser!
-        }
-        ]]>
-        </example>
-    </rule>
-
-    <rule name="UseBaseWithParseInt"
-          message="Always provide a base when using parseInt() functions"
-          language="ecmascript" since="5.0.1"
-          class="net.sourceforge.pmd.lang.rule.XPathRule"
-          externalInfoUrl="${pmd.website.baseurl}/pmd_rules_ecmascript_basic.html#usebasewithparseint">
-        <description>
-            This rule checks for usages of parseInt. While the second parameter is optional and usually defaults
-            to 10 (base/radix is 10 for a decimal number), different implementations may behave differently.
-            It also improves readability, if the base is given.
-
-            See also:
-            [parseInt()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
-        </description>
-        <priority>1</priority>
-        <properties>
-            <property name="xpath">
-                <value>
-                    <![CDATA[
-        //FunctionCall/Name[
-             @Image = 'parseInt'
-             and
-             count(../*) < 3
-        ]
-        ]]>
-                </value>
-            </property>
-        </properties>
-        <example>
-            <![CDATA[
-        parseInt("010");    // unclear, could be interpreted as 10 or 7 (with a base of 7)
-        parseInt("10", 10); // good
-        ]]>
-        </example>
-    </rule>
-
+   <!-- EMPTY -->
+   <rule message="Avoid empty catch blocks" ref="category/apex/errorprone.xml/EmptyCatchBlock">
+      <priority>3</priority>
+      <properties>
+         </properties>
+   </rule>
+   <rule message="Avoid empty 'if' statements" ref="category/apex/errorprone.xml/EmptyIfStmt">
+      <priority>3</priority>
+      <properties>
+         </properties>
+   </rule>
+   <rule message="Avoid empty 'while' statements" ref="category/apex/errorprone.xml/EmptyWhileStmt">
+      <priority>3</priority>
+      <properties>
+      </properties>
+   </rule>
+   <rule message="Avoid empty try or finally blocks" ref="category/apex/errorprone.xml/EmptyTryOrFinallyBlock">
+      <priority>3</priority>
+      <properties>
+      </properties>
+   </rule>
+   <rule message="Avoid empty block statements." ref="category/apex/errorprone.xml/EmptyStatementBlock">
+      <priority>3</priority>
+      <properties>
+      </properties>
+   </rule>
 </ruleset>

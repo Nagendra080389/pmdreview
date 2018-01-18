@@ -101,7 +101,7 @@ public class SaveLogs {
                                                         if (vNode.getNodeType() == Node.ELEMENT_NODE) {
                                                             Element eElement1 = (Element) vNode;
                                                             lineAndPath.setLine(Integer.valueOf(eElement1.getAttribute("line")));
-                                                            lineAndPath.setPath(eElement1.getAttribute("path"));
+                                                            lineAndPath.setPath(eElement1.getAttribute("path").split("\\\\")[(eElement1.getAttribute("path").split("\\\\")).length-1]);
                                                             lineAndPaths.add(lineAndPath);
                                                         }
                                                     }
@@ -283,6 +283,7 @@ public class SaveLogs {
                     fileLinePath.add(new BasicDBObject("path", lineAndPath.getPath()));
                 }
                 document.put("fileLineAndPath", fileLinePath);
+                document.put("duplicationInFile", pmdStructure.getDuplicationInFile());
                 documentList.add(document);
             }
         }
@@ -300,6 +301,20 @@ public class SaveLogs {
             pmdStructure.setCodeFragment(apexCode);
         } else {
             pmdStructure.setCodeFragment("");
+        }
+        List<String> duplicateFilesNames = new ArrayList<>();
+        for (LineAndPath lineAndPath : lineAndPaths) {
+            String duplicationInFile = lineAndPath.getPath().split("\\\\")[(lineAndPath.getPath().split("\\\\")).length - 1];
+            duplicateFilesNames.add(duplicationInFile);
+
+        }
+        if(!duplicateFilesNames.isEmpty()) {
+            boolean allEqual = duplicateFilesNames.stream().allMatch(duplicateFilesNames.get(0)::equals);
+            if (allEqual) {
+                pmdStructure.setDuplicationInFile(duplicateFilesNames.get(0));
+            }else {
+                pmdStructure.setDuplicationInFile("("+duplicateFilesNames.size() + " separate files)");
+            }
         }
         pmdStructure.setFileLineAndPath(lineAndPaths);
         pmdStructure.setDate(format);

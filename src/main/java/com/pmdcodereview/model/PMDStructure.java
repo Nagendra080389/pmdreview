@@ -31,6 +31,8 @@ public class PMDStructure implements Serializable{
     private Integer endLine;
     private Integer numberOfDuplicates;
     private String codeFragment;
+    private Integer noOfDuplicatesFiles;
+    private String duplicationInFile;
     private List<LineAndPath> fileLineAndPath;
 
 
@@ -168,6 +170,23 @@ public class PMDStructure implements Serializable{
 
     public void setFileLineAndPath(List<LineAndPath> fileLineAndPath) {
         this.fileLineAndPath = fileLineAndPath;
+    }
+
+
+    public Integer getNoOfDuplicatesFiles() {
+        return noOfDuplicatesFiles;
+    }
+
+    public void setNoOfDuplicatesFiles(Integer noOfDuplicatesFiles) {
+        this.noOfDuplicatesFiles = noOfDuplicatesFiles;
+    }
+
+    public String getDuplicationInFile() {
+        return duplicationInFile;
+    }
+
+    public void setDuplicationInFile(String duplicationInFile) {
+        this.duplicationInFile = duplicationInFile;
     }
 
     @Override

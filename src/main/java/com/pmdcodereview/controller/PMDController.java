@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.pmdcodereview.algo.AlgoForPMDResult;
 import com.pmdcodereview.algo.MetadataLoginUtil;
+import com.pmdcodereview.algo.ViewAndModifyRuleEngine;
 import com.pmdcodereview.daoLayer.PMDStructureDao;
 import com.pmdcodereview.model.PMDMainWrapper;
 import com.pmdcodereview.model.PMDStructure;
@@ -37,20 +38,20 @@ public class PMDController {
         List<PMDStructure> pmdStructureList = null;
 
         for (PMDStructure eachData : allData) {
-            if(codeReviewByClass.containsKey(eachData.getClassname())){
+            if (codeReviewByClass.containsKey(eachData.getClassname())) {
                 PMDStructureWrapper pmdStructureWrapper1 = codeReviewByClass.get(eachData.getClassname());
                 List<PMDStructure> pmdStructures = pmdStructureWrapper1.getPmdStructures();
                 Iterator<PMDStructure> iterator = pmdStructureWrapper1.getPmdStructures().iterator();
-                while (iterator.hasNext()){
+                while (iterator.hasNext()) {
                     PMDStructure next = iterator.next();
-                    if(next.getReviewFeedback().equals(eachData.getReviewFeedback())){
+                    if (next.getReviewFeedback().equals(eachData.getReviewFeedback())) {
                         iterator.remove();
                     }
                 }
                 pmdStructures.add(eachData);
                 pmdStructureWrapper1.setPmdStructures(pmdStructures);
 
-            }else {
+            } else {
                 createNewWrapper(codeReviewByClass, eachData);
             }
 
@@ -58,7 +59,7 @@ public class PMDController {
 
         AlgoForPMDResult.checkForSOQLInsideForLoop(codeReviewByClass);
 
-        if(!codeReviewByClass.isEmpty()){
+        if (!codeReviewByClass.isEmpty()) {
             Gson gson = new GsonBuilder().create();
             return gson.toJson(codeReviewByClass);
         }
@@ -90,9 +91,9 @@ public class PMDController {
         String format = simpleDateFormat.format(date);
         List<PMDStructure> bydate = pmdStructureDao.findBydate(format);
         for (PMDStructure pmdStructure : bydate) {
-            if(pmdStructure.getFileName().contains("DC")){
+            if (pmdStructure.getFileName().contains("DC")) {
                 pmdDuplicatesList.add(pmdStructure);
-            }else {
+            } else {
                 if (codeReviewByClass.containsKey(pmdStructure.getClassname())) {
                     PMDStructureWrapper pmdStructureWrapper1 = codeReviewByClass.get(pmdStructure.getClassname());
                     List<PMDStructure> pmdStructures = pmdStructureWrapper1.getPmdStructures();
@@ -114,7 +115,7 @@ public class PMDController {
 
         AlgoForPMDResult.checkForSOQLInsideForLoop(codeReviewByClass);
 
-        if(!codeReviewByClass.isEmpty()){
+        if (!codeReviewByClass.isEmpty()) {
             pmdMainWrapper.setPmdStructureWrapper(codeReviewByClass);
             pmdMainWrapper.setPmdDuplicates(pmdDuplicatesList);
             Gson gson = new GsonBuilder().create();
@@ -124,7 +125,6 @@ public class PMDController {
         return null;
 
     }
-
 
 
     @RequestMapping(value = "/getPMDResultsForFullOrgByDate", method = RequestMethod.GET)
@@ -142,17 +142,17 @@ public class PMDController {
         String format = simpleDateFormat.format(date);
         List<PMDStructure> bydate = pmdStructureDao.findBydate(format);
         for (PMDStructure pmdStructure : bydate) {
-            if(pmdStructure.getFileName().contains("DC")){
+            if (pmdStructure.getFileName().contains("DC")) {
                 pmdDuplicatesList.add(pmdStructure);
-            }else {
-                if(codeReviewByClass.containsKey(pmdStructure.getClassname())){
+            } else {
+                if (codeReviewByClass.containsKey(pmdStructure.getClassname())) {
                     PMDStructureWrapper pmdStructureWrapper1 = codeReviewByClass.get(pmdStructure.getClassname());
                     List<PMDStructure> pmdStructures = pmdStructureWrapper1.getPmdStructures();
                     pmdStructureWrapper1.getPmdStructures().removeIf(next -> next.getReviewFeedback().equals(pmdStructure.getReviewFeedback()));
                     pmdStructures.add(pmdStructure);
                     pmdStructureWrapper1.setPmdStructures(pmdStructures);
 
-                }else {
+                } else {
                     pmdStructureList = new ArrayList<>();
                     pmdStructureList.add(pmdStructure);
                     pmdStructureWrapper = new PMDStructureWrapper();
@@ -164,7 +164,7 @@ public class PMDController {
 
         AlgoForPMDResult.checkForSOQLInsideForLoop(codeReviewByClass);
 
-        if(!codeReviewByClass.isEmpty()){
+        if (!codeReviewByClass.isEmpty()) {
             pmdMainWrapper.setPmdStructureWrapper(codeReviewByClass);
             pmdMainWrapper.setPmdDuplicates(pmdDuplicatesList);
             Gson gson = new GsonBuilder().create();
@@ -189,9 +189,9 @@ public class PMDController {
 
         List<PMDStructure> bydate = pmdStructureDao.findByDateAndSeverityIn(format, severityLevel);
         for (PMDStructure pmdStructure : bydate) {
-            if(pmdStructure.getFileName().contains("DC")){
+            if (pmdStructure.getFileName().contains("DC")) {
                 pmdDuplicatesList.add(pmdStructure);
-            }else {
+            } else {
                 if (codeReviewByClass.containsKey(pmdStructure.getClassname())) {
                     PMDStructureWrapper pmdStructureWrapper1 = codeReviewByClass.get(pmdStructure.getClassname());
                     List<PMDStructure> pmdStructures = pmdStructureWrapper1.getPmdStructures();
@@ -211,7 +211,7 @@ public class PMDController {
 
         AlgoForPMDResult.checkForSOQLInsideForLoop(codeReviewByClass);
 
-        if(!codeReviewByClass.isEmpty()){
+        if (!codeReviewByClass.isEmpty()) {
             pmdMainWrapper.setPmdStructureWrapper(codeReviewByClass);
             pmdMainWrapper.setPmdDuplicates(pmdDuplicatesList);
             Gson gson = new GsonBuilder().create();
@@ -219,6 +219,21 @@ public class PMDController {
         }
 
         return null;
+
+    }
+
+    @RequestMapping(value = "/getRuleEngine", method = RequestMethod.GET)
+    public String getRuleEngine(@RequestParam Map<String, String> mapOfRuleAndPriority) throws IOException {
+
+        Gson gson = new GsonBuilder().create();
+        Map<String, String> ruleEngine;
+        try {
+            ruleEngine = ViewAndModifyRuleEngine.modify(mapOfRuleAndPriority);
+        } catch (Exception e) {
+            return gson.toJson(e.getMessage());
+        }
+
+        return gson.toJson(ruleEngine);
 
     }
 

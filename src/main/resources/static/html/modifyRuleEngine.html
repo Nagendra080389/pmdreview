@@ -1,36 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8"/>
+    <title>POC-SalesForce</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular.min.js"></script>
+    <img src="../img/spinner.gif" id="img" style="display:none"/>
 
-    <link href="http://fonts.googleapis.com/css?family=Cookie|Open+Sans:400,700" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Cookie|Open+Sans:400,700" rel="stylesheet"/>
     <!-- The main CSS file -->
-    <link href="css/codeReview.css" rel="stylesheet"/>
-    <link href="../css/style.css" rel="stylesheet" />
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="../css/style.css" rel="stylesheet"/>
+    <link href="../css/codeReview.css" rel="stylesheet"/>
+    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="js/dist/css/datepicker.min.css" rel="stylesheet" type="text/css">
-    <script src="js/dist/js/datepicker.js"></script>
-    <title>SalesForce Code Review Tool</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/preloader.css">
+    <script src="../js/scriptRuleEngine.js"></script>
 </head>
-<body>
+<body ng-app ng-controller="ruleEngineModify">
 <header>
     <div class="container">
         <div id="branding">
-            <h1><span class="highlight"> Rule Engine </span></h1>
+            <h1><span class="highlight">Modify Rule Engine </span></h1>
         </div>
 
     </div>
 </header>
 
 <section class="col-md-12 col-lg-12 dateSection">
+    <!--<form method="get">-->
+    <table id="ruleEngine" class="table table-sm table-inverse table-responsive table-striped table-bordered"
+           cellpadding="20" width="100%">
+        <thead>
+        <tr>
+            <th>Rule Name</th>
+            <th>Priority</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr ng-repeat="(key,value) in ruleEngineJSON">
+            <td>{{key}}</td>
+            <td>{{value}}</td>
+            <td><button type="button" class="btn btn-default"
+                        ng-click="modifyPriority(key)">Modify</button></td>
+        </tr>
+        </tfoot>
+    </table>
+    <!--</form>-->
 
 </section>
 
