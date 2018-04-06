@@ -2,74 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>LoginPage</title>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Cookie|Open+Sans:400,700" rel="stylesheet"/>
 
-    <link href="http://fonts.googleapis.com/css?family=Cookie|Open+Sans:400,700" rel="stylesheet"/>
-    <!-- The main CSS file -->
-    <link href="css/codeReview.css" rel="stylesheet"/>
-    <link href="../css/style.css" rel="stylesheet" />
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="js/dist/css/datepicker.min.css" rel="stylesheet" type="text/css">
-    <script src="js/dist/js/datepicker.js"></script>
-    <script src="js/scriptRuleEngine.js"></script>
-    <title>SalesForce Code Review Tool</title>
+    <link href="../css/login/loginStyle.css" rel="stylesheet"/>
+    <script src="../js/login/loginScript.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 </head>
+<script>
+
+function redirectJS(orgType){
+
+
+window.open('https://' + orgType + '.salesforce.com/services/oauth2/authorize?response_type=code&client_id=3MVG9d8..z.hDcPLDlm9QqJ3hRVyHXBbETzqf4z6yQMvo3hxOw0MIHO6RC2MQVNDOrwxt59brCnQnng8FygaM&redirect_uri=https://4d72ecf0.ngrok.io/authenticate&state=' + (orgType === 'test' ? 'a' : 'b'), '_self');
+}
+
+</script>
 <body>
-<header>
-    <div class="container">
-        <div id="branding">
-            <h1><span class="highlight"> SalesForce </span> Code Review For Syngenta</h1>
-            <span class="submitButton"><button class='btn btn-primary pull-right'
-                                               onclick="navigateRuleEngine()">View/Modify Rule Engine</button></span>
-        </div>
-
-    </div>
-</header>
-
-<section class="col-md-12 col-lg-12 dateSection">
-    <form action="html/pmdReview.html" method="get">
-        <div class="severityLevel">
-            <label>Select Date</label>
-            <input title="Choose the Date" class="selectDate datepicker-here" data-position="right top" name="date" id="date" required/>
-        </div>
-
-        <div class="severityLevel">
-            <input title="Review Full Org" type="checkbox" name="reviewFullOrg" id="reviewFullOrg"/>
-        </div>
-
-        <div class='componentWrapper'>
-
-            <div>
-                <div class='componentTitle'>Select Severity Level</div>
-                <div class='componentContent'>
-                    <div class="severityLevel">
-                    <select multiple size="5" title="Select Severity Level" name="severityLevel" id="severityLevel">
-                        <option value="1">Severity Level 1</option>
-                        <option value="2">Severity Level 2</option>
-                        <option value="3">Severity Level 3</option>
-                        <option value="4">Severity Level 4</option>
-                        <option value="5">Severity Level 5</option>
-                    </select>
-                    </div>
-                </div>
+<div class="container">
+    <div class="omb_login">
+        <div class="row omb_row-sm-offset-3 omb_socialButtons">
+            <div class="col-xs-4 col-sm-2">
+                <button onclick=redirectJS("test") class="btn btn-lg btn-block omb_btn-twitter">
+                    Review Sandbox Code
+                </button>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <button onclick=redirectJS("login") class="btn btn-lg btn-block omb_btn-google">
+                    Review Production Code
+                </button>
             </div>
         </div>
-        <div class="severityLevel">
-            <input type="submit" value="Fetch Data">
-        </div>
-    </form>
-</section>
+    </div>
+</div>
 
-<footer>
-    <p>Salesforce Free Code Review For Syngenta, Copyright &copy; 2017</p>
-    <p>Developed By - Nagendra Kumar Singh</p>
-</footer>
 </body>
+
 </html>

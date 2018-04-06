@@ -16,9 +16,9 @@ public class AlgoForPMDResult {
         for (String eachKey : pmdStructureWrapperMap.keySet()) {
             List<PMDStructure> pmdStructureList = pmdStructureWrapperMap.get(eachKey).getPmdStructures();
             for (PMDStructure pmdStructure : pmdStructureList) {
-                if(pmdStructure.getReviewFeedback().contains("inside loops")){
+                /*if(pmdStructure.getReviewFeedback().contains("inside loops")){
                     pmdStructureWrapperMap.get(eachKey).setSoqlInForLoop(true);
-                }
+                }*/
             }
 
         }

@@ -3,34 +3,18 @@ function OrderFormController($scope, $http) {
     var urlString = window.location.href;
     var urlParams = parseURLParams(urlString);
 
+    if(urlParams){
     var date = urlParams['date'];
     var reviewFullOrg = urlParams['reviewFullOrg'];
     var severityLevel = urlParams['severityLevel'];
-
-    if (reviewFullOrg && reviewFullOrg[0] === "on") {
-        var jsonData = $.ajax({
-            url: "http://USBLRNAGESINGH1:8989/getPMDResultsForFullOrgByDate"+"?date="+date,
-            dataType: "json",
-            crossDomain: true,
-            async: false
-        }).responseText;
-    } else if (severityLevel) {
-        var jsonData = $.ajax({
-            url: "http://USBLRNAGESINGH1:8989/getPMDResultsByDateAndSeverity" + "?date=" + date + '&' + 'severityLevel='+severityLevel,
-            dataType: "json",
-            crossDomain: true,
-            async: false
-        }).responseText;
-    } else {
-
-        var jsonData = $.ajax({
-            url: "http://USBLRNAGESINGH1:8989/getPMDResultsByDate" + "?date=" + date,
-            dataType: "json",
-            crossDomain: true,
-            async: false
-        }).responseText;
-
     }
+
+        var jsonData = $.ajax({
+            url: "/getPMDResultsByDateAndSeverity",
+            dataType: "json",
+            crossDomain: true,
+            async: false
+        }).responseText;
 
     if (!jsonData || jsonData === "") {
         window.location.pathname = "../html/noDataFetched.html";
