@@ -1,5 +1,7 @@
 package com.pmdcodereview.model;
 
+import net.sourceforge.pmd.RulePriority;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
@@ -20,9 +22,54 @@ public class PMDStructure implements Serializable{
     private Integer beginLine;
     private Integer endLine;
     private Integer numberOfDuplicates;
+    private Integer lineNumber;
+    private String reviewFeedback;
     private String codeFragment;
     private Integer noOfDuplicatesFiles;
     private List<LineAndPath> fileLineAndPath;
+    private String ruleName;
+    private String ruleUrl;
+    private Integer rulePriority;
+
+    public Integer getRulePriority() {
+        return rulePriority;
+    }
+
+    public void setRulePriority(Integer rulePriority) {
+        this.rulePriority = rulePriority;
+    }
+
+    public String getRuleName() {
+        return ruleName;
+    }
+
+    public void setRuleName(String ruleName) {
+        this.ruleName = ruleName;
+    }
+
+    public String getRuleUrl() {
+        return ruleUrl;
+    }
+
+    public void setRuleUrl(String ruleUrl) {
+        this.ruleUrl = ruleUrl;
+    }
+
+    public Integer getLineNumber() {
+        return lineNumber;
+    }
+
+    public void setLineNumber(Integer lineNumber) {
+        this.lineNumber = lineNumber;
+    }
+
+    public String getReviewFeedback() {
+        return reviewFeedback;
+    }
+
+    public void setReviewFeedback(String reviewFeedback) {
+        this.reviewFeedback = reviewFeedback;
+    }
 
     public String getName() {
         return name;

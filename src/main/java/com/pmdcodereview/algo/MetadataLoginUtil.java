@@ -99,11 +99,18 @@ public class MetadataLoginUtil {
     }
 
     private void createViolations(List<PMDStructure> pmdStructures, String name, List<RuleViolation> ruleViolations) {
-        PMDStructure pmdStructure = new PMDStructure();
+        PMDStructure pmdStructure = null;
         ;
         for (RuleViolation ruleViolation : ruleViolations) {
-
-            Map<Integer, List<String>> lineNumberError = pmdStructure.getLineNumberError();
+            pmdStructure = new PMDStructure();
+            pmdStructure.setReviewFeedback(ruleViolation.getDescription());
+            pmdStructure.setLineNumber(ruleViolation.getBeginLine());
+            pmdStructure.setName(name);
+            pmdStructure.setRuleName(ruleViolation.getRule().getName());
+            pmdStructure.setRuleUrl(ruleViolation.getRule().getExternalInfoUrl());
+            pmdStructure.setRulePriority(ruleViolation.getRule().getPriority().getPriority());
+            pmdStructures.add(pmdStructure);
+            /*Map<Integer, List<String>> lineNumberError = pmdStructure.getLineNumberError();
             if (lineNumberError.containsKey(ruleViolation.getBeginLine())) {
                 List<String> strings = lineNumberError.get(ruleViolation.getBeginLine());
                 strings.add(ruleViolation.getDescription());
@@ -111,11 +118,10 @@ public class MetadataLoginUtil {
                 List<String> problemList = new ArrayList<>();
                 problemList.add(ruleViolation.getDescription());
                 lineNumberError.put(ruleViolation.getBeginLine(), problemList);
-            }
+            }*/
         }
-        pmdStructure.setName(name);
 
-        pmdStructures.add(pmdStructure);
+
     }
 
     public static <T> List<T> queryRecords(String query, PartnerConnection partnerConnection, ToolingConnection toolingConnection, boolean usePartner)
