@@ -102,9 +102,3 @@ function resetSearchContent() {
     var content = document.getElementById("searchBar");
     content.value = null;
 }
-
-
-function returnHomepage() {
-    window.location.pathname = "../index.html";
-}
-//$('#dpMonths').fdatepicker();

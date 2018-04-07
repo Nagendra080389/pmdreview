@@ -24,19 +24,19 @@
     <script src="../js/jquery.preloader.min.js"></script>
     <script src="../js/scriptRuleEngine.js"></script>
     <script src="../js/script.js"></script>
+    <script src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
 
 </head>
 
-<body ng-app ng-controller="OrderFormController">
+<body ng-app ng-controller="">
 <!--<h1 class="errorHeader">List of Classes</h1>-->
 <header>
     <div class="container">
         <div id="branding">
-            <h1><span class="highlight"> List  </span> of Classes</h1>
-            <span class="submitButton"><button class='btn btn-primary pull-right'
-                                               onclick="returnHomepage()">Home</button></span>
-            <!--<span class="submitButton"><button class='btn btn-primary pull-right'
-                                               onclick="navigateRuleEngine()">View/Modify Rule Engine</button></span>-->
+            <h1><span class="highlight">Review  </span> Result</h1>
+            <form class="form-logout" role="form" action="/logout">
+                <input type="submit" value="Logout" id="logout" class="btn btn-primary btn-lg pull-right">
+            </form>
         </div>
 
     </div>
@@ -66,11 +66,11 @@
                     </thead>
                     <tbody id="errorTable">
                     <tr ng-repeat="eachClass in selectedClassErrDetails">
-                        <td>{{eachClass.beginLine}}</td>
-                        <td>{{eachClass.endLine}}</td>
-                        <td><a target="_blank" href="{{eachClass.helpURL}}">{{eachClass.reviewFeedback}}</a></td>
-                        <td>{{eachClass.severity}}</td>
-                        <td>{{eachClass.ruleSet}}</td>
+                        <td>{{eachClass.lineNumber}}</td>
+                        <td>{{eachClass.lineNumber}}</td>
+                        <td><a target="_blank" href="{{eachClass.ruleUrl}}">{{eachClass.reviewFeedback}}</a></td>
+                        <td>{{eachClass.rulePriority}}</td>
+                        <td>{{eachClass.ruleName}}</td>
                     </tr>
                     </tbody>
                 </table>

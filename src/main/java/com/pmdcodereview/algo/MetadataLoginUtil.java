@@ -49,9 +49,9 @@ public class MetadataLoginUtil {
             }catch (Exception e){
                 throw new com.sforce.ws.ConnectionException("Cannot connect to Org");
             }
-            String apexClass = "SELECT NAME, BODY FROM APEXCLASS";
-            String apexTrigger = "SELECT NAME, BODY FROM APEXTRIGGER";
-            String apexPage = "SELECT NAME, markup FROM APEXPAGE";
+            String apexClass = "SELECT NAME, BODY FROM APEXCLASS WHERE NamespacePrefix = NULL";
+            String apexTrigger = "SELECT NAME, BODY FROM APEXTRIGGER WHERE NamespacePrefix = NULL";
+            String apexPage = "SELECT NAME, markup FROM APEXPAGE WHERE NamespacePrefix = NULL";
 
             List<SObject> apexClasses = queryRecords(apexClass, partnerConnection, null, true);
             List<SObject> apexTriggers = queryRecords(apexTrigger, partnerConnection, null, true);
@@ -65,7 +65,7 @@ public class MetadataLoginUtil {
                     String name = (String) aClass.getChild("Name").getValue();
                     List<RuleViolation> ruleViolations = reviewResult(body, name, ".cls");
 
-                    createViolations(pmdStructures, name, ruleViolations);
+                    createViolations(pmdStructures, name, ruleViolations,".cls");
                 }
 
             }
@@ -75,7 +75,7 @@ public class MetadataLoginUtil {
                     String name = (String) aClass.getChild("Name").getValue();
                     List<RuleViolation> ruleViolations = reviewResult(body, name, ".trigger");
 
-                    createViolations(pmdStructures, name, ruleViolations);
+                    createViolations(pmdStructures, name, ruleViolations, ".trigger");
                 }
             }
             for (SObject aClass : apexPages) {
@@ -84,7 +84,7 @@ public class MetadataLoginUtil {
                     String name = (String) aClass.getChild("Name").getValue();
                     List<RuleViolation> ruleViolations = reviewResult(body, name, ".page");
 
-                    createViolations(pmdStructures, name, ruleViolations);
+                    createViolations(pmdStructures, name, ruleViolations, ".page");
                 }
             }
 
@@ -98,27 +98,18 @@ public class MetadataLoginUtil {
         return null;
     }
 
-    private void createViolations(List<PMDStructure> pmdStructures, String name, List<RuleViolation> ruleViolations) {
+    private void createViolations(List<PMDStructure> pmdStructures, String name, List<RuleViolation> ruleViolations, String extension) {
         PMDStructure pmdStructure = null;
         ;
         for (RuleViolation ruleViolation : ruleViolations) {
             pmdStructure = new PMDStructure();
             pmdStructure.setReviewFeedback(ruleViolation.getDescription());
             pmdStructure.setLineNumber(ruleViolation.getBeginLine());
-            pmdStructure.setName(name);
+            pmdStructure.setName(name+extension);
             pmdStructure.setRuleName(ruleViolation.getRule().getName());
             pmdStructure.setRuleUrl(ruleViolation.getRule().getExternalInfoUrl());
             pmdStructure.setRulePriority(ruleViolation.getRule().getPriority().getPriority());
             pmdStructures.add(pmdStructure);
-            /*Map<Integer, List<String>> lineNumberError = pmdStructure.getLineNumberError();
-            if (lineNumberError.containsKey(ruleViolation.getBeginLine())) {
-                List<String> strings = lineNumberError.get(ruleViolation.getBeginLine());
-                strings.add(ruleViolation.getDescription());
-            } else {
-                List<String> problemList = new ArrayList<>();
-                problemList.add(ruleViolation.getDescription());
-                lineNumberError.put(ruleViolation.getBeginLine(), problemList);
-            }*/
         }
 
 

@@ -77,8 +77,6 @@ public class PMDController {
 
         }
 
-        //AlgoForPMDResult.checkForSOQLInsideForLoop(codeReviewByClass);
-
         if (!codeReviewByClass.isEmpty()) {
             pmdMainWrapper.setPmdStructureWrapper(codeReviewByClass);
             pmdMainWrapper.setPmdDuplicates(pmdDuplicatesList);
@@ -104,7 +102,7 @@ public class PMDController {
         PostMethod post = new PostMethod(environment);
         post.addParameter("code",code);
         post.addParameter("grant_type","authorization_code");
-        post.addParameter("redirect_uri","https://4d72ecf0.ngrok.io/authenticate");
+        post.addParameter("redirect_uri","https://pmdreviewer.herokuapp.com//authenticate");
         post.addParameter("client_id","3MVG9d8..z.hDcPLDlm9QqJ3hRVyHXBbETzqf4z6yQMvo3hxOw0MIHO6RC2MQVNDOrwxt59brCnQnng8FygaM");
         post.addParameter("client_secret","1789633258935765781");
 
@@ -148,6 +146,26 @@ public class PMDController {
         httpResponse.addCookie(session3);
         httpResponse.sendRedirect("/html/pmdReview.html");
 
+    }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public void logout(ServletResponse response, ServletRequest request) throws Exception {
+        HttpServletResponse httpResponse = (HttpServletResponse)response;
+        HttpServletRequest httpRequest = (HttpServletRequest)request;
+        eraseCookie(httpRequest, httpResponse);
+
+        httpResponse.sendRedirect("/index.html");
+
+    }
+
+    private void eraseCookie(HttpServletRequest req, HttpServletResponse resp) {
+        Cookie[] cookies = req.getCookies();
+        if (cookies != null)
+            for (Cookie cookie : cookies) {
+                cookie.setValue("");
+                cookie.setMaxAge(0);
+                resp.addCookie(cookie);
+            }
     }
 
 
