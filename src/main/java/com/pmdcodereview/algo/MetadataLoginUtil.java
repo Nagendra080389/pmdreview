@@ -57,13 +57,28 @@ public class MetadataLoginUtil {
             List<SObject> apexTriggers = queryRecords(apexTrigger, partnerConnection, null, true);
             List<SObject> apexPages = queryRecords(apexPage, partnerConnection, null, true);
 
+            ClassLoader classLoader = this.getClass().getClassLoader();
+            InputStream resourceAsStream = classLoader.getResourceAsStream("xml/ruleSet.xml");
+            String ruleSetFilePath = "";
+            if(resourceAsStream != null){
+                File file = null;
+                try {
+                    file = stream2file(resourceAsStream);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }finally {
+                    resourceAsStream.close();
+                }
+                ruleSetFilePath = file != null ? file.getPath() : null;
+
+            }
+
             List<PMDStructure> pmdStructures = new ArrayList<>();
             for (SObject aClass : apexClasses) {
-                PMDStructure pmdStructure = null;
                 if(aClass.getChild("Body") != null){
                     String body = (String) aClass.getChild("Body").getValue();
                     String name = (String) aClass.getChild("Name").getValue();
-                    List<RuleViolation> ruleViolations = reviewResult(body, name, ".cls");
+                    List<RuleViolation> ruleViolations = reviewResult(body, name, ".cls",ruleSetFilePath);
 
                     createViolations(pmdStructures, name, ruleViolations,".cls");
                 }
@@ -73,7 +88,7 @@ public class MetadataLoginUtil {
                 if(aClass.getChild("Body") != null){
                     String body = (String) aClass.getChild("Body").getValue();
                     String name = (String) aClass.getChild("Name").getValue();
-                    List<RuleViolation> ruleViolations = reviewResult(body, name, ".trigger");
+                    List<RuleViolation> ruleViolations = reviewResult(body, name, ".trigger",ruleSetFilePath);
 
                     createViolations(pmdStructures, name, ruleViolations, ".trigger");
                 }
@@ -82,7 +97,7 @@ public class MetadataLoginUtil {
                 if(aClass.getChild("Markup") != null){
                     String body = (String) aClass.getChild("Markup").getValue();
                     String name = (String) aClass.getChild("Name").getValue();
-                    List<RuleViolation> ruleViolations = reviewResult(body, name, ".page");
+                    List<RuleViolation> ruleViolations = reviewResult(body, name, ".page",ruleSetFilePath);
 
                     createViolations(pmdStructures, name, ruleViolations, ".page");
                 }
@@ -171,17 +186,9 @@ public class MetadataLoginUtil {
         }
     }
 
-    private List<RuleViolation> reviewResult (String body, String fileName, String extension) throws IOException {
+    private List<RuleViolation> reviewResult (String body, String fileName, String extension, String ruleSetFilePath) throws IOException {
         PMDConfiguration pmdConfiguration = new PMDConfiguration();
         pmdConfiguration.setReportFormat("text");
-        ClassLoader classLoader = this.getClass().getClassLoader();
-        InputStream resourceAsStream = classLoader.getResourceAsStream("xml/ruleSet.xml");
-        String ruleSetFilePath = "";
-        if(resourceAsStream != null){
-            File file = stream2file(resourceAsStream);
-            ruleSetFilePath = file.getPath();
-
-        }
         pmdConfiguration.setRuleSets(ruleSetFilePath);
         pmdConfiguration.setThreads(4);
         //pmdConfiguration.setAnalysisCache(new FileAnalysisCache());
