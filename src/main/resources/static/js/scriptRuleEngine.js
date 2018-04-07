@@ -4,7 +4,7 @@ function ruleEngineModify($scope, $http) {
         var urlParams = parseURLParams(urlString);
 
         var jsonData = $.ajax({
-            url: "http://USBLRNAGESINGH1:8989/getRuleEngine",
+            url: "/getRuleEngine",
             dataType: "json",
             crossDomain: true,
             async: false

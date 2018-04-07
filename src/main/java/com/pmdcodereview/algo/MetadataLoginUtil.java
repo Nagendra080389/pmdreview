@@ -1,24 +1,24 @@
 package com.pmdcodereview.algo;
 
-import com.sforce.soap.metadata.MetadataConnection;
-import com.sforce.soap.partner.LoginResult;
+import com.pmdcodereview.model.PMDStructure;
+import com.pmdcodereview.pmd.PmdReviewService;
 import com.sforce.soap.partner.PartnerConnection;
 import com.sforce.soap.partner.QueryResult;
+import com.sforce.soap.tooling.ToolingConnection;
 import com.sforce.ws.ConnectorConfig;
-import org.apache.coyote.http2.ConnectionException;
+import net.sourceforge.pmd.*;
+import net.sourceforge.pmd.util.ResourceLoader;
+import org.apache.commons.io.IOUtils;
 import com.sforce.soap.partner.*;
 import com.sforce.soap.partner.sobject.*;
-import com.sforce.ws.*;
-import org.apache.tools.ant.Project;
-import org.apache.tools.ant.ProjectHelper;
+import org.springframework.stereotype.Service;
 
+import javax.servlet.http.Cookie;
 import java.io.*;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
+@Service
 public class MetadataLoginUtil {
-    public static final String FILE_NAME = "C:\\JenkinsPOC\\Jenkins\\ConfigurationFile.txt";
-
 
     static PartnerConnection partnerConnection;
     static List<String> classList = new ArrayList<>();
@@ -26,174 +26,181 @@ public class MetadataLoginUtil {
     static List<String> pageList = new ArrayList<>();
     static List<String> allObjectsList = new ArrayList<>();
 
-    public static void main() throws Exception {
-        BufferedWriter bufferedWriter = null;
-        Map<String, String> propertiesMap = new HashMap<String, String>();
-        FileReader fileReader = new FileReader(FILE_NAME);
-        createMapOfProperties(fileReader, propertiesMap);
-        clearTheFile(propertiesMap);
+    public List<PMDStructure> startReviewer(String partnerURL, String toolingURL, Cookie[] cookies) throws Exception {
+
+        String instanceUrl = null;
+        String accessToken = null;
+        for (Cookie cookie : cookies) {
+            if(cookie.getName().equals("ACCESS_TOKEN")){
+                accessToken = cookie.getValue();
+            }
+            if(cookie.getName().equals("INSTANCE_URL")){
+                instanceUrl = cookie.getValue();
+                instanceUrl = instanceUrl + partnerURL;
+            }
+        }
 
         ConnectorConfig config = new ConnectorConfig();
-        config.setUsername(propertiesMap.get("SalesforceUserName"));
-        config.setPassword(propertiesMap.get("SalesforcePassword"));
-        config.setAuthEndpoint(propertiesMap.get("SalesforceURL"));
+        config.setSessionId(accessToken);
+        config.setServiceEndpoint(instanceUrl);
         try {
             try {
                 partnerConnection = Connector.newConnection(config);
             }catch (Exception e){
                 throw new com.sforce.ws.ConnectionException("Cannot connect to Org");
             }
-            String apexClass = "SELECT ID, NAME FROM APEXCLASS";
-            String apexTrigger = "SELECT ID, NAME FROM APEXTRIGGER";
-            String apexPage = "SELECT ID, NAME FROM APEXPAGE";
-            QueryResult resultClass = partnerConnection.query(apexClass);
-            QueryResult resultTrigger = partnerConnection.query(apexTrigger);
-            QueryResult resultPage = partnerConnection.query(apexPage);
+            String apexClass = "SELECT NAME, BODY FROM APEXCLASS WHERE NamespacePrefix = NULL";
+            String apexTrigger = "SELECT NAME, BODY FROM APEXTRIGGER WHERE NamespacePrefix = NULL";
+            String apexPage = "SELECT NAME, markup FROM APEXPAGE WHERE NamespacePrefix = NULL";
 
-            if (resultClass.getSize() > 0) {
-                for (SObject sClass : resultClass.getRecords()) {
-                    classList.add(sClass.getField("Name") + ".cls");
+            List<SObject> apexClasses = queryRecords(apexClass, partnerConnection, null, true);
+            List<SObject> apexTriggers = queryRecords(apexTrigger, partnerConnection, null, true);
+            List<SObject> apexPages = queryRecords(apexPage, partnerConnection, null, true);
+
+            List<PMDStructure> pmdStructures = new ArrayList<>();
+            for (SObject aClass : apexClasses) {
+                PMDStructure pmdStructure = null;
+                if(aClass.getChild("Body") != null){
+                    String body = (String) aClass.getChild("Body").getValue();
+                    String name = (String) aClass.getChild("Name").getValue();
+                    List<RuleViolation> ruleViolations = reviewResult(body, name, ".cls");
+
+                    createViolations(pmdStructures, name, ruleViolations,".cls");
+                }
+
+            }
+            for (SObject aClass : apexTriggers) {
+                if(aClass.getChild("Body") != null){
+                    String body = (String) aClass.getChild("Body").getValue();
+                    String name = (String) aClass.getChild("Name").getValue();
+                    List<RuleViolation> ruleViolations = reviewResult(body, name, ".trigger");
+
+                    createViolations(pmdStructures, name, ruleViolations, ".trigger");
                 }
             }
-            if(resultTrigger.getSize() > 0) {
-                for (SObject sTrigger : resultTrigger.getRecords()) {
-                    triggerList.add(sTrigger.getField("Name") + ".trigger");
-                }
-            }
-            if(resultPage.getSize() > 0) {
-                for (SObject sPage : resultPage.getRecords()) {
-                    pageList.add(sPage.getField("Name") + ".page");
-                }
-            }
+            for (SObject aClass : apexPages) {
+                if(aClass.getChild("Markup") != null){
+                    String body = (String) aClass.getChild("Markup").getValue();
+                    String name = (String) aClass.getChild("Name").getValue();
+                    List<RuleViolation> ruleViolations = reviewResult(body, name, ".page");
 
-
-            allObjectsList.addAll(classList);
-            allObjectsList.addAll(triggerList);
-            allObjectsList.addAll(pageList);
-
-
-            try {
-
-                bufferedWriter = new BufferedWriter(new FileWriter(propertiesMap.get("ClassesTextFilepath")));
-                ;
-                for (String salesForceClass : allObjectsList) {
-                    bufferedWriter.write(salesForceClass + '\n');
-                }
-            }catch (Exception e){
-                e.printStackTrace();
-            }finally {
-                if (bufferedWriter != null) {
-                    bufferedWriter.close();
+                    createViolations(pmdStructures, name, ruleViolations, ".page");
                 }
             }
 
-            /*SalesForceObjects salesForceObjects = new SalesForceObjects();
-            salesForceObjects.setClassList(classList);
-            salesForceObjects.setPageList(pageList);
-            salesForceObjects.setTriggerList(triggerList);*/
 
-            // Execute Ant Script
-            File buildFile = new File(propertiesMap.get("AntMigrationTool"));
-            Project antProject = new Project();
-            antProject.setUserProperty("ant.file", buildFile.getAbsolutePath());
-            antProject.init();
-            ProjectHelper helper = ProjectHelper.getProjectHelper();
-            antProject.addReference("ant.projectHelper", helper);
-            helper.parse(antProject, buildFile);
-            antProject.executeTarget("runRuleTestFromJava");
+            return pmdStructures;
 
 
-            // Execute batchFile for PMD
-            try{
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yy_HH-mm-ss");
-                Date date = new Date();
-                ProcessBuilder processBuilder = new ProcessBuilder(propertiesMap.get("PmdBatFile"));
-                File log = new File(propertiesMap.get("JenkinsLogs")+"\\"+"SyngentaJenkinsLog"+"_"+dateFormat.format(date)+".txt");
-                processBuilder.redirectErrorStream(true);
-                processBuilder.redirectOutput(ProcessBuilder.Redirect.appendTo(log));
-                Process process = processBuilder.start();
-                process.waitFor();
-                System.out.println("PMD ruleset Done");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
 
-
-                // Duplicate checker
-
-                SimpleDateFormat dateFormat1 = new SimpleDateFormat("dd-MM-yy_HH-mm-ss");
-                Date date1 = new Date();
-                ProcessBuilder processBuilder1 = new ProcessBuilder(propertiesMap.get("DuplicateBatFile"));
-                File log1 = new File(propertiesMap.get("JenkinsLogs")+"\\"+"SyngentaJenkinsLogDC"+"_"+dateFormat1.format(date1)+".txt");
-                processBuilder1.redirectErrorStream(true);
-                processBuilder1.redirectOutput(ProcessBuilder.Redirect.appendTo(log1));
-                Process process1 = processBuilder1.start();
-                process1.waitFor();
-                System.out.println("PMD Duplicate checker Done");
-
-
-            }catch( IOException ex ){
-                ex.printStackTrace();
-
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            System.out.println("");
-            // SaveLogs to MongoDB
-            SaveLogs.savelogs();
-
-
-
-        } catch (com.sforce.ws.ConnectionException e) {
-            throw new com.sforce.ws.ConnectionException("Cannot Connect to Org.");
+    private void createViolations(List<PMDStructure> pmdStructures, String name, List<RuleViolation> ruleViolations, String extension) {
+        PMDStructure pmdStructure = null;
+        ;
+        for (RuleViolation ruleViolation : ruleViolations) {
+            pmdStructure = new PMDStructure();
+            pmdStructure.setReviewFeedback(ruleViolation.getDescription());
+            pmdStructure.setLineNumber(ruleViolation.getBeginLine());
+            pmdStructure.setName(name+extension);
+            pmdStructure.setRuleName(ruleViolation.getRule().getName());
+            pmdStructure.setRuleUrl(ruleViolation.getRule().getExternalInfoUrl());
+            pmdStructure.setRulePriority(ruleViolation.getRule().getPriority().getPriority());
+            pmdStructures.add(pmdStructure);
         }
 
+
     }
 
+    public static <T> List<T> queryRecords(String query, PartnerConnection partnerConnection, ToolingConnection toolingConnection, boolean usePartner)
+            throws com.sforce.ws.ConnectionException {
+        if (usePartner) {
+            List<T> sObjectList = new ArrayList<>();
+            QueryResult qResult;
+            qResult = partnerConnection.query(query);
+            boolean done = false;
+            if (qResult.getSize() > 0) {
+                System.out.println("Logged-in user can see a total of "
+                        + qResult.getSize() + " contact records.");
+                while (!done) {
+                    com.sforce.soap.partner.sobject.SObject[] records = qResult.getRecords();
+                    for (com.sforce.soap.partner.sobject.SObject record : records) {
+                        sObjectList.add((T) record);
+                    }
 
+                    if (qResult.isDone()) {
+                        done = true;
+                    } else {
+                        qResult = partnerConnection.queryMore(qResult.getQueryLocator());
+                    }
+                }
+            } else {
+                System.out.println("No records found.");
+            }
+            System.out.println("Query successfully executed.");
 
-    public static MetadataConnection login(String USERNAME, String PASSWORD, String URL) throws ConnectionException, com.sforce.ws.ConnectionException {
-        final LoginResult loginResult = loginToSalesforce(USERNAME, PASSWORD, URL);
-        return createMetadataConnection(loginResult);
-    }
+            return sObjectList;
+        } else {
+            List<T> sObjectList = new ArrayList<>();
+            com.sforce.soap.tooling.QueryResult qResult = toolingConnection.query(query);
+            boolean done = false;
+            if (qResult.getSize() > 0) {
+                System.out.println("Logged-in user can see a total of "
+                        + qResult.getSize() + " contact records.");
+                while (!done) {
+                    com.sforce.soap.tooling.sobject.SObject[] records = qResult.getRecords();
+                    for (com.sforce.soap.tooling.sobject.SObject record : records) {
+                        sObjectList.add((T) record);
+                    }
+                    if (qResult.isDone()) {
+                        done = true;
+                    } else {
+                        qResult = toolingConnection.queryMore(qResult.getQueryLocator());
+                    }
+                }
+            } else {
+                System.out.println("No records found.");
+            }
+            System.out.println("Query successfully executed.");
 
-    private static MetadataConnection createMetadataConnection(
-            final LoginResult loginResult) throws ConnectionException, com.sforce.ws.ConnectionException {
-        final ConnectorConfig config = new ConnectorConfig();
-        config.setServiceEndpoint(loginResult.getMetadataServerUrl());
-        config.setSessionId(loginResult.getSessionId());
-        return new MetadataConnection(config);
-    }
-
-    private static LoginResult loginToSalesforce(
-            final String username,
-            final String password,
-            final String loginUrl) throws ConnectionException, com.sforce.ws.ConnectionException {
-        final ConnectorConfig config = new ConnectorConfig();
-        config.setAuthEndpoint(loginUrl);
-        config.setServiceEndpoint(loginUrl);
-        config.setManualLogin(true);
-
-        return (new PartnerConnection(config)).login(username, password);
-    }
-
-    private static void createMapOfProperties(FileReader fileReader, Map<String, String> propertiesMap) throws IOException {
-        BufferedReader bufferedReader = null;
-        String sCurrentLine;
-
-        bufferedReader = new BufferedReader(fileReader);
-
-        while ((sCurrentLine = bufferedReader.readLine()) != null) {
-            sCurrentLine= sCurrentLine.replaceAll("\\s+","");
-            String[] split = sCurrentLine.split("=");
-            propertiesMap.put(split[0], split[1]);
+            return sObjectList;
 
         }
     }
 
-    private static void clearTheFile(Map<String, String> propertiesMap) throws IOException {
-        FileWriter fwOb = new FileWriter(propertiesMap.get("ClassesTextFilepath"), false);
-        PrintWriter pwOb = new PrintWriter(fwOb, false);
-        pwOb.flush();
-        pwOb.close();
-        fwOb.close();
+    private List<RuleViolation> reviewResult (String body, String fileName, String extension) throws IOException {
+        PMDConfiguration pmdConfiguration = new PMDConfiguration();
+        pmdConfiguration.setReportFormat("text");
+        ClassLoader classLoader = this.getClass().getClassLoader();
+        InputStream resourceAsStream = classLoader.getResourceAsStream("xml/ruleSet.xml");
+        String ruleSetFilePath = "";
+        if(resourceAsStream != null){
+            File file = stream2file(resourceAsStream);
+            ruleSetFilePath = file.getPath();
+
+        }
+        pmdConfiguration.setRuleSets(ruleSetFilePath);
+        pmdConfiguration.setThreads(4);
+        //pmdConfiguration.setAnalysisCache(new FileAnalysisCache());
+        SourceCodeProcessor sourceCodeProcessor = new SourceCodeProcessor(pmdConfiguration);
+        RuleSetFactory ruleSetFactory = RulesetsFactoryUtils.getRulesetFactory(pmdConfiguration, new ResourceLoader());
+        RuleSets ruleSets = RulesetsFactoryUtils.getRuleSetsWithBenchmark(pmdConfiguration.getRuleSets(), ruleSetFactory);
+
+        PmdReviewService pmdReviewService = new PmdReviewService(sourceCodeProcessor, ruleSets);
+        return pmdReviewService.review(body, fileName + extension/*".cls"*/);
+    }
+
+    private static File stream2file (InputStream in) throws IOException {
+        final File tempFile = File.createTempFile("ruleSet", ".xml");
+        tempFile.deleteOnExit();
+        try (FileOutputStream out = new FileOutputStream(tempFile)) {
+            IOUtils.copy(in, out);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return tempFile;
     }
 }

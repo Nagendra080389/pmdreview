@@ -1,13 +1,6 @@
 package com.pmdcodereview.algo;
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.MongoClient;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import com.pmdcodereview.model.LineAndPath;
-import com.pmdcodereview.model.PMDStructure;
-import org.apache.commons.io.FileUtils;
-import org.bson.Document;
+
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -21,11 +14,10 @@ import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static com.pmdcodereview.algo.MetadataLoginUtil.FILE_NAME;
 
 public class SaveLogs {
 
-    public static void savelogs() throws IOException {
+    /*public static void savelogs() throws IOException {
 
         Map<String, String> propertiesMap = new HashMap<String, String>();
         FileReader fileReader = new FileReader(FILE_NAME);
@@ -383,5 +375,5 @@ public class SaveLogs {
             propertiesMap.put(split[0], split[1]);
 
         }
-    }
+    }*/
 }
