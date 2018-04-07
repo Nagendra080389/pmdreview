@@ -2,13 +2,6 @@ function OrderFormController($scope, $http) {
 
     var urlString = window.location.href;
     var urlParams = parseURLParams(urlString);
-
-    if(urlParams){
-    var date = urlParams['date'];
-    var reviewFullOrg = urlParams['reviewFullOrg'];
-    var severityLevel = urlParams['severityLevel'];
-    }
-
         var jsonData = $.ajax({
             url: "/getPMDResultsByDateAndSeverity",
             dataType: "json",

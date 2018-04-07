@@ -24,7 +24,7 @@
     <script src="../js/jquery.preloader.min.js"></script>
     <script src="../js/scriptRuleEngine.js"></script>
     <script src="../js/script.js"></script>
-    <script src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+    <script src="../js/jquery.blockUI.js"></script>
 
 </head>
 
@@ -76,7 +76,7 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" ng-click="logThisDefect()">Create Ticket</button>
+                <!--<button type="button" class="btn btn-default" ng-click="logThisDefect()">Create Ticket</button>-->
 
                 <button type="button" class="btn btn-default" data-dismiss="modal" onclick="resetSearchContent()">
                     Close
@@ -125,8 +125,12 @@
     </div>
 </div>
 
+<div class="splash" ng-cloak="">
+    <h2>Please wait, Loading Review Result</h2>
+</div>
 
-<div class="col-md-12 col-lg-12">
+
+<div class="col-md-12 col-lg-12" ng-cloak="">
     <div class="panel with-nav-tabs panel-default">
         <div class="panel-heading">
             <ul class="nav nav-tabs">
@@ -143,12 +147,7 @@
                         <li ng-click="showErrorDetails(key)" class="col-sm-12 col-md-4 col-lg-4 eachClassCell"
                             ng-repeat='(key,value) in sampleJSON'>
                             <div ng-if="key.indexOf('.cls') > -1">
-                                <div ng-if="value.soqlInForLoop == true">
-                                    <div title="{{key}}" class="blink_me">{{key}}</div>
-                                </div>
-                                <div ng-if="value.soqlInForLoop == false">
-                                    <div title="{{key}}" class="classNameLabel">{{key}}</div>
-                                </div>
+                                <div title="{{key}}" class="classNameLabel">{{key}}</div>
                                 <div title="Error count" class="errorContainer">
                                     <span class="errorCount">{{value.pmdStructures.length}}</span>
                                     <span class="errorMeter"
@@ -163,12 +162,7 @@
                         <li ng-click="showErrorDetails(key)" class="col-sm-12 col-md-4 col-lg-4 eachClassCell"
                             ng-repeat='(key,value) in sampleJSON'>
                             <div ng-if="key.indexOf('.trigger') > -1">
-                                <div ng-if="value.soqlInForLoop == true">
-                                    <div title="{{key}}" class="blink_me">{{key}}</div>
-                                </div>
-                                <div ng-if="value.soqlInForLoop == false">
-                                    <div title="{{key}}" class="classNameLabel">{{key}}</div>
-                                </div>
+                                <div title="{{key}}" class="classNameLabel">{{key}}</div>
                                 <div title="Error count" class="errorContainer">
                                     <span class="errorCount">{{value.pmdStructures.length}}</span>
                                     <span class="errorMeter"
@@ -183,12 +177,7 @@
                         <li ng-click="showErrorDetails(key)" class="col-sm-12 col-md-4 col-lg-4 eachClassCell"
                             ng-repeat='(key,value) in sampleJSON'>
                             <div ng-if="key.indexOf('.page') > -1">
-                                <div ng-if="value.soqlInForLoop == true">
-                                    <div title="{{key}}" class="blink_me">{{key}}</div>
-                                </div>
-                                <div ng-if="value.soqlInForLoop == false">
-                                    <div title="{{key}}" class="classNameLabel">{{key}}</div>
-                                </div>
+                                <div title="{{key}}" class="classNameLabel">{{key}}</div>
                                 <div title="Error count" class="errorContainer">
                                     <span class="errorCount">{{value.pmdStructures.length}}</span>
                                     <span class="errorMeter"
@@ -219,7 +208,8 @@
 </form>
 <footer>
     <p>Salesforce Free Code Review, Copyright &copy; 2017</p>
-    <p>Contact Us : <a href="mailto: nagesingh@deloitte.com;priyaverma@deloitte.com;prastiwari@deloitte.com">Mail Us</a> </p>
+    <p>Contact Us : <a href="mailto: nagesingh@deloitte.com;priyaverma@deloitte.com;prastiwari@deloitte.com">Mail Us</a>
+    </p>
 </footer>
 <script type="application/javascript">
 
@@ -230,6 +220,7 @@
             }
         });
     });
+
 
 </script>
 </body>
