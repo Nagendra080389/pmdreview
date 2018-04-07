@@ -26,7 +26,6 @@ public class PMDStructure implements Serializable{
     private String reviewFeedback;
     private String codeFragment;
     private Integer noOfDuplicatesFiles;
-    private List<LineAndPath> fileLineAndPath;
     private String ruleName;
     private String ruleUrl;
     private Integer rulePriority;
@@ -135,11 +134,4 @@ public class PMDStructure implements Serializable{
         this.noOfDuplicatesFiles = noOfDuplicatesFiles;
     }
 
-    public List<LineAndPath> getFileLineAndPath() {
-        return fileLineAndPath;
-    }
-
-    public void setFileLineAndPath(List<LineAndPath> fileLineAndPath) {
-        this.fileLineAndPath = fileLineAndPath;
-    }
 }

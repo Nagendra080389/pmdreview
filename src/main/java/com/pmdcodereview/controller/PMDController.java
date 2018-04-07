@@ -4,14 +4,13 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.pmdcodereview.algo.AlgoForPMDResult;
 import com.pmdcodereview.algo.MetadataLoginUtil;
-import com.pmdcodereview.algo.ViewAndModifyRuleEngine;
 import com.pmdcodereview.model.PMDMainWrapper;
 import com.pmdcodereview.model.PMDStructure;
 import com.pmdcodereview.model.PMDStructureWrapper;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.PostMethod;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,15 +23,18 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Nagendra on 18-06-2017.
  */
 @RestController
 public class PMDController {
+
+    private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(PMDController.class);
 
     @Autowired
     MetadataLoginUtil metadataLoginUtil;
@@ -57,26 +59,28 @@ public class PMDController {
         PMDStructureWrapper pmdStructureWrapper = null;
         List<PMDStructure> pmdStructureList = null;
         List<PMDStructure> pmdDuplicatesList = new ArrayList<>();
+        int size = violationStructure.size();
 
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < size; i++) {
+            if (codeReviewByClass.containsKey(violationStructure.get(i).getName())) {
+                PMDStructureWrapper pmdStructureWrapper1 = codeReviewByClass.get(violationStructure.get(i).getName());
+                List<PMDStructure> pmdStructures = pmdStructureWrapper1.getPmdStructures();
+                pmdStructures.add(violationStructure.get(i));
+                pmdStructureWrapper1.setPmdStructures(pmdStructures);
 
-        for (PMDStructure pmdStructure : violationStructure) {
-
-                if (codeReviewByClass.containsKey(pmdStructure.getName())) {
-                    PMDStructureWrapper pmdStructureWrapper1 = codeReviewByClass.get(pmdStructure.getName());
-                    List<PMDStructure> pmdStructures = pmdStructureWrapper1.getPmdStructures();
-                    pmdStructures.add(pmdStructure);
-                    pmdStructureWrapper1.setPmdStructures(pmdStructures);
-
-                } else {
-                    pmdStructureList = new ArrayList<>();
-                    pmdStructureList.add(pmdStructure);
-                    pmdStructureWrapper = new PMDStructureWrapper();
-                    pmdStructureWrapper.setPmdStructures(pmdStructureList);
-                    codeReviewByClass.put(pmdStructure.getName(), pmdStructureWrapper);
-                }
-
+            } else {
+                pmdStructureList = new ArrayList<>();
+                pmdStructureList.add(violationStructure.get(i));
+                pmdStructureWrapper = new PMDStructureWrapper();
+                pmdStructureWrapper.setPmdStructures(pmdStructureList);
+                codeReviewByClass.put(violationStructure.get(i).getName(), pmdStructureWrapper);
+            }
         }
 
+        long stop = System.currentTimeMillis();
+
+        LOGGER.info("Total Time Taken from PMDController "+  String.valueOf(stop-start));
         if (!codeReviewByClass.isEmpty()) {
             pmdMainWrapper.setPmdStructureWrapper(codeReviewByClass);
             pmdMainWrapper.setPmdDuplicates(pmdDuplicatesList);
@@ -102,7 +106,7 @@ public class PMDController {
         PostMethod post = new PostMethod(environment);
         post.addParameter("code",code);
         post.addParameter("grant_type","authorization_code");
-        post.addParameter("redirect_uri","https://pmdreviewer.herokuapp.com/authenticate");
+        post.addParameter("redirect_uri","https://188439d3.ngrok.io/authenticate");
         post.addParameter("client_id","3MVG9d8..z.hDcPLDlm9QqJ3hRVyHXBbETzqf4z6yQMvo3hxOw0MIHO6RC2MQVNDOrwxt59brCnQnng8FygaM");
         post.addParameter("client_secret","1789633258935765781");
 

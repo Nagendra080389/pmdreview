@@ -1,7 +1,5 @@
 function OrderFormController($scope, $http) {
 
-    var urlString = window.location.href;
-    var urlParams = parseURLParams(urlString);
         var jsonData = $.ajax({
             url: "/getPMDResultsByDateAndSeverity",
             dataType: "json",
