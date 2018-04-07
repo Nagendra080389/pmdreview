@@ -1,6 +1,7 @@
 package com.pmdcodereview.algo;
 
 import com.pmdcodereview.model.PMDStructure;
+import com.pmdcodereview.model.PMDStructureWrapper;
 import com.pmdcodereview.pmd.PmdReviewService;
 import com.sforce.soap.partner.PartnerConnection;
 import com.sforce.soap.partner.QueryResult;
@@ -17,17 +18,15 @@ import javax.servlet.http.Cookie;
 import java.io.*;
 import java.util.*;
 
+import static java.lang.System.out;
+
 @Service
 public class MetadataLoginUtil {
 
-    static PartnerConnection partnerConnection;
-    static List<String> classList = new ArrayList<>();
-    static List<String> triggerList = new ArrayList<>();
-    static List<String> pageList = new ArrayList<>();
-    static List<String> allObjectsList = new ArrayList<>();
-
+    private static PartnerConnection partnerConnection;
     public List<PMDStructure> startReviewer(String partnerURL, String toolingURL, Cookie[] cookies) throws Exception {
 
+        Map<String, PMDStructureWrapper> codeReviewByClass = new HashMap<>();
         String instanceUrl = null;
         String accessToken = null;
         for (Cookie cookie : cookies) {
@@ -73,12 +72,23 @@ public class MetadataLoginUtil {
 
             }
 
+            PMDConfiguration pmdConfiguration = new PMDConfiguration();
+            pmdConfiguration.setReportFormat("text");
+            pmdConfiguration.setRuleSets(ruleSetFilePath);
+            int i = Runtime.getRuntime().availableProcessors();
+            pmdConfiguration.setThreads(i);
+            SourceCodeProcessor sourceCodeProcessor = new SourceCodeProcessor(pmdConfiguration);
+            RuleSetFactory ruleSetFactory = RulesetsFactoryUtils.getRulesetFactory(pmdConfiguration, new ResourceLoader());
+            RuleSets ruleSets = RulesetsFactoryUtils.getRuleSetsWithBenchmark(pmdConfiguration.getRuleSets(), ruleSetFactory);
+
+            PmdReviewService pmdReviewService = new PmdReviewService(sourceCodeProcessor, ruleSets);
+
             List<PMDStructure> pmdStructures = new ArrayList<>();
             for (SObject aClass : apexClasses) {
                 if(aClass.getChild("Body") != null){
                     String body = (String) aClass.getChild("Body").getValue();
                     String name = (String) aClass.getChild("Name").getValue();
-                    List<RuleViolation> ruleViolations = reviewResult(body, name, ".cls",ruleSetFilePath);
+                    List<RuleViolation> ruleViolations = reviewResult(body, name, ".cls",pmdConfiguration, pmdReviewService);
 
                     createViolations(pmdStructures, name, ruleViolations,".cls");
                 }
@@ -88,7 +98,7 @@ public class MetadataLoginUtil {
                 if(aClass.getChild("Body") != null){
                     String body = (String) aClass.getChild("Body").getValue();
                     String name = (String) aClass.getChild("Name").getValue();
-                    List<RuleViolation> ruleViolations = reviewResult(body, name, ".trigger",ruleSetFilePath);
+                    List<RuleViolation> ruleViolations = reviewResult(body, name, ".trigger", pmdConfiguration, pmdReviewService);
 
                     createViolations(pmdStructures, name, ruleViolations, ".trigger");
                 }
@@ -97,7 +107,7 @@ public class MetadataLoginUtil {
                 if(aClass.getChild("Markup") != null){
                     String body = (String) aClass.getChild("Markup").getValue();
                     String name = (String) aClass.getChild("Name").getValue();
-                    List<RuleViolation> ruleViolations = reviewResult(body, name, ".page",ruleSetFilePath);
+                    List<RuleViolation> ruleViolations = reviewResult(body, name, ".page", pmdConfiguration, pmdReviewService);
 
                     createViolations(pmdStructures, name, ruleViolations, ".page");
                 }
@@ -108,14 +118,13 @@ public class MetadataLoginUtil {
 
 
         } catch (Exception e) {
-            System.out.println(e);
+            out.println(e);
         }
         return null;
     }
 
     private void createViolations(List<PMDStructure> pmdStructures, String name, List<RuleViolation> ruleViolations, String extension) {
         PMDStructure pmdStructure = null;
-        ;
         for (RuleViolation ruleViolation : ruleViolations) {
             pmdStructure = new PMDStructure();
             pmdStructure.setReviewFeedback(ruleViolation.getDescription());
@@ -130,7 +139,7 @@ public class MetadataLoginUtil {
 
     }
 
-    public static <T> List<T> queryRecords(String query, PartnerConnection partnerConnection, ToolingConnection toolingConnection, boolean usePartner)
+    private static <T> List<T> queryRecords(String query, PartnerConnection partnerConnection, ToolingConnection toolingConnection, boolean usePartner)
             throws com.sforce.ws.ConnectionException {
         if (usePartner) {
             List<T> sObjectList = new ArrayList<>();
@@ -138,7 +147,7 @@ public class MetadataLoginUtil {
             qResult = partnerConnection.query(query);
             boolean done = false;
             if (qResult.getSize() > 0) {
-                System.out.println("Logged-in user can see a total of "
+                out.println("Logged-in user can see a total of "
                         + qResult.getSize() + " contact records.");
                 while (!done) {
                     com.sforce.soap.partner.sobject.SObject[] records = qResult.getRecords();
@@ -153,9 +162,9 @@ public class MetadataLoginUtil {
                     }
                 }
             } else {
-                System.out.println("No records found.");
+                out.println("No records found.");
             }
-            System.out.println("Query successfully executed.");
+            out.println("Query successfully executed.");
 
             return sObjectList;
         } else {
@@ -163,7 +172,7 @@ public class MetadataLoginUtil {
             com.sforce.soap.tooling.QueryResult qResult = toolingConnection.query(query);
             boolean done = false;
             if (qResult.getSize() > 0) {
-                System.out.println("Logged-in user can see a total of "
+                out.println("Logged-in user can see a total of "
                         + qResult.getSize() + " contact records.");
                 while (!done) {
                     com.sforce.soap.tooling.sobject.SObject[] records = qResult.getRecords();
@@ -177,27 +186,17 @@ public class MetadataLoginUtil {
                     }
                 }
             } else {
-                System.out.println("No records found.");
+                out.println("No records found.");
             }
-            System.out.println("Query successfully executed.");
+            out.println("Query successfully executed.");
 
             return sObjectList;
 
         }
     }
 
-    private List<RuleViolation> reviewResult (String body, String fileName, String extension, String ruleSetFilePath) throws IOException {
-        PMDConfiguration pmdConfiguration = new PMDConfiguration();
-        pmdConfiguration.setReportFormat("text");
-        pmdConfiguration.setRuleSets(ruleSetFilePath);
-        pmdConfiguration.setThreads(4);
-        //pmdConfiguration.setAnalysisCache(new FileAnalysisCache());
-        SourceCodeProcessor sourceCodeProcessor = new SourceCodeProcessor(pmdConfiguration);
-        RuleSetFactory ruleSetFactory = RulesetsFactoryUtils.getRulesetFactory(pmdConfiguration, new ResourceLoader());
-        RuleSets ruleSets = RulesetsFactoryUtils.getRuleSetsWithBenchmark(pmdConfiguration.getRuleSets(), ruleSetFactory);
-
-        PmdReviewService pmdReviewService = new PmdReviewService(sourceCodeProcessor, ruleSets);
-        return pmdReviewService.review(body, fileName + extension/*".cls"*/);
+    private List<RuleViolation> reviewResult(String body, String fileName, String extension, PMDConfiguration pmdConfiguration, PmdReviewService pmdReviewService) throws IOException {
+        return pmdReviewService.review(body, fileName + extension);
     }
 
     private static File stream2file (InputStream in) throws IOException {
