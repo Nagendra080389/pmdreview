@@ -1,6 +1,6 @@
 function OrderFormController($scope, $http) {
 
-    //$('#loaderImage').show();
+    $('#loaderImage').show();
 
     $http.get('/getPMDResultsByDateAndSeverity')
         .success(function(data, status, headers, config) {
@@ -13,7 +13,7 @@ function OrderFormController($scope, $http) {
                     }
                 });
             }, 1000));
-            //$('#loaderImage').hide();
+            $('#loaderImage').hide();
         })
         .error(function(data, status, header, config) {
 
