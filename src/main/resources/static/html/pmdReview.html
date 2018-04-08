@@ -20,15 +20,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/preloader.css">
     <script src="../js/script.js"></script>
     <script src="../js/jquery.blockUI.js"></script>
-    <script src="../js/oboe-browser.min.js"></script>
 
 </head>
 
 <body ng-app ng-controller="OrderFormController">
-<!--<h1 class="errorHeader">List of Classes</h1>-->
 <header>
     <div class="container">
         <div id="branding">
@@ -124,11 +121,7 @@
     </div>
 </div>
 
-<div class="splash" ng-cloak="">
-    <h2>Please wait, Loading Review Result</h2>
-</div>
-
-
+<img src="../img/spinner.gif" id="loaderImage" style='display:none'>
 <div class="col-md-12 col-lg-12" ng-cloak="">
     <div class="panel with-nav-tabs panel-default">
         <div class="panel-heading">
@@ -200,7 +193,6 @@
         </div>
     </div>
 </div>
-
 <form>
 
 

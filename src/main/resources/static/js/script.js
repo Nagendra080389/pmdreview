@@ -1,36 +1,26 @@
 function OrderFormController($scope, $http) {
 
+    $('#loaderImage').show();
 
-oboe('/getPMDResultsByDateAndSeverity')
-   .done(function(data) {
-    $scope.sampleJSON = data.pmdStructureWrapper;
-    $scope.sampleJSONDuplicates = data.pmdDuplicates;
-    $scope.$apply()
-    $scope.$watch('sampleJSON', setTimeout(function() {
-                                $('.panel-body li').each(function() {
-                                                            if($.trim($(this).text()) === "") {
-                                                            $(this).hide();
-                                                        }
-                                                    });
-                            },1000));
-   })
-   .fail(function() {
+    $http.get('/getPMDResultsByDateAndSeverity')
+        .success(function(data, status, headers, config) {
+            $scope.sampleJSON = data.pmdStructureWrapper;
+            $scope.sampleJSONDuplicates = data.pmdDuplicates;
+            $scope.$watch('sampleJSON', setTimeout(function() {
+                $('.panel-body li').each(function() {
+                    if ($.trim($(this).text()) === "") {
+                        $(this).hide();
+                    }
+                });
+            }, 1000));
+            $('#loaderImage').hide();
+        })
+        .error(function(data, status, header, config) {
 
-      console.log('error');
-   });
-
-        /*oboe('/getPMDResultsByDateAndSeverity')
-               .done(function(data) {
-                $scope.sampleJSON = data.pmdStructureWrapper;
-                $scope.sampleJSONDuplicates = data.pmdDuplicates;
-                $scope.$apply();
-               })
-               .fail(function() {
-                  window.location.pathname = "../html/error.html";
-               });*/
+        });
     $scope.selectedClassErrDetails = [];
     $scope.selectedClassName = "";
-    $scope.showErrorDetails = function (classNameKey) {
+    $scope.showErrorDetails = function(classNameKey) {
         $scope.selectedClassName = classNameKey;
         $scope.selectedClassErrDetails = $scope.sampleJSON[classNameKey].pmdStructures;
         $('#myModal').modal('show', testAnim('zoomIn'));
@@ -38,11 +28,11 @@ oboe('/getPMDResultsByDateAndSeverity')
     };
 
     $scope.selectedClassDupErrDetails = [];
-    $scope.showDuplicateDetails = function (eachDuplicateData) {
-            $scope.selectedClassDupErrDetails = eachDuplicateData;
-            $('#myModalDuplicates').modal('show', testAnim('zoomIn'));
+    $scope.showDuplicateDetails = function(eachDuplicateData) {
+        $scope.selectedClassDupErrDetails = eachDuplicateData;
+        $('#myModalDuplicates').modal('show', testAnim('zoomIn'));
 
-        };
+    };
 
     $scope.logThisDefect = function() {
         var selClassName = $scope.selectedClassName;
@@ -64,7 +54,8 @@ function parseURLParams(url) {
         queryEnd = url.indexOf("#") + 1 || url.length + 1,
         query = url.slice(queryStart, queryEnd - 1),
         pairs = query.replace(/\+/g, " ").split("&"),
-        parms = {}, i, n, v, nv;
+        parms = {},
+        i, n, v, nv;
 
     if (query === url || query === "") return;
 

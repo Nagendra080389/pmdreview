@@ -19,7 +19,7 @@
 <script>
 
 function redirectJS(orgType){
-    window.open('https://' + orgType + '.salesforce.com/services/oauth2/authorize?response_type=code&client_id=3MVG9d8..z.hDcPLDlm9QqJ3hRVyHXBbETzqf4z6yQMvo3hxOw0MIHO6RC2MQVNDOrwxt59brCnQnng8FygaM&redirect_uri=https://48d2ca4b.ngrok.io/authenticate&state=' + (orgType === 'test' ? 'a' : 'b'), '_self');
+    window.open('https://' + orgType + '.salesforce.com/services/oauth2/authorize?response_type=code&client_id=3MVG9d8..z.hDcPLDlm9QqJ3hRVyHXBbETzqf4z6yQMvo3hxOw0MIHO6RC2MQVNDOrwxt59brCnQnng8FygaM&redirect_uri=https://pmdreviewer.herokuapp.com/authenticate&state=' + (orgType === 'test' ? 'a' : 'b'), '_self');
 }
 
 
