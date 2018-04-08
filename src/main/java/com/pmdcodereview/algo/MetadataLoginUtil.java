@@ -17,6 +17,9 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.Cookie;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.logging.Logger;
@@ -88,11 +91,12 @@ public class MetadataLoginUtil {
             PmdReviewService pmdReviewService = new PmdReviewService(sourceCodeProcessor, ruleSets);
 
             List<PMDStructure> pmdStructures = new ArrayList<>();
+            PMDStructure pmdStructure = null;
 
             long start = System.currentTimeMillis();
             apexClasses.parallelStream().forEachOrdered(aClass -> {
                 try {
-                    createViolationsForAll(pmdStructures, (String) aClass.getChild("Body").getValue(),
+                    createViolationsForAll(pmdStructure, pmdStructures, (String) aClass.getChild("Body").getValue(),
                             (String) aClass.getChild("Name").getValue(), ".cls", pmdReviewService);
                 } catch (IOException e) {
                     LOGGER.error("Exception while creating violation for classes: " + e.getMessage());
@@ -101,7 +105,7 @@ public class MetadataLoginUtil {
 
             apexTriggers.parallelStream().forEachOrdered(aTrigger -> {
                 try {
-                    createViolationsForAll(pmdStructures, (String) aTrigger.getChild("Body").getValue(),
+                    createViolationsForAll(pmdStructure, pmdStructures, (String) aTrigger.getChild("Body").getValue(),
                             (String) aTrigger.getChild("Name").getValue(), ".trigger", pmdReviewService);
                 } catch (IOException e) {
                     LOGGER.error("Exception while creating violation for triggers: " + e.getMessage());
@@ -110,7 +114,7 @@ public class MetadataLoginUtil {
 
             apexPages.parallelStream().forEachOrdered(aPage -> {
                 try {
-                    createViolationsForAll(pmdStructures, (String) aPage.getChild("Markup").getValue(),
+                    createViolationsForAll(pmdStructure, pmdStructures, (String) aPage.getChild("Markup").getValue(),
                             (String) aPage.getChild("Name").getValue(), ".page", pmdReviewService);
                 } catch (IOException e) {
                     LOGGER.error("Exception while creating violation for pages: " + e.getMessage());
@@ -129,14 +133,15 @@ public class MetadataLoginUtil {
         return Collections.EMPTY_LIST;
     }
 
-    private void createViolationsForAll(List<PMDStructure> pmdStructures, String body, String name, String extension, PmdReviewService pmdReviewService) throws IOException {
+    private void createViolationsForAll(PMDStructure pmdStructure, List<PMDStructure> pmdStructures, String body,
+                                        String name, String extension,
+                                        PmdReviewService pmdReviewService) throws IOException {
         List<RuleViolation> ruleViolations = reviewResult(body, name, extension, pmdReviewService);
 
-        createViolations(pmdStructures, name, ruleViolations, extension);
+        createViolations(pmdStructure, pmdStructures, name, ruleViolations, extension);
     }
 
-    private void createViolations(List<PMDStructure> pmdStructures, String name, List<RuleViolation> ruleViolations, String extension) {
-        PMDStructure pmdStructure = null;
+    private void createViolations(PMDStructure pmdStructure, List<PMDStructure> pmdStructures, String name, List<RuleViolation> ruleViolations, String extension) {
         int ruleViolationsSize = ruleViolations.size();
         for (int i = 0; i < ruleViolationsSize; i++) {
             pmdStructure = new PMDStructure();
@@ -158,7 +163,7 @@ public class MetadataLoginUtil {
             qResult = partnerConnection.query(query);
             boolean done = false;
             if (qResult.getSize() > 0) {
-                out.println("Logged-in user can see a total of "
+                LOGGER.info("Logged-in user can see a total of "
                         + qResult.getSize() + " contact records.");
                 while (!done) {
                     com.sforce.soap.partner.sobject.SObject[] records = qResult.getRecords();
@@ -173,9 +178,9 @@ public class MetadataLoginUtil {
                     }
                 }
             } else {
-                out.println("No records found.");
+                LOGGER.info("No records found.");
             }
-            out.println("Query successfully executed.");
+            LOGGER.info("Query successfully executed.");
 
             return sObjectList;
         } else {
@@ -197,9 +202,9 @@ public class MetadataLoginUtil {
                     }
                 }
             } else {
-                out.println("No records found.");
+                LOGGER.info("No records found.");
             }
-            out.println("Query successfully executed.");
+            LOGGER.info("Query successfully executed.");
 
             return sObjectList;
 
@@ -213,7 +218,7 @@ public class MetadataLoginUtil {
     private static File stream2file(InputStream in) throws IOException {
         final File tempFile = File.createTempFile("ruleSet", ".xml");
         tempFile.deleteOnExit();
-        try (FileOutputStream out = new FileOutputStream(tempFile)) {
+        try (OutputStream out = Files.newOutputStream(Paths.get(tempFile.toURI()))) {
             IOUtils.copy(in, out);
         } catch (Exception e) {
             e.printStackTrace();

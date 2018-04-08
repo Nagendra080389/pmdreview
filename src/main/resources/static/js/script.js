@@ -1,22 +1,33 @@
 function OrderFormController($scope, $http) {
 
-        var jsonData = $.ajax({
-            url: "/getPMDResultsByDateAndSeverity",
-            dataType: "json",
-            crossDomain: true,
-            async: false
-        }).responseText;
 
-    if (!jsonData || jsonData === "") {
-        window.location.pathname = "../html/noDataFetched.html";
-    }
+oboe('/getPMDResultsByDateAndSeverity')
+   .done(function(data) {
+    $scope.sampleJSON = data.pmdStructureWrapper;
+    $scope.sampleJSONDuplicates = data.pmdDuplicates;
+    $scope.$apply()
+    $scope.$watch('sampleJSON', setTimeout(function() {
+                                $('.panel-body li').each(function() {
+                                                            if($.trim($(this).text()) === "") {
+                                                            $(this).hide();
+                                                        }
+                                                    });
+                            },1000));
+   })
+   .fail(function() {
 
-    var parsed = JSON.parse(jsonData);
+      console.log('error');
+   });
 
-    if (parsed.error) {
-        window.location.pathname = "../html/error.html";
-    }
-
+        /*oboe('/getPMDResultsByDateAndSeverity')
+               .done(function(data) {
+                $scope.sampleJSON = data.pmdStructureWrapper;
+                $scope.sampleJSONDuplicates = data.pmdDuplicates;
+                $scope.$apply();
+               })
+               .fail(function() {
+                  window.location.pathname = "../html/error.html";
+               });*/
     $scope.selectedClassErrDetails = [];
     $scope.selectedClassName = "";
     $scope.showErrorDetails = function (classNameKey) {
@@ -33,9 +44,6 @@ function OrderFormController($scope, $http) {
 
         };
 
-    $scope.sampleJSON = parsed.pmdStructureWrapper;
-    $scope.sampleJSONDuplicates = parsed.pmdDuplicates;
-
     $scope.logThisDefect = function() {
         var selClassName = $scope.selectedClassName;
         var selClassErrorDetails = $scope.selectedClassErrDetails;
@@ -44,11 +52,11 @@ function OrderFormController($scope, $http) {
         console.log(selClassErrorDetails);
     };
 
-};
+}
 
 function testAnim(x) {
     $('.modal .modal-dialog').attr('class', 'modal-dialog  ' + x + '  animated');
-};
+}
 
 
 function parseURLParams(url) {
