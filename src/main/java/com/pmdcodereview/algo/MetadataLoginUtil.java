@@ -1,5 +1,7 @@
 package com.pmdcodereview.algo;
 
+import com.google.gson.Gson;
+import com.pmdcodereview.model.PMDMainWrapper;
 import com.pmdcodereview.model.PMDStructure;
 import com.pmdcodereview.model.PMDStructureWrapper;
 import com.pmdcodereview.pmd.PmdReviewService;
@@ -13,16 +15,14 @@ import org.apache.commons.io.IOUtils;
 import com.sforce.soap.partner.*;
 import com.sforce.soap.partner.sobject.*;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.Cookie;
 import java.io.*;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.logging.Logger;
 
 import static java.lang.System.out;
 
@@ -33,7 +33,11 @@ public class MetadataLoginUtil {
 
     private static PartnerConnection partnerConnection;
 
-    public List<PMDStructure> startReviewer(String partnerURL, String toolingURL, Cookie[] cookies) throws Exception {
+    @Autowired
+    Gson gson;
+
+
+    public List<PMDStructure> startReviewer(String partnerURL, String toolingURL, Cookie[] cookies, OutputStream outputStream) throws Exception {
         String instanceUrl = null;
         String accessToken = null;
         for (Cookie cookie : cookies) {
@@ -97,7 +101,7 @@ public class MetadataLoginUtil {
             apexClasses.parallelStream().forEachOrdered(aClass -> {
                 try {
                     createViolationsForAll(pmdStructure, pmdStructures, (String) aClass.getChild("Body").getValue(),
-                            (String) aClass.getChild("Name").getValue(), ".cls", pmdReviewService);
+                            (String) aClass.getChild("Name").getValue(), ".cls", pmdReviewService, outputStream);
                 } catch (IOException e) {
                     LOGGER.error("Exception while creating violation for classes: " + e.getMessage());
                 }
@@ -106,7 +110,7 @@ public class MetadataLoginUtil {
             apexTriggers.parallelStream().forEachOrdered(aTrigger -> {
                 try {
                     createViolationsForAll(pmdStructure, pmdStructures, (String) aTrigger.getChild("Body").getValue(),
-                            (String) aTrigger.getChild("Name").getValue(), ".trigger", pmdReviewService);
+                            (String) aTrigger.getChild("Name").getValue(), ".trigger", pmdReviewService, outputStream);
                 } catch (IOException e) {
                     LOGGER.error("Exception while creating violation for triggers: " + e.getMessage());
                 }
@@ -115,14 +119,14 @@ public class MetadataLoginUtil {
             apexPages.parallelStream().forEachOrdered(aPage -> {
                 try {
                     createViolationsForAll(pmdStructure, pmdStructures, (String) aPage.getChild("Markup").getValue(),
-                            (String) aPage.getChild("Name").getValue(), ".page", pmdReviewService);
+                            (String) aPage.getChild("Name").getValue(), ".page", pmdReviewService, outputStream);
                 } catch (IOException e) {
                     LOGGER.error("Exception while creating violation for pages: " + e.getMessage());
                 }
             });
 
             long stop = System.currentTimeMillis();
-            LOGGER.info("Total Time Taken "+  String.valueOf(stop-start));
+            LOGGER.info("Total Time Taken " + String.valueOf(stop - start));
 
             return pmdStructures;
 
@@ -135,23 +139,41 @@ public class MetadataLoginUtil {
 
     private void createViolationsForAll(PMDStructure pmdStructure, List<PMDStructure> pmdStructures, String body,
                                         String name, String extension,
-                                        PmdReviewService pmdReviewService) throws IOException {
+                                        PmdReviewService pmdReviewService, OutputStream outputStream) throws IOException {
         List<RuleViolation> ruleViolations = reviewResult(body, name, extension, pmdReviewService);
 
-        createViolations(pmdStructure, pmdStructures, name, ruleViolations, extension);
+        createViolations(pmdStructure, pmdStructures, name, ruleViolations, extension, outputStream);
     }
 
-    private void createViolations(PMDStructure pmdStructure, List<PMDStructure> pmdStructures, String name, List<RuleViolation> ruleViolations, String extension) {
+    private void createViolations(PMDStructure pmdStructure, List<PMDStructure> pmdStructures, String name, List<RuleViolation> ruleViolations, String extension, OutputStream outputStream) throws IOException {
         int ruleViolationsSize = ruleViolations.size();
-        for (int i = 0; i < ruleViolationsSize; i++) {
-            pmdStructure = new PMDStructure();
-            pmdStructure.setReviewFeedback(ruleViolations.get(i).getDescription());
-            pmdStructure.setLineNumber(ruleViolations.get(i).getBeginLine());
-            pmdStructure.setName(name + extension);
-            pmdStructure.setRuleName(ruleViolations.get(i).getRule().getName());
-            pmdStructure.setRuleUrl(ruleViolations.get(i).getRule().getExternalInfoUrl());
-            pmdStructure.setRulePriority(ruleViolations.get(i).getRule().getPriority().getPriority());
-            pmdStructures.add(pmdStructure);
+        try {
+            List<PMDStructure> pmdStructureList = new ArrayList<>();
+
+            for (int i = 0; i < ruleViolationsSize; i++) {
+                pmdStructure = new PMDStructure();
+                pmdStructure.setReviewFeedback(ruleViolations.get(i).getDescription());
+                pmdStructure.setLineNumber(ruleViolations.get(i).getBeginLine());
+                pmdStructure.setName(name + extension);
+                pmdStructure.setRuleName(ruleViolations.get(i).getRule().getName());
+                pmdStructure.setRuleUrl(ruleViolations.get(i).getRule().getExternalInfoUrl());
+                pmdStructure.setRulePriority(ruleViolations.get(i).getRule().getPriority().getPriority());
+                pmdStructures.add(pmdStructure);
+                pmdStructureList.add(pmdStructure);
+            }
+
+            if (outputStream != null && !pmdStructureList.isEmpty()) {
+                Map<String, PMDStructureWrapper> codeReviewByClass = new HashMap<>();
+                PMDStructureWrapper pmdStructureWrapper = new PMDStructureWrapper();
+                pmdStructureWrapper.setPmdStructures(pmdStructureList);
+                codeReviewByClass.put(name+extension, pmdStructureWrapper);
+                PMDMainWrapper pmdMainWrapper = new PMDMainWrapper();
+                pmdMainWrapper.setPmdStructureWrapper(codeReviewByClass);
+                outputStream.write(gson.toJson(pmdMainWrapper).getBytes());
+                outputStream.flush();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
