@@ -167,7 +167,7 @@ public class PMDController {
 
     }
 
-    @RequestMapping(value = "/auth", method = RequestMethod.GET, params = {"error", "error_description","state"})
+    @RequestMapping(value = "/authenticate", method = RequestMethod.GET, params = {"error", "error_description","state"})
     public void authErrorHandle(@RequestParam String error, @RequestParam String error_description, @RequestParam String state,
                                 HttpServletResponse response, HttpServletRequest request) throws Exception {
 
