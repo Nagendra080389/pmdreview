@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8"/>
-    <title>POC-SalesForce</title>
+    <title>Review Result</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular.min.js"></script>
@@ -21,6 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="../js/script.js"></script>
+    <script src="../js/oboe-browser.min.js"></script>
 </head>
 
 <body ng-app ng-controller="OrderFormController">
@@ -134,46 +135,40 @@
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="tab1default">
                     <ul class="col-md-12 col-lg-12">
-                        <li ng-click="showErrorDetails(key)" class="col-sm-12 col-md-4 col-lg-4 eachClassCell"
-                            ng-repeat='(key,value) in sampleJSON'>
-                            <div ng-if="key.indexOf('.cls') > -1">
+                        <li ng-click="showErrorDetailsClass(key)" class="col-sm-12 col-md-4 col-lg-4 eachClassCell"
+                            ng-repeat='(key,value) in sampleJSONClass'>
                                 <div title="{{key}}" class="classNameLabel">{{key}}</div>
                                 <div title="Error count" class="errorContainer">
                                     <span class="errorCount">{{value.pmdStructures.length}}</span>
                                     <span class="errorMeter"
                                           ng-repeat="eachClass in value.pmdStructures | limitTo: 10"></span>
                                 </div>
-                            </div>
                         </li>
                     </ul>
                 </div>
                 <div class="tab-pane fade" id="tab2default">
                     <ul class="col-md-12 col-lg-12">
-                        <li ng-click="showErrorDetails(key)" class="col-sm-12 col-md-4 col-lg-4 eachClassCell"
-                            ng-repeat='(key,value) in sampleJSON'>
-                            <div ng-if="key.indexOf('.trigger') > -1">
+                        <li ng-click="showErrorDetailsTrigger(key)" class="col-sm-12 col-md-4 col-lg-4 eachClassCell"
+                            ng-repeat='(key,value) in sampleJSONTrigger'>
                                 <div title="{{key}}" class="classNameLabel">{{key}}</div>
                                 <div title="Error count" class="errorContainer">
                                     <span class="errorCount">{{value.pmdStructures.length}}</span>
                                     <span class="errorMeter"
                                           ng-repeat="eachClass in value.pmdStructures | limitTo: 10"></span>
-                                </div>
                             </div>
                         </li>
                     </ul>
                 </div>
                 <div class="tab-pane fade" id="tab3default">
                     <ul class="col-md-12 col-lg-12">
-                        <li ng-click="showErrorDetails(key)" class="col-sm-12 col-md-4 col-lg-4 eachClassCell"
-                            ng-repeat='(key,value) in sampleJSON'>
-                            <div ng-if="key.indexOf('.page') > -1">
+                        <li ng-click="showErrorDetailsPage(key)" class="col-sm-12 col-md-4 col-lg-4 eachClassCell"
+                            ng-repeat='(key,value) in sampleJSONPages'>
                                 <div title="{{key}}" class="classNameLabel">{{key}}</div>
                                 <div title="Error count" class="errorContainer">
                                     <span class="errorCount">{{value.pmdStructures.length}}</span>
                                     <span class="errorMeter"
                                           ng-repeat="eachClass in value.pmdStructures | limitTo: 10"></span>
                                 </div>
-                            </div>
                         </li>
                     </ul>
                 </div>

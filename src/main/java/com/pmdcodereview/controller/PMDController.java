@@ -17,16 +17,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.StreamingOutput;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * Created by Nagendra on 18-06-2017.
@@ -38,6 +48,9 @@ public class PMDController {
 
     @Autowired
     MetadataLoginUtil metadataLoginUtil;
+
+    @Autowired
+    Gson gson;
 
     @Value("${partnerURL}")
     volatile String partnerURL;
@@ -54,7 +67,7 @@ public class PMDController {
         Cookie[] cookies = request.getCookies();
 
 
-        List<PMDStructure> violationStructure = metadataLoginUtil.startReviewer(partnerURL, toolingURL, cookies);
+        List<PMDStructure> violationStructure = metadataLoginUtil.startReviewer(partnerURL, toolingURL, cookies, null);
 
         PMDStructureWrapper pmdStructureWrapper = null;
         List<PMDStructure> pmdStructureList = null;
@@ -80,7 +93,7 @@ public class PMDController {
 
         long stop = System.currentTimeMillis();
 
-        LOGGER.info("Total Time Taken from PMDController "+  String.valueOf(stop-start));
+        LOGGER.info("Total Time Taken from PMDController " + String.valueOf(stop - start));
         if (!codeReviewByClass.isEmpty()) {
             pmdMainWrapper.setPmdStructureWrapper(codeReviewByClass);
             pmdMainWrapper.setPmdDuplicates(pmdDuplicatesList);
@@ -92,27 +105,26 @@ public class PMDController {
 
     }
 
-    @RequestMapping(value = "/authenticate", method = RequestMethod.GET)
+    @RequestMapping(value = "/authenticate", method = RequestMethod.GET, params = {"code","state"})
     public void auth(@RequestParam String code, @RequestParam String state, ServletResponse response, ServletRequest request) throws Exception {
 
         String environment = null;
-        if(state.equals("b")) {
+        if (state.equals("b")) {
             environment = "https://login.salesforce.com/services/oauth2/token";
-        }else {
+        } else {
             environment = "https://test.salesforce.com/services/oauth2/token";
         }
         HttpClient httpClient = new HttpClient();
 
         PostMethod post = new PostMethod(environment);
-        post.addParameter("code",code);
-        post.addParameter("grant_type","authorization_code");
-        post.addParameter("redirect_uri","https://pmdreviewer.herokuapp.com/authenticate");
-        post.addParameter("client_id","3MVG9d8..z.hDcPLDlm9QqJ3hRVyHXBbETzqf4z6yQMvo3hxOw0MIHO6RC2MQVNDOrwxt59brCnQnng8FygaM");
-        post.addParameter("client_secret","1789633258935765781");
+        post.addParameter("code", code);
+        post.addParameter("grant_type", "authorization_code");
+        post.addParameter("redirect_uri", "https://pmdreview.herokuapp.com/authenticate");
+        post.addParameter("client_id", "3MVG9d8..z.hDcPLDlm9QqJ3hRRkbesRhgIapRxy_yGlA3L7SXXkdyKkMPlkDMTkI72s88K2wdS3efdHJV2Ou");
+        post.addParameter("client_secret", "138027180311283534");
 
         httpClient.executeMethod(post);
         String responseBody = post.getResponseBodyAsString();
-
 
 
         String accessToken = null;
@@ -128,22 +140,25 @@ public class PMDController {
 
         try {
 
-            accessToken = jsonObject.get("access_token")!= null ? jsonObject.get("access_token").getAsString() : null;
-            issuedAt = jsonObject.get("issued_at")!= null ? jsonObject.get("issued_at").getAsString() : null;
-            signature = jsonObject.get("signature")!= null ? jsonObject.get("signature").getAsString() : null;
+            accessToken = jsonObject.get("access_token") != null ? jsonObject.get("access_token").getAsString() : null;
+            issuedAt = jsonObject.get("issued_at") != null ? jsonObject.get("issued_at").getAsString() : null;
+            signature = jsonObject.get("signature") != null ? jsonObject.get("signature").getAsString() : null;
             id_token = jsonObject.get("id_token") != null ? jsonObject.get("id_token").getAsString() : null;
-            instance_url = jsonObject.get("instance_url")!= null ? jsonObject.get("instance_url").getAsString() : null;
+            instance_url = jsonObject.get("instance_url") != null ? jsonObject.get("instance_url").getAsString() : null;
 
         } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             post.releaseConnection();
         }
 
-        HttpServletResponse httpResponse = (HttpServletResponse)response;
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
         Cookie session1 = new Cookie("ACCESS_TOKEN", accessToken);
+
         Cookie session2 = new Cookie("INSTANCE_URL", instance_url);
         Cookie session3 = new Cookie("ID_TOKEN", id_token);
+        LOGGER.info("Access Token "+ accessToken);
+        LOGGER.info("INSTANCE_URL "+instance_url);
         session1.setMaxAge(-1); //cookie not persistent, destroyed on browser exit
         httpResponse.addCookie(session1);
         httpResponse.addCookie(session2);
@@ -152,10 +167,22 @@ public class PMDController {
 
     }
 
+    @RequestMapping(value = "/auth", method = RequestMethod.GET, params = {"error", "error_description","state"})
+    public void authErrorHandle(@RequestParam String error, @RequestParam String error_description, @RequestParam String state,
+                                HttpServletResponse response, HttpServletRequest request) throws Exception {
+
+        Cookie errorCookie = new Cookie("ERROROAUTH", URLEncoder.encode(error, "UTF-8"));
+        Cookie errorDescCookie = new Cookie("ERROROAUTHDESC", URLEncoder.encode(error_description, "UTF-8"));
+        response.addCookie(errorCookie);
+        response.addCookie(errorDescCookie);
+        response.sendRedirect("/index.html");
+
+    }
+
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public void logout(ServletResponse response, ServletRequest request) throws Exception {
-        HttpServletResponse httpResponse = (HttpServletResponse)response;
-        HttpServletRequest httpRequest = (HttpServletRequest)request;
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
         eraseCookie(httpRequest, httpResponse);
 
         httpResponse.sendRedirect("/index.html");
@@ -170,5 +197,84 @@ public class PMDController {
                 cookie.setMaxAge(0);
                 resp.addCookie(cookie);
             }
+    }
+
+    @RequestMapping("/utilities/longProcess")
+    public CompletableFuture<String> asyncLongProcess(HttpServletResponse response, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        return CompletableFuture.supplyAsync(() -> session.getAttribute("CACHED_RESULT"))
+                .thenComposeAsync(obj -> {
+                    if (obj == null) {
+                        if(session.getAttribute("BACKGROUND_PROCESSING") == null) {
+                            session.setAttribute("BACKGROUND_PROCESSING", true);
+                            CompletableFuture.supplyAsync(() -> callURL(response, request, null))
+                                    .thenAccept(result -> session.setAttribute("CACHED_RESULT", result));
+                        }
+                        return CompletableFuture.completedFuture("Still Processing");
+                    }
+
+                    return CompletableFuture.completedFuture(obj.toString());
+                });
+    }
+
+    @RequestMapping("/utilities/longProcessStream")
+    public StreamingResponseBody asyncLongProcessStream(HttpServletResponse response, HttpServletRequest request) {
+        response.addHeader("Content-Type", MediaType.APPLICATION_JSON);
+        return new StreamingResponseBody() {
+            @Override
+            public void writeTo(OutputStream outputStream) throws IOException {
+                PMDController.this.callURL(response, request, outputStream);
+            }
+        };
+    }
+
+    private String callURL(HttpServletResponse response, HttpServletRequest request, OutputStream outputStream) {
+        PMDMainWrapper pmdMainWrapper = new PMDMainWrapper();
+        Map<String, PMDStructureWrapper>  codeReviewByClass = new HashMap<>();
+        String partnerURL = this.partnerURL;
+        String toolingURL = this.toolingURL;
+        Cookie[] cookies = request.getCookies();
+        List<PMDStructure> violationStructure = null;
+        try {
+            violationStructure = metadataLoginUtil.startReviewer(partnerURL, toolingURL, cookies, outputStream);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if(outputStream == null) {
+            PMDStructureWrapper pmdStructureWrapper = null;
+            List<PMDStructure> pmdStructureList = null;
+            List<PMDStructure> pmdDuplicatesList = new ArrayList<>();
+            int size = violationStructure.size();
+
+            long start = System.currentTimeMillis();
+            for (int i = 0; i < size; i++) {
+                if (codeReviewByClass.containsKey(violationStructure.get(i).getName())) {
+                    PMDStructureWrapper pmdStructureWrapper1 = codeReviewByClass.get(violationStructure.get(i).getName());
+                    List<PMDStructure> pmdStructures = pmdStructureWrapper1.getPmdStructures();
+                    pmdStructures.add(violationStructure.get(i));
+                    pmdStructureWrapper1.setPmdStructures(pmdStructures);
+
+                } else {
+                    pmdStructureList = new ArrayList<>();
+                    pmdStructureList.add(violationStructure.get(i));
+                    pmdStructureWrapper = new PMDStructureWrapper();
+                    pmdStructureWrapper.setPmdStructures(pmdStructureList);
+                    codeReviewByClass.put(violationStructure.get(i).getName(), pmdStructureWrapper);
+                }
+            }
+
+            long stop = System.currentTimeMillis();
+
+            LOGGER.info("Total Time Taken from PMDController " + String.valueOf(stop - start));
+            if (!codeReviewByClass.isEmpty()) {
+                pmdMainWrapper.setPmdStructureWrapper(codeReviewByClass);
+                pmdMainWrapper.setPmdDuplicates(pmdDuplicatesList);
+
+                return gson.toJson(pmdMainWrapper);
+            }
+
+        }
+        return "";
     }
 }
