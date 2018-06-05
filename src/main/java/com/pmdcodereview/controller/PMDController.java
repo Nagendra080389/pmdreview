@@ -31,6 +31,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.StreamingOutput;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -104,7 +105,7 @@ public class PMDController {
 
     }
 
-    @RequestMapping(value = "/authenticate", method = RequestMethod.GET)
+    @RequestMapping(value = "/authenticate", method = RequestMethod.GET, params = {"code","state"})
     public void auth(@RequestParam String code, @RequestParam String state, ServletResponse response, ServletRequest request) throws Exception {
 
         String environment = null;
@@ -163,6 +164,18 @@ public class PMDController {
         httpResponse.addCookie(session2);
         httpResponse.addCookie(session3);
         httpResponse.sendRedirect("/html/pmdReview.html");
+
+    }
+
+    @RequestMapping(value = "/auth", method = RequestMethod.GET, params = {"error", "error_description","state"})
+    public void authErrorHandle(@RequestParam String error, @RequestParam String error_description, @RequestParam String state,
+                                HttpServletResponse response, HttpServletRequest request) throws Exception {
+
+        Cookie errorCookie = new Cookie("ERROROAUTH", URLEncoder.encode(error, "UTF-8"));
+        Cookie errorDescCookie = new Cookie("ERROROAUTHDESC", URLEncoder.encode(error_description, "UTF-8"));
+        response.addCookie(errorCookie);
+        response.addCookie(errorDescCookie);
+        response.sendRedirect("/index.html");
 
     }
 

@@ -2,41 +2,106 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>LoginPage</title>
+    <title>ApexEditor Login</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Cookie|Open+Sans:400,700" rel="stylesheet"/>
 
     <link href="../css/login/loginStyle.css" rel="stylesheet"/>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!------ Include the above in your HEAD tag ---------->
 
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-</head>
-<script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/iziToast/iziToast.min.css" rel="stylesheet">
 
-function redirectJS(orgType){
-    window.open('https://' + orgType + '.salesforce.com/services/oauth2/authorize?response_type=code&client_id=3MVG9d8..z.hDcPLDlm9QqJ3hRRkbesRhgIapRxy_yGlA3L7SXXkdyKkMPlkDMTkI72s88K2wdS3efdHJV2Ou&redirect_uri=https://pmdreview.herokuapp.com/authenticate&state=' + (orgType === 'test' ? 'a' : 'b'), '_self');
+    <script src="../js/iziToast/iziToast.min.js"></script>
+
+    <script src="../js/loginScript.js"></script>
+
+</head>
+
+<script>
+function domainChanger() {
+    iziToast.question({
+        timeout: false,
+        layout: 2,
+        backgroundColor: 'rgb(172, 192, 224)',
+        drag: false,
+        close: false,
+        overlay: true,
+        title: 'Enter Domain Name',
+        message: 'Enter "exampleDomain" if domain name is https://exampleDomain.my.salesforce.com',
+        position: 'center',
+        inputs: [
+            ['<input type="text" placeholder="Domain name only" required=true>', 'keyup', function(instance, toast, input, e) {
+                console.info(input.value);
+            }, true], // true to focus
+
+        ],
+        buttons: [
+            ['<button><b>Confirm</b></button>', function(instance, toast, button, e, inputs) {
+
+                if (inputs[0].value) {
+                    var value = inputs[0].value;
+                    instance.hide({
+                        transitionOut: 'fadeOut'
+                    }, toast, 'button');
+                    window.open('https://' + value + '.my.salesforce.com/services/oauth2/authorize?response_type=code&client_id=3MVG9d8..z.hDcPLDlm9QqJ3hRRkbesRhgIapRxy_yGlA3L7SXXkdyKkMPlkDMTkI72s88K2wdS3efdHJV2Ou&redirect_uri=https://pmdreview.herokuapp.com/authenticate&state=' + (value === 'test' ? 'a' : value + ',CustomDomain'), '_self');
+                }else{
+                    alert('Please enter a domain name');
+                }
+
+
+            }, false], // true to focus
+            ['<button><b>Cancel</b></button>', function(instance, toast, button, e, inputs) {
+                instance.hide({
+                    transitionOut: 'fadeOut'
+                }, toast, 'button');
+            }, false], // true to focus
+        ]
+    });
 }
 
+function redirectJS(orgType) {
+   window.open('https://' + orgType + '.salesforce.com/services/oauth2/authorize?response_type=code&client_id=3MVG9d8..z.hDcPLDlm9QqJ3hRRkbesRhgIapRxy_yGlA3L7SXXkdyKkMPlkDMTkI72s88K2wdS3efdHJV2Ou&redirect_uri=https://pmdreview.herokuapp.com/authenticate&state=' + (orgType === 'test' ? 'a' : 'b'), '_self');
+}
 
 </script>
 
-<body class="background-body">
-<div id="cloudtent">
-    <h1 class="we-create">PMD Reviewer</h1>
-
-    <p class="content-mrg we-create">blazing fast force.com reviewer for your environment</p>
-    <p class="we-create no-mrg">click below to review environment</p>
-    <div class="content-mrg">
-        <a class="btn1" onclick=redirectJS("test")>Sand Box</a><a class="btn2" onclick=redirectJS("login")>Production Box</a>
-    </div>
+<body>
 
 
-</div>
+<main>
+    <section class="cd-section" id="Welcome">
+        <div class="highlight bg">
+            <div class="core">
+                <h1>APEX EDITOR <span>v1.0.0</span></h1>
+                <p>Online Apex editor with proactive code review</p>
+                <span class="examples">Click Below</span>
+                <ul class="buttons">
+                    <li><a onclick=redirectJS("test") class="trigger-info">Sand Box</a></li>
+                    <li><a onclick=redirectJS("login") class="trigger-success">Production Box</a></li>
+                    <li><a onclick=domainChanger() class="trigger-warning">My Custom Domain</a></li>
+                    <li class="lava"></li>
+                </ul>
+                <div class="target" style="max-width: 500px"></div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+</main>
+<footer class="main">
+    <p>ApexEditor, Copyright &copy; 2017</p>
+    <p>Contact Us : <a href="mailto: nagesingh@deloitte.com;priyaverma@deloitte.com;prastiwari@deloitte.com">Mail Us</a>
+    </p>
+</footer>
 </body>
-
 </html>
