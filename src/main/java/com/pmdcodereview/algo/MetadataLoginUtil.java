@@ -50,6 +50,7 @@ public class MetadataLoginUtil {
             }
         }
 
+        LOGGER.info("accessToken ->"+accessToken);
         ConnectorConfig config = new ConnectorConfig();
         config.setSessionId(accessToken);
         config.setServiceEndpoint(instanceUrl);
