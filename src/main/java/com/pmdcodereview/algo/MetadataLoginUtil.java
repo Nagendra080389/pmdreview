@@ -65,8 +65,8 @@ public class MetadataLoginUtil {
             String apexPage = "SELECT NAME, markup FROM APEXPAGE WHERE NamespacePrefix = NULL";
 
             List<SObject> apexClasses = queryRecords(apexClass, partnerConnection, null, true);
-            List<SObject> apexTriggers = queryRecords(apexTrigger, partnerConnection, null, true);
-            List<SObject> apexPages = queryRecords(apexPage, partnerConnection, null, true);
+            //List<SObject> apexTriggers = queryRecords(apexTrigger, partnerConnection, null, true);
+            //List<SObject> apexPages = queryRecords(apexPage, partnerConnection, null, true);
 
             ClassLoader classLoader = this.getClass().getClassLoader();
             InputStream resourceAsStream = classLoader.getResourceAsStream("xml/ruleSet.xml");
@@ -99,14 +99,23 @@ public class MetadataLoginUtil {
             PMDStructure pmdStructure = null;
 
             long start = System.currentTimeMillis();
-            apexClasses.parallelStream().forEachOrdered(aClass -> {
+            for (SObject aClass : apexClasses) {
                 try {
                     createViolationsForAll(pmdStructure, pmdStructures, (String) aClass.getChild("Body").getValue(),
                             (String) aClass.getChild("Name").getValue(), ".cls", pmdReviewService, outputStream);
                 } catch (IOException e) {
                     LOGGER.error("Exception while creating violation for classes: " + e.getMessage());
                 }
-            });
+            }
+
+            /*apexClasses.parallelStream().forEachOrdered(aClass -> {
+                try {
+                    createViolationsForAll(pmdStructure, pmdStructures, (String) aClass.getChild("Body").getValue(),
+                            (String) aClass.getChild("Name").getValue(), ".cls", pmdReviewService, outputStream);
+                } catch (IOException e) {
+                    LOGGER.error("Exception while creating violation for classes: " + e.getMessage());
+                }
+            });*/
 
             /*apexTriggers.parallelStream().forEachOrdered(aTrigger -> {
                 try {
@@ -174,7 +183,7 @@ public class MetadataLoginUtil {
                 outputStream.flush();
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error(e.getMessage());
         }
     }
 
