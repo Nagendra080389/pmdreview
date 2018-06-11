@@ -22,6 +22,6 @@ public class RabbitMQSender {
     private String routingkey;
 
     public void send(HttpServletResponse response, HttpServletRequest request) {
-        rabbitTemplate.convertAndSend(request.getCookies());
+        rabbitTemplate.convertAndSend(exchange, request.getCookies());
     }
 }
