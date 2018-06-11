@@ -250,21 +250,17 @@ public class PMDController {
             long start = System.currentTimeMillis();
             for (int i = 0; i < size; i++) {
                 if (codeReviewByClass.containsKey(violationStructure.get(i).getName())) {
-                    if(violationStructure.get(i).getRulePriority() == 1 || violationStructure.get(i).getRulePriority() == 2) {
-                        PMDStructureWrapper pmdStructureWrapper1 = codeReviewByClass.get(violationStructure.get(i).getName());
-                        List<PMDStructure> pmdStructures = pmdStructureWrapper1.getPmdStructures();
-                        pmdStructures.add(violationStructure.get(i));
-                        pmdStructureWrapper1.setPmdStructures(pmdStructures);
-                    }
+                    PMDStructureWrapper pmdStructureWrapper1 = codeReviewByClass.get(violationStructure.get(i).getName());
+                    List<PMDStructure> pmdStructures = pmdStructureWrapper1.getPmdStructures();
+                    pmdStructures.add(violationStructure.get(i));
+                    pmdStructureWrapper1.setPmdStructures(pmdStructures);
 
                 } else {
                     pmdStructureList = new ArrayList<>();
-                    if(violationStructure.get(i).getRulePriority() == 1 || violationStructure.get(i).getRulePriority() == 2) {
-                        pmdStructureList.add(violationStructure.get(i));
-                        pmdStructureWrapper = new PMDStructureWrapper();
-                        pmdStructureWrapper.setPmdStructures(pmdStructureList);
-                        codeReviewByClass.put(violationStructure.get(i).getName(), pmdStructureWrapper);
-                    }
+                    pmdStructureList.add(violationStructure.get(i));
+                    pmdStructureWrapper = new PMDStructureWrapper();
+                    pmdStructureWrapper.setPmdStructures(pmdStructureList);
+                    codeReviewByClass.put(violationStructure.get(i).getName(), pmdStructureWrapper);
                 }
             }
 
