@@ -124,10 +124,9 @@ public class PMDController {
         PostMethod post = new PostMethod(environment);
         post.addParameter("code", code);
         post.addParameter("grant_type", "authorization_code");
-        post.addParameter("redirect_uri", "https://ae7d67bc.ngrok.io/authenticate");
-        post.addParameter("client_id", "3MVG9d8..z.hDcPLDlm9QqJ3hRThsmFA5gAJCfNE3eaJvCZtcleL878e0ps4qOJkXf9Z5uRsXeamKgFB5dPMd");
-        post.addParameter("client_secret", "6949167538775754486");
-
+        post.addParameter("redirect_uri", "https://pmdreview.herokuapp.com/authenticate");
+        post.addParameter("client_id", "3MVG9d8..z.hDcPLDlm9QqJ3hRRkbesRhgIapRxy_yGlA3L7SXXkdyKkMPlkDMTkI72s88K2wdS3efdHJV2Ou");
+        post.addParameter("client_secret", "138027180311283534");
         httpClient.executeMethod(post);
         String responseBody = post.getResponseBodyAsString();
 
