@@ -227,6 +227,7 @@ public class PMDController {
                 try {
                     PMDController.this.callURL(response, request, outputStream);
                 }finally {
+                    outputStream.write(gson.toJson("LastByte").getBytes());
                     IOUtils.closeQuietly(outputStream);
                 }
             }

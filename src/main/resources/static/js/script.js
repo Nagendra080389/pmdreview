@@ -7,6 +7,9 @@ function OrderFormController($scope, $http, $q) {
     $scope.sampleJSONPages = {};
     oboe('/utilities/longProcessStream')
         .done(function(data) {
+            if (data == 'LastByte') {
+                localStorage.setItem('hintTable', JSON.stringify(sampleJSONClass));
+            }
             var dataFromServer = data.pmdStructureWrapper;
             if (Object.keys(dataFromServer)[0].endsWith('.cls')) {
                 $scope.sampleJSONClass[Object.keys(dataFromServer)[0]] = Object.values(dataFromServer)[0];
@@ -23,28 +26,6 @@ function OrderFormController($scope, $http, $q) {
         .fail(function() {
             console.log('error');
         });
-
-
-
-    /*var config = { responseType: 'blob' };
-    $http.get('/utilities/longProcessStream', config)
-        .success(function(data, status, headers, config) {
-                console.log('Data from server');
-                $scope.sampleJSON = data.pmdStructureWrapper;
-                $scope.sampleJSONDuplicates = data.pmdDuplicates;
-                $scope.$watch('sampleJSON', setTimeout(function() {
-                    $('.panel-body li').each(function() {
-                        if ($.trim($(this).text()) === "") {
-                            $(this).hide();
-                        }
-                    });
-                }, 1000));
-            $('#loaderImage').hide();
-        })
-        .error(function(data, status, header, config) {
-            console.log(data);
-        });*/
-
 
     $scope.selectedClassErrDetails = [];
     $scope.selectedClassName = "";
