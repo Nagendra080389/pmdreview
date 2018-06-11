@@ -13,21 +13,12 @@ import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletRequest;
 
 @Component
-public class RabbitMQListener implements MessageListener{
+public class RabbitMQListener{
 
     private final static Logger LOGGER = LoggerFactory.getLogger(RabbitMQListener.class);
 
-    private final MessageConverter jsonMessageConverter;
-
-    public RabbitMQListener(MessageConverter jsonMessageConverter) {
-        this.jsonMessageConverter = jsonMessageConverter;
-    }
-
-    @Override
-    public void onMessage(Message message) {
+    public void receiveMessage(String message) {
         LOGGER.info("Message Received: "+ message);
-        Object fromMessage = jsonMessageConverter.fromMessage(message);
-        LOGGER.info("Message Payload: "+ fromMessage.toString());
 
     }
 }
