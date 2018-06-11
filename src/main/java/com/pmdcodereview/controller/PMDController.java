@@ -227,6 +227,7 @@ public class PMDController {
                 try {
                     PMDController.this.callURL(response, request, outputStream);
                 }finally {
+                    LOGGER.info("Closed Connection");
                     IOUtils.closeQuietly(outputStream);
                 }
             }

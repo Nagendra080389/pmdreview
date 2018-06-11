@@ -107,7 +107,7 @@ public class MetadataLoginUtil {
                     LOGGER.error("Exception while creating violation for classes: " + e.getMessage());
                 }
             }
-
+            LOGGER.info("Apex Class Done");
             /*apexClasses.parallelStream().forEachOrdered(aClass -> {
                 try {
                     createViolationsForAll(pmdStructure, pmdStructures, (String) aClass.getChild("Body").getValue(),
@@ -125,7 +125,7 @@ public class MetadataLoginUtil {
                     LOGGER.error("Exception while creating violation for triggers: " + e.getMessage());
                 }
             }
-
+            LOGGER.info("Apex Triggers Done");
             /*apexTriggers.parallelStream().forEachOrdered(aTrigger -> {
                 try {
                     createViolationsForAll(pmdStructure, pmdStructures, (String) aTrigger.getChild("Body").getValue(),
@@ -143,7 +143,7 @@ public class MetadataLoginUtil {
                     LOGGER.error("Exception while creating violation for pages: " + e.getMessage());
                 }
             }
-
+            LOGGER.info("Apex Pages Done");
             /*apexPages.parallelStream().forEachOrdered(aPage -> {
                 try {
                     createViolationsForAll(pmdStructure, pmdStructures, (String) aPage.getChild("Markup").getValue(),
