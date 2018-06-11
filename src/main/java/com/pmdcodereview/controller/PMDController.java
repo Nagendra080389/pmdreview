@@ -10,6 +10,7 @@ import com.pmdcodereview.model.PMDStructure;
 import com.pmdcodereview.model.PMDStructureWrapper;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.commons.io.IOUtils;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -223,7 +224,11 @@ public class PMDController {
         return new StreamingResponseBody() {
             @Override
             public void writeTo(OutputStream outputStream) throws IOException {
-                PMDController.this.callURL(response, request, outputStream);
+                try {
+                    PMDController.this.callURL(response, request, outputStream);
+                }finally {
+                    IOUtils.closeQuietly(outputStream);
+                }
             }
         };
     }
@@ -236,12 +241,12 @@ public class PMDController {
         Cookie[] cookies = request.getCookies();
         List<PMDStructure> violationStructure = null;
         try {
-            violationStructure = metadataLoginUtil.startReviewer(partnerURL, toolingURL, cookies, outputStream);
+            metadataLoginUtil.startReviewer(partnerURL, toolingURL, cookies, outputStream);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        if(outputStream == null) {
+        /*if(outputStream == null) {
             PMDStructureWrapper pmdStructureWrapper = null;
             List<PMDStructure> pmdStructureList = null;
             List<PMDStructure> pmdDuplicatesList = new ArrayList<>();
@@ -274,7 +279,7 @@ public class PMDController {
                 return gson.toJson(pmdMainWrapper);
             }
 
-        }
+        }*/
         return "";
     }
 }
