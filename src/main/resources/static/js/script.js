@@ -8,7 +8,8 @@ function OrderFormController($scope, $http, $q) {
     oboe('/utilities/longProcessStream')
         .done(function(data) {
             if (data == 'LastByte') {
-                localStorage.setItem('hintTable', JSON.stringify(sampleJSONClass));
+                localStorage.setItem('apexReview', JSON.stringify(sampleJSONClass));
+                localStorage.setItem('triggerReview', JSON.stringify(sampleJSONTrigger));
             }
             var dataFromServer = data.pmdStructureWrapper;
             if (Object.keys(dataFromServer)[0].endsWith('.cls')) {
