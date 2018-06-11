@@ -99,33 +99,15 @@ public class MetadataLoginUtil {
             PMDStructure pmdStructure = null;
 
             long start = System.currentTimeMillis();
-            for (SObject aClass : apexClasses) {
+            apexClasses.parallelStream().forEachOrdered(aClass -> {
                 try {
                     createViolationsForAll(pmdStructure, pmdStructures, (String) aClass.getChild("Body").getValue(),
                             (String) aClass.getChild("Name").getValue(), ".cls", pmdReviewService, outputStream);
                 } catch (IOException e) {
                     LOGGER.error("Exception while creating violation for classes: " + e.getMessage());
                 }
-            }
-            LOGGER.info("Apex Class Done");
-            /*apexClasses.parallelStream().forEachOrdered(aClass -> {
-                try {
-                    createViolationsForAll(pmdStructure, pmdStructures, (String) aClass.getChild("Body").getValue(),
-                            (String) aClass.getChild("Name").getValue(), ".cls", pmdReviewService, outputStream);
-                } catch (IOException e) {
-                    LOGGER.error("Exception while creating violation for classes: " + e.getMessage());
-                }
-            });*/
+            });
 
-            for (SObject aTrigger : apexTriggers) {
-                try {
-                    createViolationsForAll(pmdStructure, pmdStructures, (String) aTrigger.getChild("Body").getValue(),
-                            (String) aTrigger.getChild("Name").getValue(), ".trigger", pmdReviewService, outputStream);
-                } catch (IOException e) {
-                    LOGGER.error("Exception while creating violation for triggers: " + e.getMessage());
-                }
-            }
-            LOGGER.info("Apex Triggers Done");
             /*apexTriggers.parallelStream().forEachOrdered(aTrigger -> {
                 try {
                     createViolationsForAll(pmdStructure, pmdStructures, (String) aTrigger.getChild("Body").getValue(),
@@ -133,18 +115,9 @@ public class MetadataLoginUtil {
                 } catch (IOException e) {
                     LOGGER.error("Exception while creating violation for triggers: " + e.getMessage());
                 }
-            });*/
+            });
 
-            for (SObject aPage : apexPages) {
-                try {
-                    createViolationsForAll(pmdStructure, pmdStructures, (String) aPage.getChild("Markup").getValue(),
-                            (String) aPage.getChild("Name").getValue(), ".page", pmdReviewService, outputStream);
-                } catch (IOException e) {
-                    LOGGER.error("Exception while creating violation for pages: " + e.getMessage());
-                }
-            }
-            LOGGER.info("Apex Pages Done");
-            /*apexPages.parallelStream().forEachOrdered(aPage -> {
+            apexPages.parallelStream().forEachOrdered(aPage -> {
                 try {
                     createViolationsForAll(pmdStructure, pmdStructures, (String) aPage.getChild("Markup").getValue(),
                             (String) aPage.getChild("Name").getValue(), ".page", pmdReviewService, outputStream);
