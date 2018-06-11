@@ -8,6 +8,7 @@ import com.pmdcodereview.algo.MetadataLoginUtil;
 import com.pmdcodereview.model.PMDMainWrapper;
 import com.pmdcodereview.model.PMDStructure;
 import com.pmdcodereview.model.PMDStructureWrapper;
+import com.pmdcodereview.rabbitMQ.RabbitMQSender;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.io.IOUtils;
@@ -49,6 +50,9 @@ public class PMDController {
 
     @Autowired
     MetadataLoginUtil metadataLoginUtil;
+
+    @Autowired
+    RabbitMQSender rabbitMQSender;
 
     @Autowired
     Gson gson;
@@ -120,9 +124,9 @@ public class PMDController {
         PostMethod post = new PostMethod(environment);
         post.addParameter("code", code);
         post.addParameter("grant_type", "authorization_code");
-        post.addParameter("redirect_uri", "https://pmdreview.herokuapp.com/authenticate");
-        post.addParameter("client_id", "3MVG9d8..z.hDcPLDlm9QqJ3hRRkbesRhgIapRxy_yGlA3L7SXXkdyKkMPlkDMTkI72s88K2wdS3efdHJV2Ou");
-        post.addParameter("client_secret", "138027180311283534");
+        post.addParameter("redirect_uri", "https://ae7d67bc.ngrok.io/authenticate");
+        post.addParameter("client_id", "3MVG9d8..z.hDcPLDlm9QqJ3hRThsmFA5gAJCfNE3eaJvCZtcleL878e0ps4qOJkXf9Z5uRsXeamKgFB5dPMd");
+        post.addParameter("client_secret", "6949167538775754486");
 
         httpClient.executeMethod(post);
         String responseBody = post.getResponseBodyAsString();
@@ -200,24 +204,6 @@ public class PMDController {
             }
     }
 
-    @RequestMapping("/utilities/longProcess")
-    public CompletableFuture<String> asyncLongProcess(HttpServletResponse response, HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        return CompletableFuture.supplyAsync(() -> session.getAttribute("CACHED_RESULT"))
-                .thenComposeAsync(obj -> {
-                    if (obj == null) {
-                        if(session.getAttribute("BACKGROUND_PROCESSING") == null) {
-                            session.setAttribute("BACKGROUND_PROCESSING", true);
-                            CompletableFuture.supplyAsync(() -> callURL(response, request, null))
-                                    .thenAccept(result -> session.setAttribute("CACHED_RESULT", result));
-                        }
-                        return CompletableFuture.completedFuture("Still Processing");
-                    }
-
-                    return CompletableFuture.completedFuture(obj.toString());
-                });
-    }
-
     @RequestMapping("/utilities/longProcessStream")
     public StreamingResponseBody asyncLongProcessStream(HttpServletResponse response, HttpServletRequest request) {
         response.addHeader("Content-Type", MediaType.APPLICATION_JSON);
@@ -225,13 +211,21 @@ public class PMDController {
             @Override
             public void writeTo(OutputStream outputStream) throws IOException {
                 try {
-                    PMDController.this.callURL(response, request, outputStream);
+                    rabbitMQSender.send(response, request);
+                    //PMDController.this.callURL(response, request, outputStream);
                 }finally {
                     outputStream.write(gson.toJson("LastByte").getBytes());
                     IOUtils.closeQuietly(outputStream);
                 }
             }
         };
+    }
+
+    @RequestMapping("/utilities/rabbitMQ")
+    public String rabbitMQProcess(HttpServletResponse response, HttpServletRequest request) {
+        response.addHeader("Content-Type", MediaType.APPLICATION_JSON);
+        rabbitMQSender.send(response, request);
+        return "sent";
     }
 
     private String callURL(HttpServletResponse response, HttpServletRequest request, OutputStream outputStream) {
